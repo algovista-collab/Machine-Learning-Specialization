@@ -5,6 +5,9 @@
 5. Linear Regression Model or Univariate Model: This has only one input variable
 
 Linear Regression Model: $$f(x) = wx + b$$
+
 Parameters: w and b
+
 Predicted Variable: $$f(x) or \hat{y}$$
+
 Cost Function: $$J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2$$
