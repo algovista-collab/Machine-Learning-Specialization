@@ -4,6 +4,8 @@
 4. Unsupervised Learning: Only input is given to the machine and it recognized the pattern in the input data and cluster the output with common characteristics. Ex: Clustering Algorithm
 5. Linear Regression Model or Univariate Model: This has only one input variable
 
+<img src="https://render.githubusercontent.com/render/math?math=f(x)=wx%2Bb">
+
 \[ f(x) = wx + b \]
 Predicted variable: \[ \hat{y} = f(x) \]
 Cost function (Mean Squared Error): \[ J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} \left( f(x^{(i)}) - y^{(i)} \right)^2 \]
