@@ -12,6 +12,8 @@ Predicted Variable: $$f(x) or \hat{y}$$
 
 Cost Function: $$J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2$$
 
+m is the number of training examples
+
 The model predicts the output based on the weight w and bias b. The weight is multiplied with the input variable to show how important is the feature. Greater the weight, greater the importance of the feature variable in predicting the output. In multi variate regression, size of the plot might have greater weight and age of the house might have negative weight indicating more the age, less is the price. The bias term indicates the basic output value when input is 0.
 
 Cost function is Mean-Squared Error (MSE), to show how different the predicted value is from the actual output. We square it to avoid the cancellation of positive and negative sum. We divide the total error by 2m to average it out. 2 is used to make the partial derivative cleaner when we apply the Gradient Descent.
