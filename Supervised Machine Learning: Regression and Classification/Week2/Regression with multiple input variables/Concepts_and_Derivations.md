@@ -6,4 +6,4 @@ We can simply denote this using vector which is nothing but a list of numbers, w
 $$\vec{w}$$ is a vector with multiple weights for the corresponding features. These numbers indicate how important that particular feature is while predicting the output.
 
 Vector Representation of the Model: $$f_{\vec{w}, b}(\vec{x}) = \vec{w} \cdot \vec{x} + b$$
-The dot product from Linear Algebra, denotes each value of w is multipled with the values in x and the size of the vector w and vector x should be same.
+The dot product from Linear Algebra, denotes each value of $$\vec{w}$$ is multipled with the values in $$\vec{x}$$ and the size of the $$\vec{w}$$ and $$\vec{x}$$ should be the same.
