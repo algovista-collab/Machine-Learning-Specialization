@@ -8,6 +8,14 @@ $$\vec{w}$$ is a vector with multiple weights for the corresponding features. Th
 Vector Representation of the Model: $$f_{\vec{w}, b}(\vec{x}) = \vec{w} \cdot \vec{x} + b$$
 The dot product from Linear Algebra, denotes each value of $$\vec{w}$$ is multipled with the values in $$\vec{x}$$ and the size of the $$\vec{w}$$ and $$\vec{x}$$ should be the same.
 
-The benefits of using vector representation is to speed up the calculations by using a popular numerical linear algebra library called numpy. It has a function called dot which is used to get the product of 2 vectors. The dot function is able to use parallel hardware whether it is a normal computer CPU or a GPU (Graphics Processing Unit) to accelerate the ML jobs especially when the dataset is very large.
+The benefits of using vector representation is to speed up the calculations by using a popular numerical linear algebra library called NumPy (Numerical Python). It has a function called dot which is used to get the product of 2 vectors. The dot function is able to use parallel hardware whether it is a normal computer CPU or a GPU (Graphics Processing Unit) to accelerate the ML jobs especially when the dataset is very large.
 
-The equation 1 in the concise code: $$f = np.dot(\vec{w}, \vec{x}) + b$$
+Vectorization - The equation 1 in the concise code: $$f = np.dot(\vec{w}, \vec{x}) + b$$
+
+The number of elements in the array is referred to as the dimension or rank of the vector. The arrays in NumPy is used to represent 1-D or more of the same data type called dtype.
+
+Gradient Descent for multiple variables are calculated for different feature parameters. 
+
+$$\text{Update for } w_j: \quad w_j := w_j - \alpha \frac{1}{m} \sum_{i=1}^{m} \left( f_{\vec{w}, b}(\vec{x}^{(i)}) - y^{(i)} \right) x_j^{(i)}$$
+
+$$\text{Update for } b: \quad b := b - \alpha \frac{1}{m} \sum_{i=1}^{m} \left( f_{\vec{w}, b}(\vec{x}^{(i)}) - y^{(i)} \right)$$
