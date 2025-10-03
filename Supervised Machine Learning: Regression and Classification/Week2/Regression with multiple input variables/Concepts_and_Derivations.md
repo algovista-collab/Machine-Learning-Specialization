@@ -10,4 +10,4 @@ The dot product from Linear Algebra, denotes each value of $$\vec{w}$$ is multip
 
 The benefits of using vector representation is to speed up the calculations by using a popular numerical linear algebra library called numpy. It has a function called dot which is used to get the product of 2 vectors. The dot function is able to use parallel hardware whether it is a normal computer CPU or a GPU (Graphics Processing Unit) to accelerate the ML jobs especially when the dataset is very large.
 
-The equation 1 in the concise code: $$f = np.dot(\vec{w} \cdot \vec{x}) + b$$
+The equation 1 in the concise code: $$f = np.dot(\vec{w}, \vec{x}) + b$$
