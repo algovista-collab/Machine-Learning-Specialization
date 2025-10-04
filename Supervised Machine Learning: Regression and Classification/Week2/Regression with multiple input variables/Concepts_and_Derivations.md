@@ -35,15 +35,25 @@ $$X_{\text{scaled}} := \frac{X - \mu}{X_{\text{max}} - X_{\text{min}}}$$
 
 $$X_{\text{scaled}} := \frac{X - \mu}{\sigma}$$
 
-To implement z-score normalization, adjust your input values as shown in this formula:
-$$x^{(i)}_j = \dfrac{x^{(i)}_j - \mu_j}{\sigma_j} \tag{4}$$ 
-where $j$ selects a feature or a column in the $\mathbf{X}$ matrix. $µ_j$ is the mean of all the values for feature (j) and $\sigma_j$ is the standard deviation of feature (j).
+To implement **Z-score normalization (Standardization)**, adjust your input values for each feature $j$ as shown in this formula:
+
+$$x^{(i)}_j = \dfrac{x^{(i)}_j - \mu_j}{\sigma_j} \tag{4}$$
+
+Where:
+- $j$ selects a **feature** or a column in the $\mathbf{X}$ matrix.
+- $\mu_j$ is the **mean** of all the values for feature ($j$).
+- $\sigma_j$ is the **standard deviation** of feature ($j$).
+
+The formulas for calculating the mean ($\mu_j$) and variance ($\sigma^2_j$) for feature $j$ are:
+
 $$
 \begin{align}
 \mu_j &= \frac{1}{m} \sum_{i=0}^{m-1} x^{(i)}_j \tag{5}\\
-\sigma^2_j &= \frac{1}{m} \sum_{i=0}^{m-1} (x^{(i)}_j - \mu_j)^2  \tag{6}
+\sigma^2_j &= \frac{1}{m} \sum_{i=0}^{m-1} (x^{(i)}_j - \mu_j)^2 \tag{6}
 \end{align}
 $$
+
+Note that $\sigma_j$ (standard deviation) is the square root of $\sigma^2_j$ (variance).
 
 In order to know after how many iterations, we should stop - we can either check the learning curve and stop when cost function flattens and does not change much when iterations increases. This is called convergence. 
 Another method is called Automatic convergence test where we set a threshold called epsilon (ε) which is a small number and we check whether the change in the cost function between iterations is smaller than the epsilon. If it is, then gradient descent has converged. But if the chosen epsilon is too small, then it might never converge or if its big then it might stop too early before even converging.
