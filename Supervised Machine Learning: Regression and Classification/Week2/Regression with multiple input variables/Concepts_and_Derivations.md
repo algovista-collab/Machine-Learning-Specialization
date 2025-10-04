@@ -38,12 +38,13 @@ $$X_{\text{scaled}} := \frac{X - \mu}{\sigma}$$
 The formulas for calculating the mean ($\mu_j$) and variance ($\sigma^2_j$) for feature $j$ are:
 
 $$
+\begin{align}
 \mu_j &= \frac{1}{m} \sum_{i=0}^{m-1} x^{(i)}_j \tag{5}\\
 \sigma^2_j &= \frac{1}{m} \sum_{i=0}^{m-1} (x^{(i)}_j - \mu_j)^2 \tag{6}
+\end{align}
 $$
 
 Note that $\sigma_j$ (standard deviation) is the square root of $\sigma^2_j$ (variance).
-
 In order to know after how many iterations, we should stop - we can either check the learning curve and stop when cost function flattens and does not change much when iterations increases. This is called convergence. 
 Another method is called Automatic convergence test where we set a threshold called epsilon (ε) which is a small number and we check whether the change in the cost function between iterations is smaller than the epsilon. If it is, then gradient descent has converged. But if the chosen epsilon is too small, then it might never converge or if its big then it might stop too early before even converging.
 
