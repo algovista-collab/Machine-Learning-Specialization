@@ -43,7 +43,6 @@ $$\sigma^2_j = \frac{1}{m} \sum_{i=0}^{m-1} (x^{(i)}_j - \mu_j)^2 $$
 
 Note that $\sigma_j$ (standard deviation) is the square root of $\sigma^2_j$ (variance).
 
-Note that $\sigma_j$ (standard deviation) is the square root of $\sigma^2_j$ (variance).
 When generating the plot, the normalized features were used. Any predictions using the parameters learned from a normalized training set must also be normalized.
 
 In order to know after how many iterations, we should stop - we can either check the learning curve and stop when cost function flattens and does not change much when iterations increases. This is called convergence. 
