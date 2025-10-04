@@ -19,3 +19,18 @@ Gradient Descent for multiple variables are calculated for different feature par
 $$\text{Update for } w_j: \quad w_j := w_j - \alpha \frac{1}{m} \sum_{i=1}^{m} \left( f_{\vec{w}, b}(\vec{x}^{(i)}) - y^{(i)} \right) x_j^{(i)}$$
 
 $$\text{Update for } b: \quad b := b - \alpha \frac{1}{m} \sum_{i=1}^{m} \left( f_{\vec{w}, b}(\vec{x}^{(i)}) - y^{(i)} \right)$$
+
+Feature Scaling: If the range of any feature varies significantly like size of the house (x1) from 200 to 3000 sq ft and other feature like number of bedrooms (x2) varies only from 0 to 5, we have to scale to bring them to the same range.
+Without scaling, any small change in the parameter w1 for x1 will cause the cost function to change significantly because w1 is multiplied by a big number and to make significant change in the cost function, we need to multiply with big number of w2. This results in thin ellipse when we take the contour plot of the cost function w.r.t w1 and w2. To minimize the cost function, we calculate gradient descent which can bounce back nd forth for a long time to reach the minimum. Hence, we need scaling to get circles in the contour plot.
+
+1. Min-Max Scaling: Dividing by maximum value will scale between 0 and 1
+
+$$X_{\text{scaled}} := \frac{X - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}}$$
+
+2. Mean Normalization: Taking mean of the feature values and subtract the mean from the value and dividing by (maximum-minimum)
+
+$$X_{\text{scaled}} := \frac{X - \mu}{X_{\text{max}} - X_{\text{min}}}$$
+   
+3. Z-Score Normalization: Subtracting the mean from the value and dividing by the standard deviation
+
+$$X_{\text{scaled}} := \frac{X - \mu}{\sigma}$$
