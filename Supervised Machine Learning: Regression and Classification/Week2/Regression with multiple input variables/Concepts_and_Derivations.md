@@ -34,3 +34,11 @@ $$X_{\text{scaled}} := \frac{X - \mu}{X_{\text{max}} - X_{\text{min}}}$$
 3. Z-Score Normalization: Subtracting the mean from the value and dividing by the standard deviation
 
 $$X_{\text{scaled}} := \frac{X - \mu}{\sigma}$$
+
+In order to know after how many iterations, we should stop - we can either check the learning curve and stop when cost function flattens and does not change much when iterations increases. This is called convergence. 
+Another method is called Automatic convergence test where we set a threshold called epsilon (ε) which is a small number and we check whether the change in the cost function between iterations is smaller than the epsilon. If it is, then gradient descent has converged. But if the chosen epsilon is too small, then it might never converge or if its big then it might stop too early before even converging.
+
+How to pick a learning rate? 
+1. Typical starting values: 0.001, 0.01, 0.1 (depending on the problem and feature scaling).
+2. Observing the cost function J over iterations.
+3. Increasing or decreasing based on the plot.
