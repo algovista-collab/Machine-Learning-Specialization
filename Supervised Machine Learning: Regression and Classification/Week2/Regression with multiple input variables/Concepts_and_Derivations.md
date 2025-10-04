@@ -35,22 +35,11 @@ $$X_{\text{scaled}} := \frac{X - \mu}{X_{\text{max}} - X_{\text{min}}}$$
 
 $$X_{\text{scaled}} := \frac{X - \mu}{\sigma}$$
 
-To implement **Z-score normalization (Standardization)**, adjust your input values for each feature $j$ as shown in this formula:
-
-$$x^{(i)}_j = \dfrac{x^{(i)}_j - \mu_j}{\sigma_j} \tag{4}$$
-
-Where:
-- $j$ selects a **feature** or a column in the $\mathbf{X}$ matrix.
-- $\mu_j$ is the **mean** of all the values for feature ($j$).
-- $\sigma_j$ is the **standard deviation** of feature ($j$).
-
 The formulas for calculating the mean ($\mu_j$) and variance ($\sigma^2_j$) for feature $j$ are:
 
 $$
-\begin{align}
 \mu_j &= \frac{1}{m} \sum_{i=0}^{m-1} x^{(i)}_j \tag{5}\\
 \sigma^2_j &= \frac{1}{m} \sum_{i=0}^{m-1} (x^{(i)}_j - \mu_j)^2 \tag{6}
-\end{align}
 $$
 
 Note that $\sigma_j$ (standard deviation) is the square root of $\sigma^2_j$ (variance).
