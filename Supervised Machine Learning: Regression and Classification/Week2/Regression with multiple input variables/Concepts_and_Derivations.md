@@ -37,12 +37,11 @@ $$X_{\text{scaled}} := \frac{X - \mu}{\sigma}$$
 
 The formulas for calculating the mean ($\mu_j$) and variance ($\sigma^2_j$) for feature $j$ are:
 
-$$
-\begin{align}
-\mu_j &= \frac{1}{m} \sum_{i=0}^{m-1} x^{(i)}_j \tag{5}\\
-\sigma^2_j &= \frac{1}{m} \sum_{i=0}^{m-1} (x^{(i)}_j - \mu_j)^2 \tag{6}
-\end{align}
-$$
+$$\mu_j = \frac{1}{m} \sum_{i=0}^{m-1} x^{(i)}_j \tag{5}$$
+
+$$\sigma^2_j = \frac{1}{m} \sum_{i=0}^{m-1} (x^{(i)}_j - \mu_j)^2 \tag{6}$$
+
+Note that $\sigma_j$ (standard deviation) is the square root of $\sigma^2_j$ (variance).
 
 Note that $\sigma_j$ (standard deviation) is the square root of $\sigma^2_j$ (variance).
 In order to know after how many iterations, we should stop - we can either check the learning curve and stop when cost function flattens and does not change much when iterations increases. This is called convergence. 
