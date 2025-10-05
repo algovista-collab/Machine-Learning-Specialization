@@ -52,3 +52,5 @@ How to pick a learning rate?
 1. Typical starting values: 0.001, 0.01, 0.1 (depending on the problem and feature scaling).
 2. Observing the cost function J over iterations.
 3. Increasing or decreasing based on the plot.
+
+Feature Engineering is using the intuition to design new features by transforming or combining original features. This can include squaring some of the features which might result in non-linear curve. In such cases, Polynomial Regression will fit the curves to the data. The quadratic function is a parabola which decreases eventually, hence it might be better to pick cubic function.
