@@ -20,9 +20,9 @@ $$
 e^x
 $$
 
-- As \(x \to 0\), \(e^x \to 1\)  
-- As \(x \to \infty\), \(e^x \to \infty\)  
-- As \(x \to -\infty\), \(e^x \to 0\)  
+- As $x \to 0$, $e^x \to 1$  
+- As $x \to \infty$, $e^x \to \infty$  
+- As $x \to -\infty$, $e^x \to 0$
 
 The function 
 
