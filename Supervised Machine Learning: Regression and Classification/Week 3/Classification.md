@@ -53,3 +53,39 @@ $$
 $$
 
 This is mostly a **convention**.
+
+
+Since $z$ can take any value between $-\infty$ to $+\infty$, we feed the output of the linear regression model as $z$, i.e.,
+
+$$
+z = \mathbf{w} \cdot \mathbf{x} + b
+$$
+
+This will be given as input to the **sigmoid (activation) function**, denoted as:
+
+$$
+g(z) = \frac{1}{1 + e^{-z}} = \frac{1}{1 + e^{-(\mathbf{w} \cdot \mathbf{x} + b)}}
+$$
+
+**Decision Boundary:**  
+
+For some models, when $z = 0$, i.e., $g(z) = 0.5$, this can act as a **decision boundary**, i.e., it separates the target variables which are 0 and 1.  
+
+**Example:**  
+
+If we have an equation with 2 features, $x_0$ and $x_1$, with $w_0 = 1$, $w_1 = 1$, and $b = -3$, the linear combination is:
+
+$$
+z = w_0 x_0 + w_1 x_1 + b = x_0 + x_1 - 3
+$$
+
+For $z = 0$, we get the line:
+
+$$
+x_0 + x_1 = 3
+$$
+
+This line can be considered the **decision boundary**.  
+- To the right of the line, $y = 1$  
+- To the left of the line, $y = 0$
+
