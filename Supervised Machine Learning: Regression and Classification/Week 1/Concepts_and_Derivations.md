@@ -1,4 +1,4 @@
-# Machine Learning Notes
+# ✍️ Machine Learning Notes
 
 ## 1. Introduction
 
