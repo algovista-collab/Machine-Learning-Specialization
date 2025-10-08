@@ -1,4 +1,4 @@
-# Logistic Regression Notes
+# ✍️ Logistic Regression Notes
 
 ## 1. Binary Classification
 
