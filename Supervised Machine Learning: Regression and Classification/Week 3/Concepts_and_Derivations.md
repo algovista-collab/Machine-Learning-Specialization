@@ -81,7 +81,7 @@ $$
 - To the right of the line, $y = 1$  
 - To the left of the line, $y = 0$
 
-## 4. Cost (Loss) Function Derivation
+## 5. Cost (Loss) Function Derivation
 
 Before making predictions, we must evaluate **how good our model is**.  
 To do this, we measure the **cost function**, which represents the difference between the predicted and actual values.
