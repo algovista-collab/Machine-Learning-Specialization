@@ -111,19 +111,19 @@ Hence, we use a **different cost function** — one derived from **Maximum Likel
 
 For a single training example:
 
-\[
+$$
 P(y|x) =
 \begin{cases}
 \hat{y}, & \text{if } y = 1 \\
 1 - \hat{y}, & \text{if } y = 0
 \end{cases}
-\]
+$$
 
 This can be combined into a single equation:
 
-\[
+$$
 P(y|x) = \hat{y}^y (1 - \hat{y})^{(1 - y)}
-\]
+$$
 
 ---
 
@@ -131,15 +131,15 @@ P(y|x) = \hat{y}^y (1 - \hat{y})^{(1 - y)}
 
 For all training examples:
 
-\[
+$$
 L(w, b) = \prod_{i=1}^{m} \hat{y}_i^{y_i} (1 - \hat{y}_i)^{(1 - y_i)}
-\]
+$$
 
 We take the **logarithm** (to simplify multiplication into addition):
 
-\[
+$$
 \log L(w, b) = \sum_{i=1}^{m} \big[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \big]
-\]
+$$
 
 ---
 
@@ -148,21 +148,21 @@ We take the **logarithm** (to simplify multiplication into addition):
 Since we want to **minimize** the loss (not maximize likelihood),  
 we take the **negative** of the average log-likelihood:
 
-\[
+$$
 J(w, b) = -\frac{1}{m} \sum_{i=1}^{m}
 \Big[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \Big]
-\]
+$$
 
 ---
 
 ### 🎯 Final Logistic Loss Function
 
-\[
+$$
 \boxed{
 J(w, b) = -\frac{1}{m} \sum_{i=1}^{m}
 \Big[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \Big]
 }
-\]
+$$
 
 ---
 
