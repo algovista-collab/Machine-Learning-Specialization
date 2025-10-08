@@ -159,7 +159,6 @@ $$
 
 $$
 \boxed{
-J(w, b) = -\frac{1}{m} \sum_{i=1}^{m}
 \Big[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \Big]
 }
 $$
