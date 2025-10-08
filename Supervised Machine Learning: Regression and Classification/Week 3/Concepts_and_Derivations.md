@@ -158,7 +158,7 @@ $$
 ### 🎯 Final Logistic Loss Function
 
 $$
-\boxed{
+-\boxed{
 \Big[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \Big]
 }
 $$
@@ -168,12 +168,12 @@ $$
 ### 📊 Behavior of the Loss
 
 - When **y = 1**, loss = \(-\log(\hat{y})\)
-  - As \(\hat{y} \to 1\), loss → 0  
-  - As \(\hat{y} \to 0\), loss → ∞
+  - As $$(\hat{y} \to 1\)$$, loss → 0  
+  - As $$(\hat{y} \to 0\)$$, loss → ∞
 
 - When **y = 0**, loss = \(-\log(1 - \hat{y})\)
-  - As \(\hat{y} \to 0\), loss → 0  
-  - As \(\hat{y} \to 1\), loss → ∞
+  - As $$(\hat{y} \to 0\)$$, loss → 0  
+  - As $$(\hat{y} \to 1\)$$, loss → ∞
 
 This forms **two separate curves**, showing how the model is penalized for incorrect predictions.
 
