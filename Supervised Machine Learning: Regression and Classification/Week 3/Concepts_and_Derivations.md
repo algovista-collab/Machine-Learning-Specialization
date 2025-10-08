@@ -167,11 +167,11 @@ $$
 
 ### 📊 Behavior of the Loss
 
-- When **y = 1**, loss = \(-\log(\hat{y})\)
+- When **y = 1**, loss = $$(-\log(\hat{y})$$)
   - As $$(\hat{y} \to 1\)$$, loss → 0  
   - As $$(\hat{y} \to 0\)$$, loss → ∞
 
-- When **y = 0**, loss = \(-\log(1 - \hat{y})\)
+- When **y = 0**, loss = $$(-\log(1 - \hat{y})$$)
   - As $$(\hat{y} \to 0\)$$, loss → 0  
   - As $$(\hat{y} \to 1\)$$, loss → ∞
 
