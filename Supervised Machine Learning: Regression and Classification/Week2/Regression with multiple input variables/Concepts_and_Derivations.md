@@ -40,7 +40,7 @@ $$\text{Update for } b: \quad b := b - \alpha \frac{1}{m} \sum_{i=1}^{m} \left( 
 
 ---
 
-## 3. Feature Scaling (Normalization) 📏
+## 3. Feature Scaling (Normalization)
 
 ### Why Scaling is Necessary
 When feature ranges vary widely (e.g., house size: 200–3000 sq ft vs. bedrooms: 0–5), the cost function's contour plot forms a **thin, elongated ellipse**. This causes Gradient Descent to waste time "bouncing" back and forth instead of moving directly to the minimum.
