@@ -44,7 +44,7 @@ $$
 \sigma(x) = \frac{1}{1 + e^{-x}}
 $$
 
-This maps \(z \in (-\infty, \infty)\) to \(p \in (0,1)\).  
+This maps $z \in (-\infty, \infty)$ to $p \in (0, 1)$.
 
 The functions are mirrored by the property:
 
