@@ -97,9 +97,9 @@ In **linear regression**, we use a **Mean Squared Error (MSE)** cost function, w
 
 However, in **logistic regression**, the prediction is:
 
-\[
+$$
 \hat{y} = \frac{1}{1 + e^{-z}} \quad \text{where } z = w^T x + b
-\]
+$$
 
 If we use the same MSE cost here, we get a **non-convex (wiggly)** function with **many local minima**, making optimization difficult.
 
