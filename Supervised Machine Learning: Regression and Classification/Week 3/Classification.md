@@ -47,13 +47,13 @@ This is called the **sigmoid function**, which maps $z \in (-\infty, \infty)$ to
 Since $z$ can take any value between $-\infty$ to $+\infty$, we feed the output of a **linear regression model** as $z$:  
 
 $$
-z = \mathbf{w} \cdot \mathbf{x} + b
+z = \vec{w} \cdot \vec{x} + b
 $$
 
 This $z$ is then passed through the **sigmoid (activation) function**:  
 
 $$
-g(z) = \frac{1}{1 + e^{-z}} = \frac{1}{1 + e^{-(\mathbf{w} \cdot \mathbf{x} + b)}} 
+g(z) = \frac{1}{1 + e^{-z}} = \frac{1}{1 + e^{-(\vec{w} \cdot \vec{x} + b)}} 
 $$
 
 The output $g(z)$ represents the **probability** of the positive class.
