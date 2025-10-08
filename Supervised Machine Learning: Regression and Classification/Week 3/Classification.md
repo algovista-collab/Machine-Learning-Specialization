@@ -30,12 +30,13 @@ $$
 \frac{1}{1 + e^x}
 $$
 
-outputs values only from 0 to 1. \(x\) can be between \(-\infty\) to \(+\infty\). For any value in this range, the function takes values between 0 and 1.  
+outputs values only from 0 to 1. $x$ can be between $-\infty$ to $+\infty$. For any value in this range, the function takes values between 0 and 1.  
 
-Example:  
-- \(x = -2 \to \frac{1}{1 + e^{-2}} \approx 0.119\)  
-- \(x = 0 \to \frac{1}{1 + e^{0}} = 0.5\)  
-- \(x = 2 \to \frac{1}{1 + e^{-2}} \approx 0.881\)  
+**Example:**
+
+- $x = -2 \to \frac{1}{1 + e^{-2}} \approx 0.119$  
+- $x = 0 \to \frac{1}{1 + e^{0}} = 0.5$  
+- $x = 2 \to \frac{1}{1 + e^{-2}} \approx 0.881$
 
 The model objective to output values between 0 and 1 is satisfied, but it should be **monotonic**, meaning as \(x\) increases, the function should also increase. Hence we consider:
 
