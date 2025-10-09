@@ -196,25 +196,81 @@ $$
 
 ---
 
-## Derivative w.r.t `w`
-
-Step 1: Substitute $\hat{y}$:
+We want:
 
 $$
-L = -\Big[y \log(\sigma(wx+b)) + (1-y)\log(1-\sigma(wx+b))\Big]
+\frac{\partial L}{\partial w}
 $$
 
-Step 2: Derivative using chain rule:
+### Step 1: Apply chain rule
 
 $$
-\frac{\partial L}{\partial w} = (\sigma(wx+b) - y) \cdot x
+\frac{\partial L}{\partial w} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial z} \cdot \frac{\partial z}{\partial w}
 $$
 
-Step 3: Derivative w.r.t bias `b`:
+---
+
+### Step 2: Derivative of loss w.r.t `\hat{y}`
 
 $$
-\frac{\partial L}{\partial b} = \sigma(wx+b) - y
+L = -[y \log(\hat{y}) + (1-y) \log(1-\hat{y})]
 $$
+
+$$
+\frac{\partial L}{\partial \hat{y}} = -\left( \frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}} \right)
+= \frac{\hat{y} - y}{\hat{y}(1-\hat{y})}
+$$
+
+---
+
+### Step 3: Derivative of sigmoid w.r.t `z`
+
+$$
+\hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
+$$
+
+$$
+\frac{\partial \hat{y}}{\partial z} = \hat{y}(1 - \hat{y})
+$$
+
+---
+
+### Step 4: Derivative of `z` w.r.t `w`
+
+$$
+z = wx + b \implies \frac{\partial z}{\partial w} = x
+$$
+
+---
+
+### Step 5: Combine using chain rule
+
+$$
+\frac{\partial L}{\partial w} = \frac{\hat{y} - y}{\hat{y}(1-\hat{y})} \cdot \hat{y}(1-\hat{y}) \cdot x
+$$
+
+$$
+\frac{\partial L}{\partial w} = (\hat{y} - y) \cdot x
+$$
+
+---
+
+## 3️⃣ Gradient w.r.t `b`
+
+Similarly, for bias `b`:
+
+$$
+\frac{\partial L}{\partial b} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial z} \cdot \frac{\partial z}{\partial b}
+$$
+
+$$
+\frac{\partial z}{\partial b} = 1
+$$
+
+$$
+\frac{\partial L}{\partial b} = (\hat{y} - y)
+$$
+
 
 ---
 
@@ -231,14 +287,3 @@ b := b - \eta \frac{\partial L}{\partial b} = b - \eta (\sigma(wx+b) - y)
 $$
 
 ---
-
-## Summary
-
-1. Compute prediction: $\hat{y} = \sigma(wx+b)$  
-2. Compute gradients:  
-   - `dw = (y_hat - y) * x`  
-   - `db = (y_hat - y)`  
-3. Update parameters:  
-   - `w = w - lr * dw`  
-   - `b = b - lr * db`  
-4. Repeat for all training examples or mini-batches until convergence.
