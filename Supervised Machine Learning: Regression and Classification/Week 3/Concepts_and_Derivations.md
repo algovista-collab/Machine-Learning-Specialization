@@ -218,12 +218,13 @@ $$
 
 ---
 
-### Step 1: Apply chain rule
-
 We want: 
+
 $$
 \frac{\partial L}{\partial w}
 $$
+
+### Step 1: Apply chain rule
 
 $$
 \frac{\partial L}{\partial w} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial z} \cdot \frac{\partial z}{\partial w}
