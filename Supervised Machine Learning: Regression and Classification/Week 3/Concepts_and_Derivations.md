@@ -188,27 +188,7 @@ which provides a mathematically sound way to estimate parameters that make the o
 
 ## 6. Gradient Descent – Derivation
 
-## 1️⃣ Model Definition
-
-For a single training example:
-
-$$
-z = w x + b
-$$
-
-$$
-\hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
-$$
-
-Where:  
-- `x` = input feature  
-- `w` = weight  
-- `b` = bias  
-- `\hat{y}` = predicted probability
-
----
-
-## 2️⃣ Loss Function (Binary Cross-Entropy)
+## Loss Function (Binary Cross-Entropy)
 
 $$
 L(w, b) = -\Big[y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})\Big]
@@ -216,7 +196,7 @@ $$
 
 ---
 
-## 3️⃣ Derivative w.r.t `w`
+## Derivative w.r.t `w`
 
 Step 1: Substitute $\hat{y}$:
 
@@ -238,7 +218,7 @@ $$
 
 ---
 
-## 4️⃣ Gradient Descent Update Rule
+## Gradient Descent Update Rule
 
 Let $\eta$ be the learning rate:
 
@@ -252,7 +232,7 @@ $$
 
 ---
 
-## 5️⃣ Summary
+## Summary
 
 1. Compute prediction: $\hat{y} = \sigma(wx+b)$  
 2. Compute gradients:  
