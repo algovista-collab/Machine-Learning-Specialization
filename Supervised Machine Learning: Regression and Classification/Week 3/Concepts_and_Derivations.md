@@ -210,7 +210,7 @@ $$
 
 ---
 
-### Step 2: Derivative of loss w.r.t `\hat{y}`
+### Step 2: Derivative of loss w.r.t $$\hat{y}$$
 
 $$
 L = -[y \log(\hat{y}) + (1-y) \log(1-\hat{y})]
@@ -223,7 +223,7 @@ $$
 
 ---
 
-### Step 3: Derivative of sigmoid w.r.t `z`
+### Step 3: Derivative of sigmoid w.r.t z
 
 $$
 \hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
@@ -235,7 +235,7 @@ $$
 
 ---
 
-### Step 4: Derivative of `z` w.r.t `w`
+### Step 4: Derivative of z w.r.t w
 
 $$
 z = wx + b \implies \frac{\partial z}{\partial w} = x
@@ -255,9 +255,9 @@ $$
 
 ---
 
-## 3️⃣ Gradient w.r.t `b`
+### Step 6: Gradient w.r.t b
 
-Similarly, for bias `b`:
+Similarly, for bias b:
 
 $$
 \frac{\partial L}{\partial b} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial z} \cdot \frac{\partial z}{\partial b}
