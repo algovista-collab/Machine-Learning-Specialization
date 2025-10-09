@@ -196,10 +196,6 @@ $$
 
 ---
 
-$$
-\frac{\partial L}{\partial w}
-$$
-
 ### Derivative Formulas to know
 
 ### Sigmoid Derivative
@@ -223,6 +219,11 @@ $$
 ---
 
 ### Step 1: Apply chain rule
+
+We want: 
+$$
+\frac{\partial L}{\partial w}
+$$
 
 $$
 \frac{\partial L}{\partial w} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial z} \cdot \frac{\partial z}{\partial w}
