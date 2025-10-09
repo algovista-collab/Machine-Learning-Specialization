@@ -204,9 +204,9 @@ $$
 
 ### 1️⃣ Sigmoid Derivative
 
-\[
+$$
 \sigma(z) = \frac{1}{1 + e^{-z}}
-\]
+$$
 
 \[
 \frac{d}{dz} \sigma(z) = \sigma(z) \big(1 - \sigma(z)\big)
@@ -216,9 +216,9 @@ $$
 
 ### 2️⃣ Logarithm Derivative
 
-\[
+$$
 \frac{d}{dx} \log(u(x)) = \frac{u'(x)}{u(x)}
-\]
+$$
 
 ---
 
