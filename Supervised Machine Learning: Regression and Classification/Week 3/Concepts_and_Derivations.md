@@ -185,3 +185,80 @@ This loss function arises naturally from **Maximum Likelihood Estimation (MLE)**
 which provides a mathematically sound way to estimate parameters that make the observed data most probable.
 
 ---
+
+## 6. Gradient Descent – Derivation
+
+## 1️⃣ Model Definition
+
+For a single training example:
+
+$$
+z = w x + b
+$$
+
+$$
+\hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
+$$
+
+Where:  
+- `x` = input feature  
+- `w` = weight  
+- `b` = bias  
+- `\hat{y}` = predicted probability
+
+---
+
+## 2️⃣ Loss Function (Binary Cross-Entropy)
+
+$$
+L(w, b) = -\Big[y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})\Big]
+$$
+
+---
+
+## 3️⃣ Derivative w.r.t `w`
+
+Step 1: Substitute $\hat{y}$:
+
+$$
+L = -\Big[y \log(\sigma(wx+b)) + (1-y)\log(1-\sigma(wx+b))\Big]
+$$
+
+Step 2: Derivative using chain rule:
+
+$$
+\frac{\partial L}{\partial w} = (\sigma(wx+b) - y) \cdot x
+$$
+
+Step 3: Derivative w.r.t bias `b`:
+
+$$
+\frac{\partial L}{\partial b} = \sigma(wx+b) - y
+$$
+
+---
+
+## 4️⃣ Gradient Descent Update Rule
+
+Let $\eta$ be the learning rate:
+
+$$
+w := w - \eta \frac{\partial L}{\partial w} = w - \eta (\sigma(wx+b) - y)x
+$$
+
+$$
+b := b - \eta \frac{\partial L}{\partial b} = b - \eta (\sigma(wx+b) - y)
+$$
+
+---
+
+## 5️⃣ Summary
+
+1. Compute prediction: $\hat{y} = \sigma(wx+b)$  
+2. Compute gradients:  
+   - `dw = (y_hat - y) * x`  
+   - `db = (y_hat - y)`  
+3. Update parameters:  
+   - `w = w - lr * dw`  
+   - `b = b - lr * db`  
+4. Repeat for all training examples or mini-batches until convergence.
