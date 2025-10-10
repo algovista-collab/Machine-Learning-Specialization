@@ -308,3 +308,51 @@ b := b - \eta \frac{\partial L}{\partial b} = b - \eta (\sigma(wx+b) - y)
 $$
 
 ---
+
+## ⚖️ L2 Regularization Equations (Ridge Regression)
+
+L2 Regularization (Ridge) modifies the cost function by adding a penalty term that is proportional to the **square of the magnitude** of the weights ($\mathbf{w}$). This discourages weights from growing too large, leading to a simpler, more generalized model. The bias term ($b$) is typically **not** regularized.
+
+---
+
+### **1. L2 Regularized Linear Regression (Ridge Regression)**
+
+#### **Cost Function ($J(\mathbf{w}, b)$)**
+
+The cost function combines the Mean Squared Error (MSE) with the L2 penalty:
+
+$$J(\mathbf{w}, b) = \underbrace{\frac{1}{2m} \sum_{i=1}^{m} (f_{\mathbf{w}, b}(\mathbf{x}^{(i)}) - y^{(i)})^2}_{\text{Original Cost (MSE)}} + \underbrace{\frac{\lambda}{2m} \sum_{j=1}^{n} w_j^2}_{\text{L2 Regularization Term}}$$
+
+* $f_{\mathbf{w}, b}(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b$ (Linear Prediction)
+* $\lambda$: Regularization parameter ($\lambda \geq 0$)
+* $m$: Number of training examples
+
+#### **Partial Derivatives for Gradient Descent**
+
+The gradient descent rule uses these derivatives to update $\mathbf{w}$ and $b$.
+
+**For the Bias Parameter ($b$):** (No change from standard Linear Regression)
+$$\frac{\partial J(\mathbf{w}, b)}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (f_{\mathbf{w}, b}(\mathbf{x}^{(i)}) - y^{(i)})$$
+
+**For the Weight Parameters ($w_j$) for $j=1, \dots, n$:** (Includes the derivative of the L2 penalty, $\frac{\lambda}{m} w_j$)
+$$\frac{\partial J(\mathbf{w}, b)}{\partial w_j} = \left( \frac{1}{m} \sum_{i=1}^{m} (f_{\mathbf{w}, b}(\mathbf{x}^{(i)}) - y^{(i)}) x_j^{(i)} \right) + \frac{\lambda}{m} w_j$$
+
+---
+
+### **2. L2 Regularized Logistic Regression**
+
+#### **Cost Function ($J(\mathbf{w}, b)$)**
+
+The cost function combines the Binary Cross-Entropy Loss with the L2 penalty:
+
+$$J(\mathbf{w}, b) = \underbrace{\left[ -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \log(f_{\mathbf{w}, b}(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1 - f_{\mathbf{w}, b}(\mathbf{x}^{(i)})) \right) \right]}_{\text{Original Cost (Binary Cross-Entropy Loss)}} + \underbrace{\frac{\lambda}{2m} \sum_{j=1}^{n} w_j^2}_{\text{L2 Regularization Term}}$$
+
+* $f_{\mathbf{w}, b}(\mathbf{x}) = g(\mathbf{w} \cdot \mathbf{x} + b) = \frac{1}{1 + e^{-(\mathbf{w} \cdot \mathbf{x} + b)}}$ (Sigmoid Function $g(z)$)
+
+#### **Partial Derivatives for Gradient Descent**
+
+**For the Bias Parameter ($b$):** (No change from standard Logistic Regression)
+$$\frac{\partial J(\mathbf{w}, b)}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (f_{\mathbf{w}, b}(\mathbf{x}^{(i)}) - y^{(i)})$$
+
+**For the Weight Parameters ($w_j$) for $j=1, \dots, n$:** (Includes the derivative of the L2 penalty)
+$$\frac{\partial J(\mathbf{w}, b)}{\partial w_j} = \left( \frac{1}{m} \sum_{i=1}^{m} (f_{\mathbf{w}, b}(\mathbf{x}^{(i)}) - y^{(i)}) x_j^{(i)} \right) + \frac{\lambda}{m} w_j$$
