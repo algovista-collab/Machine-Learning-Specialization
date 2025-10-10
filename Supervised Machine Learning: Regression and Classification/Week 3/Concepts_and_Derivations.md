@@ -309,7 +309,7 @@ $$
 
 ---
 
-## 7. ## 🧠 Model Performance Theory: Bias-Variance Tradeoff
+## 7. Model Performance Theory: Bias-Variance Tradeoff
 
 ### **1. Underfitting (High Bias)** 📉
 
