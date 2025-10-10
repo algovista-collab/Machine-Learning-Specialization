@@ -309,7 +309,50 @@ $$
 
 ---
 
-## 7. L2 Regularization Equations (Ridge Regression)
+## 7. ## 🧠 Model Performance Theory: Bias-Variance Tradeoff
+
+### **1. Underfitting (High Bias)** 📉
+
+Underfitting occurs when a model is **too simple** to capture the underlying patterns in the training data.
+
+* **Definition:** The model assumes a relationship between input and output that is simpler than the reality (e.g., using a linear model for a quadratic relationship).
+* **Result:** The model performs **poorly** on both the **training data** and **new, unseen data**. It fails to learn the complex structure of the training set.
+* **Characteristic:** **High Bias** and **Low Variance**.
+* **Analogy:** A student who doesn't study enough for the test.
+* **Remedies:**
+    * Use a **more complex model** (e.g., add polynomial features, increase hidden layers in a neural network).
+    * **Decrease the regularization strength** ($\lambda$).
+
+---
+
+### **2. Fits Well / Good Generalization (Optimal Balance)** ✅
+
+A model that fits well has achieved a good balance between bias and variance.
+
+* **Definition:** The model accurately captures the essential relationships in the training data without fitting the noise.
+* **Result:** The model performs **well** on both the **training data** and **new, unseen data**.
+* **Characteristic:** **Low Bias** and **Low Variance** (relatively speaking).
+* **Analogy:** A student who studies the concepts thoroughly and performs well on the test, even with new types of questions.
+
+---
+
+### **3. Overfitting (High Variance)** 📈
+
+Overfitting occurs when a model is **too complex** and fits the training data **too closely**, including the random noise and specific anomalies.
+
+* **Definition:** The model learns a highly intricate, specific relationship that perfectly matches the training set but is irrelevant to the true relationship.
+* **Result:** The model performs **exceptionally well** on the **training data** but **very poorly** on **new, unseen data**. It memorizes the data instead of learning to generalize.
+* **Characteristic:** **Low Bias** and **High Variance**.
+* **Analogy:** A student who memorizes every practice problem's answer, including typos, but fails on a test with slightly different problems.
+* **Remedies:**
+    * **Regularization** (L1 or L2) to penalize large weights.
+    * **Collect more training data**.
+    * **Reduce the number of features** (Feature Selection).
+    * Use a **simpler model** (e.g., fewer polynomial features).
+
+---
+
+## 8. L2 Regularization Equations (Ridge Regression)
 
 L2 Regularization (Ridge) modifies the cost function by adding a penalty term that is proportional to the **square of the magnitude** of the weights ($\mathbf{w}$). This discourages weights from growing too large, leading to a simpler, more generalized model. The bias term ($b$) is typically **not** regularized.
 
