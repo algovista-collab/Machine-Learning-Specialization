@@ -317,7 +317,7 @@ L2 Regularization (Ridge) modifies the cost function by adding a penalty term th
 
 ### **1. L2 Regularized Linear Regression (Ridge Regression)**
 
-#### **Cost Function ($J(\mathbf{w}, b)$)**
+#### Cost Function ($$J(\mathbf{w}, b)$$)
 
 The cost function combines the Mean Squared Error (MSE) with the L2 penalty:
 
