@@ -309,7 +309,7 @@ $$
 
 ---
 
-## ⚖️ L2 Regularization Equations (Ridge Regression)
+## 7. L2 Regularization Equations (Ridge Regression)
 
 L2 Regularization (Ridge) modifies the cost function by adding a penalty term that is proportional to the **square of the magnitude** of the weights ($\mathbf{w}$). This discourages weights from growing too large, leading to a simpler, more generalized model. The bias term ($b$) is typically **not** regularized.
 
@@ -327,7 +327,7 @@ $$J(\mathbf{w}, b) = \underbrace{\frac{1}{2m} \sum_{i=1}^{m} (f_{\mathbf{w}, b}(
 * $\lambda$: Regularization parameter ($\lambda \geq 0$)
 * $m$: Number of training examples
 
-#### **Partial Derivatives for Gradient Descent**
+#### Partial Derivatives for Gradient Descent
 
 The gradient descent rule uses these derivatives to update $\mathbf{w}$ and $b$.
 
@@ -339,9 +339,9 @@ $$\frac{\partial J(\mathbf{w}, b)}{\partial w_j} = \left( \frac{1}{m} \sum_{i=1}
 
 ---
 
-### **2. L2 Regularized Logistic Regression**
+### 2. L2 Regularized Logistic Regression
 
-#### **Cost Function ($J(\mathbf{w}, b)$)**
+#### Cost Function ($$J(\mathbf{w}, b)$$)
 
 The cost function combines the Binary Cross-Entropy Loss with the L2 penalty:
 
@@ -349,7 +349,7 @@ $$J(\mathbf{w}, b) = \underbrace{\left[ -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i
 
 * $f_{\mathbf{w}, b}(\mathbf{x}) = g(\mathbf{w} \cdot \mathbf{x} + b) = \frac{1}{1 + e^{-(\mathbf{w} \cdot \mathbf{x} + b)}}$ (Sigmoid Function $g(z)$)
 
-#### **Partial Derivatives for Gradient Descent**
+#### Partial Derivatives for Gradient Descent
 
 **For the Bias Parameter ($b$):** (No change from standard Logistic Regression)
 $$\frac{\partial J(\mathbf{w}, b)}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (f_{\mathbf{w}, b}(\mathbf{x}^{(i)}) - y^{(i)})$$
