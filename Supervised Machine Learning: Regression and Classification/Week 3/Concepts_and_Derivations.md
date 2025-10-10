@@ -347,7 +347,7 @@ The cost function combines the Binary Cross-Entropy Loss with the L2 penalty:
 
 $$J(\mathbf{w}, b) = \underbrace{\left[ -\frac{1}{m} \sum_{i=1}^{m} \left( y^{(i)} \log(f_{\mathbf{w}, b}(\mathbf{x}^{(i)})) + (1 - y^{(i)}) \log(1 - f_{\mathbf{w}, b}(\mathbf{x}^{(i)})) \right) \right]}_{\text{Original Cost (Binary Cross-Entropy Loss)}} + \underbrace{\frac{\lambda}{2m} \sum_{j=1}^{n} w_j^2}_{\text{L2 Regularization Term}}$$
 
-* $f_{\mathbf{w}, b}(\mathbf{x}) = g(\mathbf{w} \cdot \mathbf{x} + b) = \frac{1}{1 + e^{-(\mathbf{w} \cdot \mathbf{x} + b)}}$ (Sigmoid Function $g(z)$)
+* $f_{\mathbf{w}, b}(\mathbf{x}) = g(\mathbf{w} \cdot \mathbf{x} + b) = \frac{1}{1 + e^{-(\mathbf{w} \cdot \mathbf{x} + b)}}$ (Sigmoid Function $$g(z)$$)
 
 #### Partial Derivatives for Gradient Descent
 
