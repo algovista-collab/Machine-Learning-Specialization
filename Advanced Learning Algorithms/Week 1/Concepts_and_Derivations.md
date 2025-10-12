@@ -1,7 +1,5 @@
 # 🧠 Neural Networks: Core Concepts and Backpropagation Derivations
 
-This document covers the mathematical foundations of a standard fully-connected Neural Network (NN), focusing on Forward Propagation, the Loss Function, and the Chain Rule application (Backpropagation) essential for training.
-
 ---
 
 ## 1. Forward Propagation: Structure of a Neuron
