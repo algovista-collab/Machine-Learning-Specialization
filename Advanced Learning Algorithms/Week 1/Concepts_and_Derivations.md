@@ -10,7 +10,7 @@ A single neuron in layer $[l]$ processes the activations $\mathbf{a}^{[l-1]}$ fr
 
 This calculates the weighted sum of inputs plus the bias.
 
-$$\mathbf{z}^{[l]} = \mathbf{W}^{[l]T} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}$$
+$$\mathbf{z}^{[l]} = \mathbf{W}^{[l]} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}$$
 
 | Variable | Description | Shape (Example) |
 | :--- | :--- | :--- |
