@@ -21,7 +21,7 @@ $$\mathbf{z}^{[l]} = \mathbf{W}^{[l]T} \mathbf{a}^{[l-1]} + \mathbf{b}^{[l]}$$
 | $m$ | Number of training examples | - |
 | $n^{[l]}$ | Number of neurons in layer $l$ | - |
 
-### B. Activation (The $A$ Term)
+### B. Non-Linear Activation (The $A$ Term)
 
 The linear result is passed through a non-linear activation function $g$.
 
