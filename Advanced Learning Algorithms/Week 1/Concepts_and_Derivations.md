@@ -87,7 +87,7 @@ These derivatives are averaged over the $m$ training examples and represent the 
 
 $$\mathbf{d W}^{[l]} = \frac{1}{m} \mathbf{d Z}^{[l]} (\mathbf{A}^{[l-1]})^T$$
 
-$$\mathbf{d b}^{[l]} = \frac{1}{m} \sum_{i=1}^{m} \mathbf{d Z}^{[l](i)}$$
+$$\mathbf{d b}^{[l]} = \frac{1}{m} \sum_{i=1}^{m} \mathbf{d Z}^{[l]}$$
 
 ---
 
