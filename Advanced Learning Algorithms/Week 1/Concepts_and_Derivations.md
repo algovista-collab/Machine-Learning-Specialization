@@ -30,7 +30,7 @@ $$\mathbf{a}^{[l]} = g(\mathbf{z}^{[l]})$$
 | Activation $g(z)$ | Derivative $g'(z)$ (for Backprop) | Use Case |
 | :--- | :--- | :--- |
 | **Sigmoid** | $g(z)(1-g(z))$ | Output layer for Binary Classification |
-| **ReLU** | $1$ if $z > 0$, $0$ otherwise | Hidden layers (most common) |
+| **ReLU** | $z$ if $z > 0$, $0$ otherwise | Hidden layers (most common) |
 | **Tanh** | $1 - (g(z))^2$ | Hidden layers (often better than Sigmoid) |
 
 ---
