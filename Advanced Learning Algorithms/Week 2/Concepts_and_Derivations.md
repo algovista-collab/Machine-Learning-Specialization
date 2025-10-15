@@ -182,24 +182,29 @@ $$
 
 ---
 
-# 🔹 Softmax Loss for N-Class Classification
+# 🔹 Softmax Cross-Entropy Loss for N Classes
 
-For N classes $$(y = 1, 2, ..., N$$) and predicted probabilities $$(a_j$$) from softmax:
-
-$$
-a_j = \frac{e^{z_j}}{\sum_{k=1}^{N} e^{z_k}} \quad \text{for } j = 1, 2, ..., N
-$$
-
-The **cross-entropy loss** for a single example is:
+The general formula:
 
 $$
 \text{Loss} = - \sum_{j=1}^{N} y_j \cdot \log(a_j)
 $$
 
-- $$(y_j = 1$$) if class $$(j$$) is the correct class, otherwise $$(0$$)  
-- This penalizes the model for assigning low probability to the true class  
-- For the dataset of $$(M$$) examples, the **average loss** is:
+- \(y_j = 1\) for the true class, \(0\) otherwise  
+- Therefore, for a single example with true class \(c\), all terms vanish except the one for the true class:
 
 $$
-\text{Loss}_{\text{avg}} = - \frac{1}{M} \sum_{i=1}^{M} \sum_{j=1}^{N} y_{i,j} \cdot \log(a_{i,j})
+\text{Loss} = - \log(a_c)
+$$
+
+- If you look at all classes individually:
+
+$$
+\text{Loss} =
+\begin{cases}
+-\log(a_1), & \text{if class 1 is true} \\
+-\log(a_2), & \text{if class 2 is true} \\
+\vdots \\
+-\log(a_N), & \text{if class N is true}
+\end{cases}
 $$
