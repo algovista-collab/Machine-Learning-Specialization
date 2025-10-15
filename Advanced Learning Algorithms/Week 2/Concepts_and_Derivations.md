@@ -350,15 +350,15 @@ Classes: {Cat, Dog, Tree, Sun}
 **Modeling:**
 - Sigmoid per class:
   
-  $$
-  \hat{y}_i = \sigma(z_i), \quad i = 1,2,\dots,N
-  $$
+$$
+\hat{y}_i = \sigma(z_i), \quad i = 1,2,\dots,N
+$$
   
 - Loss: Binary Cross-Entropy per class:  
 
-  $$
-  \mathcal{L} = - \frac{1}{N} \sum_{i=1}^{N} \big[y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i)\big]
-  $$
+$$
+\mathcal{L} = - \frac{1}{N} \sum_{i=1}^{N} \big[y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i)\big]
+$$
 
 **Key points:**  
 - Use **sigmoid + BCE**, **not softmax**  
