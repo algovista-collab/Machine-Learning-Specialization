@@ -239,10 +239,13 @@ The issue arises from potential **numerical underflow or overflow** when calcula
 ### ❌ The Unstable Approach
 
 In binary classification, the probability $$\hat{y}$$ is:
+
 $$
 \hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
 $$
+
 The **Binary Cross-Entropy Loss** ($$\mathcal{L}$$) for a true label $y$ is:
+
 $$
 \mathcal{L}(y, \hat{y}) = - [y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})]
 $$
@@ -252,7 +255,8 @@ $$
 | $\mathbf{z} \rightarrow \infty$ | $\infty$ | $1$ | $\log(1) = 0$ | $\log(1-\hat{y}) = \log(0) = -\infty$ (Numerical Error/`nan` in loss) |
 | $\mathbf{z} \rightarrow -\infty$ | $-\infty$ | $0$ | $\log(0) = -\infty$ | $\log(\hat{y}) = -\infty$ (Numerical Error/`nan` in loss) |
 
-> **Example:** If $z = -1000$, $e^{-z}$ is huge (overflow). If $z = 1000$, $\hat{y} \approx 1$ and $1-\hat{y} \approx 0$. $\log(0)$ is undefined, leading to `NaN` in the loss calculation.
+> **Example:** If $z = -1000$, $e^{-z}$ is huge (overflow). If $z = 1000$,
+> $$\hat{y} \approx 1$ and $1-\hat{y} \approx 0$. $\log(0)$$ is undefined, leading to `NaN` in the loss calculation.
 
 ### ✅ The Stable Solution: Log-Sum-Exp Trick / Using Logits
 
