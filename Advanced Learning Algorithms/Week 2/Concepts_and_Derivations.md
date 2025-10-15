@@ -182,7 +182,7 @@ $$
 
 ---
 
-### 3. Why exponentials?
+### Why exponentials?
 
 - Exponentials \(e^{z_j}\) are **always positive**, no matter what \(z_j\) is.
 
@@ -196,10 +196,10 @@ $$
 
 we guarantee:  
 
-1. \(a_j > 0\) ✅  
-2. \(\sum_{j=1}^{3} a_j = 1\) ✅  
+1. $$(a_j > 0$$) ✅  
+2. $$(\sum_{j=1}^{3} a_j = 1$$) ✅  
 
-- Now each \(a_j\) can be interpreted as a **probability of class \(j\)**.
+- Now each $$(a_j$$) can be interpreted as a **probability of class $$(j$$)**.
 
 ---
 
