@@ -28,13 +28,16 @@ model = Sequential([
 ## 2. Specify the Loss and Cost
 
 ### Logistic Loss
-loss = -y * log(y_hat) - (1 - y) * log(1 - y_hat)
+$$
+\text{Loss} = -y \cdot \log(\hat{y}) - (1 - y) \cdot \log(1 - \hat{y})
+$$
 
 ### Neural Network Compilation
+```python
 model.compile(loss=BinaryCrossentropy())  
 or  
 model.compile(loss=MeanSquaredError())
-
+```
 ---
 
 ## 3. Training on Data to Minimize the Cost
