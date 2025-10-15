@@ -328,3 +328,35 @@ By performing this combined calculation, large intermediate values like $$e^{-z}
 | :--- | :--- |
 | **Numerical Stability** | Prevents $\log(0)$ and $e^{\pm\text{large number}}$ issues. |
 | **Efficiency** | One combined calculation is faster than two separate ones. |
+
+# Multi-Label Classification
+
+**Definition:**  
+Each input can belong to **multiple classes simultaneously**.
+
+**Difference:**
+
+| Type | Description |
+|------|-------------|
+| Binary | 2 classes, input belongs to 1 class |
+| Multi-class | >2 classes, input belongs to **exactly 1 class** |
+| Multi-label | >2 classes, input can belong to **any number of classes** |
+
+**Example:**  
+Classes: {Cat, Dog, Tree, Sun}  
+- Photo with cat & tree → `[1, 0, 1, 0]`  
+- Photo with sun & dog → `[0, 1, 0, 1]`  
+
+**Modeling:**
+- Sigmoid per class:  
+  $$
+  \hat{y}_i = \sigma(z_i), \quad i = 1,2,\dots,N
+  $$
+- Loss: Binary Cross-Entropy per class:  
+  $$
+  \mathcal{L} = - \frac{1}{N} \sum_{i=1}^{N} \big[y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i)\big]
+  $$
+
+**Key points:**  
+- Use **sigmoid + BCE**, **not softmax**  
+- Classes are **independent**, can have multiple positive labels
