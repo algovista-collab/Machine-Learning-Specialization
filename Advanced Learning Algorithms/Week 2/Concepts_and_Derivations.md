@@ -292,7 +292,8 @@ $$
 
 This is derived from substituting $$\hat{y}$$ back into the loss function and using logarithm rules:
 
-* For $$\log(\hat{y})$$:  
+* For $$\log(\hat{y})$$:
+  
 $$
 \log\left(\frac{1}{1 + e^{-z}}\right) = -\log(1 + e^{-z})
 $$
@@ -301,7 +302,8 @@ $$
 -\log(1 + e^{-z}) = -\mathbf{\text{Softplus}(-z)}
 $$
 
-* For $$\log(1 - \hat{y})$$:  
+* For $$\log(1 - \hat{y})$$:
+  
 $$
 \log\left(1 - \frac{1}{1 + e^{-z}}\right) = \log\left(\frac{e^{-z}}{1 + e^{-z}}\right)
 $$
