@@ -182,6 +182,27 @@ $$
 
 ---
 
+### 3. Why exponentials?
+
+- Exponentials \(e^{z_j}\) are **always positive**, no matter what \(z_j\) is.
+
+- So if we take:
+
+$$
+a_1 = \frac{e^{z_1}}{e^{z_1} + e^{z_2} + e^{z_3}}, \quad
+a_2 = \frac{e^{z_2}}{e^{z_1} + e^{z_2} + e^{z_3}}, \quad
+a_3 = \frac{e^{z_3}}{e^{z_1} + e^{z_2} + e^{z_3}}
+$$
+
+we guarantee:  
+
+1. \(a_j > 0\) ✅  
+2. \(\sum_{j=1}^{3} a_j = 1\) ✅  
+
+- Now each \(a_j\) can be interpreted as a **probability of class \(j\)**.
+
+---
+
 # 🔹 Softmax Cross-Entropy Loss for N Classes
 
 The general formula:
