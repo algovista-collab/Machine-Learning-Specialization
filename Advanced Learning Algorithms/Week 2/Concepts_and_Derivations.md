@@ -256,7 +256,7 @@ $$
 | $\mathbf{z} \rightarrow -\infty$ | $-\infty$ | $0$ | $\log(0) = -\infty$ | $\log(\hat{y}) = -\infty$ (Numerical Error/`nan` in loss) |
 
 > **Example:** If $z = -1000$, $e^{-z}$ is huge (overflow). If $z = 1000$,
-> $$\hat{y} \approx 1$ and $1-\hat{y} \approx 0$. $\log(0)$$ is undefined, leading to `NaN` in the loss calculation.
+> $$\hat{y} \approx 1$$ and $$1-\hat{y} \approx 0$$. $$\log(0)$$ is undefined, leading to `NaN` in the loss calculation.
 
 ### ✅ The Stable Solution: Log-Sum-Exp Trick / Using Logits
 
