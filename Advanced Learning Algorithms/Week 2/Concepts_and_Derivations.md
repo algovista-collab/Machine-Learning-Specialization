@@ -83,7 +83,6 @@ model.fit(X, y, epochs=100)
 - **Logistic Regression** → Binary Classification  
 - **Softmax** → Multi-class Classification  
 
-### Logistic Regression
 ### 🔹 Logistic Regression (Binary Classification)
 
 $$
