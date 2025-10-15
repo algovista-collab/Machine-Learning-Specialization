@@ -92,8 +92,21 @@ P(y = j | x) = a_j
 
 ---
 
-✅ **Summary**
-- Logistic Regression → Single layer (binary)  
-- Neural Network → Multi-layer (nonlinear)  
-- ReLU → Hidden layers  
-- Sigmoid / Softmax → Output layers
+## 🧮 Mathematical Connection
+
+Let’s show how **sigmoid = 2-class softmax**.
+
+For binary classes (2 outputs):
+
+a1 = e^(z1) / (e^(z1) + e^(z2))  
+a2 = e^(z2) / (e^(z1) + e^(z2))
+
+Let’s assume z2 = 0 and rename z1 = z:
+We can shift logits by a constant (this doesn’t change probabilities).  
+
+a1 = e^(z) / (e^(z) + 1)  
+a1 = 1 / (1 + e^(-z))
+
+✅ That’s exactly the **sigmoid function**!
+
+---
