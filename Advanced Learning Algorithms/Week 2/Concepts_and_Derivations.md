@@ -5,15 +5,24 @@
 ## 1. Define the Output
 
 ### Logistic Regression
-z = w * x + b  
-f(x) = 1 / (1 + np.exp(-z))
+$$
+z = w \cdot x + b
+$$
+
+$$
+f(x) = \frac{1}{1 + e^{-z}}
+$$
+
+---
 
 ### Neural Network
+
+```python
 model = Sequential([
     Dense(...),
     Dense(...)
 ])
-
+```
 ---
 
 ## 2. Specify the Loss and Cost
@@ -35,8 +44,9 @@ w = w - alpha * dj_dw
 b = b - alpha * dj_db
 
 ### Neural Network
+```python
 model.fit(X, y, epochs=100)
-
+```
 ---
 
 ## ⚙️ Different Activation Functions
