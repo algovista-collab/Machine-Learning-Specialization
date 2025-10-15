@@ -413,10 +413,11 @@ A convolutional layer applies **filters/kernels** to an input image (or feature 
 - **Filter/Kernel:** Small matrix `[fH x fW x Channels]`
 - **Stride:** Steps the filter moves across input
 - **Padding:** Adding zeros around input to control output size (`valid` or `same`)
-- **Output (Feature Map):**  
-  $$
-  \text{Output}[i, j] = \sum_{m,n} \text{Input}[i+m, j+n] \cdot \text{Kernel}[m,n]
-  $$
+- **Output (Feature Map):**
+  
+$$
+\text{Output}[i, j] = \sum_{m,n} \text{Input}[i+m, j+n] \cdot \text{Kernel}[m,n]
+$$
 
 ---
 
