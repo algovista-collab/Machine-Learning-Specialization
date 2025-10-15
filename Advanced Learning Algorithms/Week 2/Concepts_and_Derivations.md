@@ -43,8 +43,13 @@ model.compile(loss=MeanSquaredError())
 ## 3. Training on Data to Minimize the Cost
 
 ### Logistic Regression
-w = w - alpha * dj_dw  
-b = b - alpha * dj_db
+$$
+w = w - \alpha \cdot \frac{\partial J}{\partial w}
+$$
+
+$$
+b = b - \alpha \cdot \frac{\partial J}{\partial b}
+$$
 
 ### Neural Network
 ```python
