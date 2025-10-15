@@ -66,29 +66,75 @@ model.fit(X, y, epochs=100)
 - **Softmax** → Multi-class Classification  
 
 ### Logistic Regression
-z = w * x + b  
-a1 = g(z) = 1 / (1 + np.exp(-z)) = P(y=1 | x)  
-a2 = 1 - a1 = P(y=0 | x)
+### 🔹 Logistic Regression (Binary Classification)
 
-### Softmax for Multiclass Classification
-For classes y = 1, 2, 3, 4:
+$$
+z = w \cdot x + b
+$$
 
-z1 = w1 * x + b1  
-z2 = w2 * x + b2  
-z3 = w3 * x + b3  
-z4 = w4 * x + b4  
+$$
+a_1 = g(z) = \frac{1}{1 + e^{-z}} = P(y=1 \mid x)
+$$
 
-a1 = e^(z1) / (e^(z1) + e^(z2) + e^(z3) + e^(z4))  
-a2 = e^(z2) / (e^(z1) + e^(z2) + e^(z3) + e^(z4))  
-a3 = e^(z3) / (e^(z1) + e^(z2) + e^(z3) + e^(z4))  
-a4 = e^(z4) / (e^(z1) + e^(z2) + e^(z3) + e^(z4))
+$$
+a_2 = 1 - a_1 = P(y=0 \mid x)
+$$
 
-### General Softmax Formula
-For y = 1, 2, ..., N:
+---
 
-z_j = w_j * x + b_j    (for j = 1, 2, ..., N)  
-a_j = exp(z_j) / Σ(exp(z_k))   (for k = 1 to N)  
-P(y = j | x) = a_j
+### 🔹 Softmax for Multiclass Classification
+
+For classes \( y = 1, 2, 3, 4 \):
+
+$$
+z_1 = w_1 \cdot x + b_1
+$$
+
+$$
+z_2 = w_2 \cdot x + b_2
+$$
+
+$$
+z_3 = w_3 \cdot x + b_3
+$$
+
+$$
+z_4 = w_4 \cdot x + b_4
+$$
+
+$$
+a_1 = \frac{e^{z_1}}{e^{z_1} + e^{z_2} + e^{z_3} + e^{z_4}}
+$$
+
+$$
+a_2 = \frac{e^{z_2}}{e^{z_1} + e^{z_2} + e^{z_3} + e^{z_4}}
+$$
+
+$$
+a_3 = \frac{e^{z_3}}{e^{z_1} + e^{z_2} + e^{z_3} + e^{z_4}}
+$$
+
+$$
+a_4 = \frac{e^{z_4}}{e^{z_1} + e^{z_2} + e^{z_3} + e^{z_4}}
+$$
+
+---
+
+### 🔹 General Softmax Formula
+
+For \( y = 1, 2, \dots, N \):
+
+$$
+z_j = w_j \cdot x + b_j \quad \text{for } j = 1, 2, \dots, N
+$$
+
+$$
+a_j = \frac{e^{z_j}}{\sum_{k=1}^{N} e^{z_k}}
+$$
+
+$$
+P(y = j \mid x) = a_j
+$$
 
 ---
 
@@ -98,15 +144,23 @@ Let’s show how **sigmoid = 2-class softmax**.
 
 For binary classes (2 outputs):
 
-a1 = e^(z1) / (e^(z1) + e^(z2))  
-a2 = e^(z2) / (e^(z1) + e^(z2))
+$$
+a_1 = \frac{e^{z_1}}{e^{z_1} + e^{z_2}}
+$$
 
-Let’s assume z2 = 0 and rename z1 = z:
-We can shift logits by a constant (this doesn’t change probabilities).  
+$$
+a_2 = \frac{e^{z_2}}{e^{z_1} + e^{z_2}}
+$$
 
-a1 = e^(z) / (e^(z) + 1)  
-a1 = 1 / (1 + e^(-z))
+Let’s assume \( z_2 = 0 \) and rename \( z_1 = z \):  
+(We can shift logits by a constant — this doesn’t change probabilities.)
 
-✅ That’s exactly the **sigmoid function**!
+$$
+a_1 = \frac{e^{z}}{e^{z} + 1}
+$$
+
+$$
+a_1 = \frac{1}{1 + e^{-z}}
+$$
 
 ---
