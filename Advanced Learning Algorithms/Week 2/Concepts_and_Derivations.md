@@ -23,7 +23,9 @@ loss = -y * log(y_hat) - (1 - y) * log(1 - y_hat)
 
 ### Neural Network Compilation
 model.compile(loss=BinaryCrossentropy())  
-# or  
+
+or  
+
 model.compile(loss=MeanSquaredError())
 
 ---
