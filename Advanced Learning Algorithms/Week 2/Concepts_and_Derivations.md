@@ -231,3 +231,50 @@ $$
 $$
 
 > **Note:** z is called logit as it is the raw score produced by a linear model before the activation function or sigmoid function is applied
+
+## 🔢 Numerical Stability: $\text{Softmax/Sigmoid}$ with Cross-Entropy Loss
+
+The issue arises from potential **numerical underflow or overflow** when calculating probabilities and their logarithms, especially when $z$ (the input to the activation) is very large (positive or negative).
+
+### ❌ The Unstable Approach
+
+In binary classification, the probability $\hat{y}$ is:
+$$
+\hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
+$$
+The **Binary Cross-Entropy Loss** ($\mathcal{L}$) for a true label $y$ is:
+$$
+\mathcal{L}(y, \hat{y}) = - [y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})]
+$$
+
+| Scenario | $\mathbf{z}$ | $\mathbf{\hat{y}}$ | $\mathbf{\log(\hat{y})}$ | **Issue** |
+| :---: | :---: | :---: | :---: | :--- |
+| $\mathbf{z} \rightarrow \infty$ | $\infty$ | $1$ | $\log(1) = 0$ | $\log(1-\hat{y}) = \log(0) = -\infty$ (Numerical Error/`nan` in loss) |
+| $\mathbf{z} \rightarrow -\infty$ | $-\infty$ | $0$ | $\log(0) = -\infty$ | $\log(\hat{y}) = -\infty$ (Numerical Error/`nan` in loss) |
+
+> **Example:** If $z = -1000$, $e^{-z}$ is huge (overflow). If $z = 1000$, $\hat{y} \approx 1$ and $1-\hat{y} \approx 0$. $\log(0)$ is undefined, leading to `NaN` in the loss calculation.
+
+### ✅ The Stable Solution: Log-Sum-Exp Trick / Using Logits
+
+Instead of computing $\hat{y}$ and then $\log(\hat{y})$ separately, a numerically stable way to compute $\log(\hat{y})$ and $\log(1-\hat{y})$ is used by combining the $\text{Sigmoid}$ activation and the $\text{Cross-Entropy}$ loss into a single operation:
+
+$$
+\mathcal{L}(y, z) = y \cdot \mathbf{\text{Softplus}(-z)} + (1-y) \cdot \mathbf{\text{Softplus}(z)}
+$$
+where $\mathbf{\text{Softplus}(x)} = \log(1 + e^x)$. This is derived from substituting $\hat{y}$ back into the loss function and using logarithm rules:
+
+* For $\log(\hat{y})$: $\log\left(\frac{1}{1 + e^{-z}}\right) = -\log(1 + e^{-z}) = -\mathbf{\text{Softplus}(-z)}$
+* For $\log(1 - \hat{y})$: $\log\left(1 - \frac{1}{1 + e^{-z}}\right) = \log\left(\frac{e^{-z}}{1 + e^{-z}}\right) = -z - \log(1 + e^{-z}) = -z + \mathbf{\text{Softplus}(-z)}$
+
+By performing this combined calculation, large intermediate values like $e^{-z}$ (when $z$ is large positive) or $e^{z}$ (when $z$ is large negative) are **avoided/handled gracefully** through mathematical reformulations, preventing overflow/underflow.
+
+#### Framework Implementation
+
+* **Previous Layer:** The final layer is a **`Linear`** (or `Dense`) layer, outputting the **logits ($z$)**.
+* **Loss Function:** Use `model.compile(BinaryCrossentropy(from_logits=True))`
+    * The `from_logits=True` flag tells the loss function to expect the raw $z$ values and internally apply the numerically stable combined computation of $\log(\sigma(z))$ and $\log(1-\sigma(z))$.
+
+| 💡 **Advantage** | **Result** |
+| :--- | :--- |
+| **Numerical Stability** | Prevents $\log(0)$ and $e^{\pm\text{large number}}$ issues. |
+| **Efficiency** | One combined calculation is faster than two separate ones. |
