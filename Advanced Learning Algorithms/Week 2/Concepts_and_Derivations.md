@@ -181,3 +181,25 @@ a_1 = \frac{1}{1 + e^{-z}}
 $$
 
 ---
+
+# 🔹 Softmax Loss for N-Class Classification
+
+For N classes \(y = 1, 2, ..., N\) and predicted probabilities \(a_j\) from softmax:
+
+$$
+a_j = \frac{e^{z_j}}{\sum_{k=1}^{N} e^{z_k}} \quad \text{for } j = 1, 2, ..., N
+$$
+
+The **cross-entropy loss** for a single example is:
+
+$$
+\text{Loss} = - \sum_{j=1}^{N} y_j \cdot \log(a_j)
+$$
+
+- \(y_j = 1\) if class \(j\) is the correct class, otherwise \(0\)  
+- This penalizes the model for assigning low probability to the true class  
+- For the dataset of \(M\) examples, the **average loss** is:
+
+$$
+\text{Loss}_{\text{avg}} = - \frac{1}{M} \sum_{i=1}^{M} \sum_{j=1}^{N} y_{i,j} \cdot \log(a_{i,j})
+$$
