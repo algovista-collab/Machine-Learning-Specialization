@@ -399,3 +399,32 @@ from tensorflow.keras.optimizers import Adam
 optimizer = Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-7)
 model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
 ```
+
+# Convolutional Layer (Conv Layer)
+
+**Definition:**  
+A convolutional layer applies **filters/kernels** to an input image (or feature map) to extract **spatial features** like edges, textures, or patterns.
+
+---
+
+**Key Concepts:**
+
+- **Input:** 3D tensor `[Height x Width x Channels]`
+- **Filter/Kernel:** Small matrix `[fH x fW x Channels]`
+- **Stride:** Steps the filter moves across input
+- **Padding:** Adding zeros around input to control output size (`valid` or `same`)
+- **Output (Feature Map):**  
+  $$
+  \text{Output}[i, j] = \sum_{m,n} \text{Input}[i+m, j+n] \cdot \text{Kernel}[m,n]
+  $$
+
+---
+
+**Python Example (Keras):**
+```python
+from tensorflow.keras.layers import Conv2D
+
+# Conv layer with 32 filters, 3x3 kernel, ReLU activation
+conv_layer = Conv2D(filters=32, kernel_size=(3,3), strides=(1,1),
+                    padding='same', activation='relu', input_shape=(64,64,3))
+```
