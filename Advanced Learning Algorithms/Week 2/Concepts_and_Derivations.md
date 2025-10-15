@@ -139,7 +139,7 @@ $$
 
 ### 🔹 General Softmax Formula
 
-For \( y = 1, 2, \dots, N \):
+For $$( y = 1, 2, \dots, N $$):
 
 $$
 z_j = w_j \cdot x + b_j \quad \text{for } j = 1, 2, \dots, N
