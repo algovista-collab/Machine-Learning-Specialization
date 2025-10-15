@@ -256,17 +256,17 @@ $$
 
 ### ✅ The Stable Solution: Log-Sum-Exp Trick / Using Logits
 
-Instead of computing $\hat{y}$ and then $\log(\hat{y})$ separately, a numerically stable way to compute $\log(\hat{y})$ and $\log(1-\hat{y})$ is used by combining the $\text{Sigmoid}$ activation and the $\text{Cross-Entropy}$ loss into a single operation:
+Instead of computing $$\hat{y}$$ and then $$\log(\hat{y})$$ separately, a numerically stable way to compute $$\log(\hat{y})$$ and $$\log(1-\hat{y})$$ is used by combining the $$\text{Sigmoid}$$ activation and the $$\text{Cross-Entropy}$$ loss into a single operation:
 
 $$
 \mathcal{L}(y, z) = y \cdot \mathbf{\text{Softplus}(-z)} + (1-y) \cdot \mathbf{\text{Softplus}(z)}
 $$
-where $\mathbf{\text{Softplus}(x)} = \log(1 + e^x)$. This is derived from substituting $\hat{y}$ back into the loss function and using logarithm rules:
+where $$\mathbf{\text{Softplus}(x)} = \log(1 + e^x)$$. This is derived from substituting $$\hat{y}$$ back into the loss function and using logarithm rules:
 
-* For $\log(\hat{y})$: $\log\left(\frac{1}{1 + e^{-z}}\right) = -\log(1 + e^{-z}) = -\mathbf{\text{Softplus}(-z)}$
-* For $\log(1 - \hat{y})$: $\log\left(1 - \frac{1}{1 + e^{-z}}\right) = \log\left(\frac{e^{-z}}{1 + e^{-z}}\right) = -z - \log(1 + e^{-z}) = -z + \mathbf{\text{Softplus}(-z)}$
+* For $$\log(\hat{y})$$: $$\log\left(\frac{1}{1 + e^{-z}}\right) = -\log(1 + e^{-z}) = -\mathbf{\text{Softplus}(-z)}$$
+* For $$\log(1 - \hat{y})$$: $$\log\left(1 - \frac{1}{1 + e^{-z}}\right) = \log\left(\frac{e^{-z}}{1 + e^{-z}}\right) = -z - \log(1 + e^{-z}) = -z + \mathbf{\text{Softplus}(-z)}$$
 
-By performing this combined calculation, large intermediate values like $e^{-z}$ (when $z$ is large positive) or $e^{z}$ (when $z$ is large negative) are **avoided/handled gracefully** through mathematical reformulations, preventing overflow/underflow.
+By performing this combined calculation, large intermediate values like $$e^{-z}$$ (when $z$ is large positive) or $$e^{z}$$ (when $z$ is large negative) are **avoided/handled gracefully** through mathematical reformulations, preventing overflow/underflow.
 
 #### Framework Implementation
 
