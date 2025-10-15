@@ -208,3 +208,5 @@ $$
 -\log(a_N), & \text{if class N is true}
 \end{cases}
 $$
+
+> **Note:** z is called logit as it is the raw score produced by a linear model before the activation function or sigmoid function is applied
