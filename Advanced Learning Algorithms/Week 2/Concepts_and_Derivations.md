@@ -348,11 +348,14 @@ Classes: {Cat, Dog, Tree, Sun}
 - Photo with sun & dog → `[0, 1, 0, 1]`  
 
 **Modeling:**
-- Sigmoid per class:  
+- Sigmoid per class:
+  
   $$
   \hat{y}_i = \sigma(z_i), \quad i = 1,2,\dots,N
   $$
+  
 - Loss: Binary Cross-Entropy per class:  
+
   $$
   \mathcal{L} = - \frac{1}{N} \sum_{i=1}^{N} \big[y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i)\big]
   $$
