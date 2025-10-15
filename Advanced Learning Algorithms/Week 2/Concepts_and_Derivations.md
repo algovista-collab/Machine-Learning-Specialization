@@ -184,7 +184,7 @@ $$
 
 ### Why exponentials?
 
-- Exponentials \(e^{z_j}\) are **always positive**, no matter what \(z_j\) is.
+- Exponentials $$(e^{z_j}$$) are **always positive**, no matter what $$(z_j$$) is.
 
 - So if we take:
 
