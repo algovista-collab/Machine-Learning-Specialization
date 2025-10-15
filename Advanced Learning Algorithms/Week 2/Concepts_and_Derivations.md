@@ -289,22 +289,25 @@ $$
 This is derived from substituting $$\hat{y}$$ back into the loss function and using logarithm rules:
 
 * For $$\log(\hat{y})$$:  
-  $$
-\begin{aligned}
-\log\left(\frac{1}{1 + e^{-z}}\right) 
-&= -\log(1 + e^{-z}) \\
-&= -\mathbf{\text{Softplus}(-z)}
-\end{aligned}
+$$
+\log\left(\frac{1}{1 + e^{-z}}\right) = -\log(1 + e^{-z})
+$$
+
+$$
+-\log(1 + e^{-z}) = -\mathbf{\text{Softplus}(-z)}
 $$
 
 * For $$\log(1 - \hat{y})$$:  
 $$
-\begin{aligned}
-\log\left(1 - \frac{1}{1 + e^{-z}}\right) 
-&= \log\left(\frac{e^{-z}}{1 + e^{-z}}\right) \\
-&= -z - \log(1 + e^{-z}) \\
-&= -z + \mathbf{\text{Softplus}(-z)}
-\end{aligned}
+\log\left(1 - \frac{1}{1 + e^{-z}}\right) = \log\left(\frac{e^{-z}}{1 + e^{-z}}\right)
+$$
+
+$$
+\log\left(\frac{e^{-z}}{1 + e^{-z}}\right) = -z - \log(1 + e^{-z})
+$$
+
+$$
+-z - \log(1 + e^{-z}) = -z + \mathbf{\text{Softplus}(-z)}
 $$
 
 By performing this combined calculation, large intermediate values like $$e^{-z}$$ (when $z$ is large positive) or $$e^{z}$$ (when $z$ is large negative) are **avoided/handled gracefully** through mathematical reformulations, preventing overflow/underflow.
