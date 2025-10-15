@@ -363,3 +363,39 @@ $$
 **Key points:**  
 - Use **sigmoid + BCE**, **not softmax**  
 - Classes are **independent**, can have multiple positive labels
+
+# Adam Optimizer
+
+**Definition:**  
+Adam (Adaptive Moment Estimation) is an optimization algorithm that combines **Momentum** and **RMSProp**.  
+- Keeps track of **exponentially decaying averages of past gradients (m)** → Momentum  
+- Keeps track of **squared gradients (v)** → RMSProp  
+- Performs **bias-corrected updates** for more stable and faster convergence  
+
+**Update Rule:**  
+For parameter θ at step t:
+
+$$
+m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t
+$$
+
+$$
+v_t = \beta_2 v_{t-1} + (1 - \beta_2) g_t^2
+$$
+
+$$
+\hat{m}_t = \frac{m_t}{1 - \beta_1^t}, \quad \hat{v}_t = \frac{v_t}{1 - \beta_2^t}
+$$
+
+$$
+\theta_t = \theta_{t-1} - \eta \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}
+$$
+
+**Python code (Keras / TensorFlow):**
+
+```python
+from tensorflow.keras.optimizers import Adam
+
+optimizer = Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-7)
+model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
+```
