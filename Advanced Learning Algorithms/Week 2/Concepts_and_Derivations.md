@@ -190,8 +190,8 @@ $$
 \text{Loss} = - \sum_{j=1}^{N} y_j \cdot \log(a_j)
 $$
 
-- \(y_j = 1\) for the true class, \(0\) otherwise  
-- Therefore, for a single example with true class \(c\), all terms vanish except the one for the true class:
+- $$(y_j = 1$$) for the true class, $$(0$$) otherwise  
+- Therefore, for a single example with true class $$(c$$), all terms vanish except the one for the true class:
 
 $$
 \text{Loss} = - \log(a_c)
