@@ -169,7 +169,7 @@ $$
 a_2 = \frac{e^{z_2}}{e^{z_1} + e^{z_2}}
 $$
 
-Let’s assume \( z_2 = 0 \) and rename \( z_1 = z \):  
+Let’s assume $$( z_2 = 0 $$) and rename $$( z_1 = z $$):  
 (We can shift logits by a constant — this doesn’t change probabilities.)
 
 $$
