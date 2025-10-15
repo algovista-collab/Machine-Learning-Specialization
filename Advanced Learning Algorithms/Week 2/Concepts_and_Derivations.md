@@ -238,11 +238,11 @@ The issue arises from potential **numerical underflow or overflow** when calcula
 
 ### ❌ The Unstable Approach
 
-In binary classification, the probability $\hat{y}$ is:
+In binary classification, the probability $$\hat{y}$$ is:
 $$
 \hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
 $$
-The **Binary Cross-Entropy Loss** ($\mathcal{L}$) for a true label $y$ is:
+The **Binary Cross-Entropy Loss** ($$\mathcal{L}$$) for a true label $y$ is:
 $$
 \mathcal{L}(y, \hat{y}) = - [y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})]
 $$
