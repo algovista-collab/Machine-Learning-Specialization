@@ -53,7 +53,7 @@ Introduce a **cross-validation set** to properly evaluate models:
 ## Workflow for Polynomial Model Selection
 
 1. **Choose a polynomial degree** (e.g., 1, 2, 3, …).  
-2. **Train model** on the **training set**.  
+2. **Train model** on the **training set** and get the model parameters.  
 3. **Compute CV error** on the **cross-validation set**.  
 4. Repeat for all candidate degrees.  
 5. **Select model** with lowest CV error.  
