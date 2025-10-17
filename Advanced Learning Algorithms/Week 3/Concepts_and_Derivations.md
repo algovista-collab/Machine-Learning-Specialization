@@ -104,11 +104,6 @@ Introduce a **cross-validation set** to properly evaluate models:
 ## Effect of Regularization Parameter `λ` on Error
 
 Consider a model with 4th order polynomial:  
-$$
-\[
-f(x) = w_1 x + w_2 x^2 + w_3 x^3 + w_4 x^4 + b
-\]
-$$
 
 - **Large λ**  
   - `J_train` is high  
