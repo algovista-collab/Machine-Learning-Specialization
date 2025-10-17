@@ -136,4 +136,19 @@ Consider a model with 4th order polynomial:
      
 ---
 
+Learning curves
+
+High Bias: 3 techniques to follow:
+1. Try getting additional features
+2. Try adding polynomial features
+3. Try decreasing lambda
+
+High Variance: 3 techniques to follow:
+1. Get more training examples
+2. try smaller set of features
+3. try increasing lambda
+
+large neural networks are low bias machines. i.e. if the neural network is large enough, it fits the training set quite well. 
+1. Does it do well on the training set? Yes 
+
 <img width="619" height="351" alt="image" src="https://github.com/user-attachments/assets/29bdad24-16f4-44e4-83a2-584f1baf6964" />
