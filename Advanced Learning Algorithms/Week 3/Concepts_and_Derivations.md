@@ -129,3 +129,7 @@ Consider a model with 4th order polynomial:
    - Low λ → `J_train` low, `J_cv` high → overfitting  
    - High λ → `J_train` high, `J_cv` high → underfitting  
    - Choose **intermediate λ** for best tradeoff
+     
+---
+
+<img width="619" height="351" alt="image" src="https://github.com/user-attachments/assets/29bdad24-16f4-44e4-83a2-584f1baf6964" />
