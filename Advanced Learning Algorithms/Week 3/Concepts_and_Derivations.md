@@ -99,7 +99,7 @@ Introduce a **cross-validation set** to properly evaluate models:
 
 <img width="595" height="381" alt="image" src="https://github.com/user-attachments/assets/46c8a979-e57e-4595-8944-f0c16933343e" />
 
-> Sometimes underfitting and overfitting can occur simultaneously depending on the data and model.
+> Sometimes underfitting and overfitting can occur simultaneously depending on the data and model. In that case `J_train` will be high and `J_cv` will be very low.
 
 ---
 
@@ -118,6 +118,8 @@ Consider a model with 4th order polynomial:
 
 - **Intermediate λ**  
   - `J_train` and `J_cv` both reasonably low → good tradeoff
+
+<img width="626" height="345" alt="image" src="https://github.com/user-attachments/assets/3b6d7709-3c21-4df6-b2ba-cb7874be1281" />
 
 ---
 
