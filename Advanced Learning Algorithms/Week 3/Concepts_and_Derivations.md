@@ -136,19 +136,49 @@ Consider a model with 4th order polynomial:
      
 ---
 
-Learning curves
+# Learning Curves
 
-High Bias: 3 techniques to follow:
-1. Try getting additional features
-2. Try adding polynomial features
-3. Try decreasing lambda
+---
 
-High Variance: 3 techniques to follow:
-1. Get more training examples
-2. try smaller set of features
-3. try increasing lambda
+## High Bias (Underfitting)
 
-large neural networks are low bias machines. i.e. if the neural network is large enough, it fits the training set quite well. 
-1. Does it do well on the training set? Yes 
+### Techniques to Fix:
+1. Try getting additional features  
+2. Try adding polynomial features  
+3. Try decreasing λ (lambda)
+
+**Explanation:**  
+In high bias, no matter how much we collect training data, both `J_train` and `J_cv` will **flatten out** after a while because the model is too simple to fit the data.  
+Both errors will be close to each other but **much higher** than the desired (human-level) performance.
+
+---
+
+## High Variance (Overfitting)
+
+### Techniques to Fix:
+1. Get more training examples  
+2. Try using a smaller set of features  
+3. Try increasing λ (lambda)
+
+---
+
+## Neural Networks and Bias
+
+- Large neural networks are **low-bias machines**.  
+- If the neural network is large enough, it can fit the training set quite well.  
+
+---
+
+## Example: Regularized MNIST Model
+
+```python
+Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
+```
 
 <img width="619" height="351" alt="image" src="https://github.com/user-attachments/assets/29bdad24-16f4-44e4-83a2-584f1baf6964" />
+
+<img width="757" height="420" alt="image" src="https://github.com/user-attachments/assets/9560c5e4-9b23-4b5d-a69b-6b34970d763a" />
+
+<img width="998" height="418" alt="image" src="https://github.com/user-attachments/assets/11341382-72d9-46cd-a65d-b8f194f747ed" />
+
+
