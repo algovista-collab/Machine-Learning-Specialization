@@ -97,6 +97,8 @@ Introduce a **cross-validation set** to properly evaluate models:
   - Moderate degree → `J_train` low, `J_cv` low → good fit  
   - Very high degree → `J_train` very low, `J_cv` increases → overfitting  
 
+<img width="595" height="381" alt="image" src="https://github.com/user-attachments/assets/46c8a979-e57e-4595-8944-f0c16933343e" />
+
 > Sometimes underfitting and overfitting can occur simultaneously depending on the data and model.
 
 ---
