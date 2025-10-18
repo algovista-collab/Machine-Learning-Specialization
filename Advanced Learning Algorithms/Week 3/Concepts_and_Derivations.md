@@ -261,3 +261,25 @@ $$
 
 - Increasing precision may reduce recall, and vice versa.  
 - Choose a balance based on the specific needs of your application (e.g., spam detection vs. medical diagnosis).
+
+## F1 Score
+
+The **F1 Score** is the harmonic mean of **Precision** and **Recall**.
+
+$$
+F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}
+$$
+
+### Example
+
+If:
+- Precision = 0.8  
+- Recall = 0.6  
+
+Then:
+
+$$
+F1 = 2 \times \frac{0.8 \times 0.6}{0.8 + 0.6} = 0.6857
+$$
+
+The F1 score balances both precision and recall — useful when you want to find an optimal trade-off between the two.
