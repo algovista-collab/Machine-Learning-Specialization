@@ -23,7 +23,7 @@ We can try models of different complexity, e.g., polynomials of varying degrees.
 
 - Calculate the **test cost \(J_{test}\)** to see if it is reducing.
 - **Warning:** Selecting the model with the lowest test cost on the same test set can lead to overfitting the test data.  
-  ✅ **Do not finalize the model by repeatedly testing on the same test set.**
+  **Do not finalize the model by repeatedly testing on the same test set.**
 
 ---
 
@@ -37,7 +37,7 @@ Introduce a **cross-validation set** to properly evaluate models:
 
 - Evaluate different polynomial degrees on the **cross-validation set** and pick the best one.
 - Test the final model on the **test set**, which the model has never seen.  
-  ✅ This gives an **unbiased estimate** of the model's performance.
+  This gives an **unbiased estimate** of the model's performance.
 
 ---
 
@@ -181,7 +181,7 @@ Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
 
 <img width="998" height="418" alt="image" src="https://github.com/user-attachments/assets/11341382-72d9-46cd-a65d-b8f194f747ed" />
 
-# 🧠 Machine Learning Cycle
+# Machine Learning Cycle
 
 1. **Choose architecture** (model, data)  
 2. **Train model**  
@@ -190,7 +190,7 @@ Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
 
 ---
 
-## 🐝 Honeypot Projects
+## Honeypot Projects
 
 - Projects that create a large number of **fake email addresses** and expose them to **spammers**.  
 - **Email routing servers** track the route an email has travelled to identify if it’s spam.  
@@ -198,7 +198,7 @@ Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
 
 ---
 
-## 🔍 Error Analysis
+## Error Analysis
 
 - Suppose:  
   - **mcv = 500**  
@@ -208,7 +208,7 @@ Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
 
 ---
 
-## 📈 Data Augmentation
+## Data Augmentation
 
 - **Definition:** Modifying an existing training example to create a new one.  
 - **Purpose:** To make the model more robust to real-world variations.  
@@ -220,42 +220,44 @@ Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
 
 ---
 
-## 🧬 Data Synthesis
+## Data Synthesis
 
 - **Definition:** Using artificial data inputs to create new training examples.  
 - **Goal:** Engineer data that helps the system generalize better.
 
 ---
 
-## 🏗️ Two Major Approaches
+## Two Major Approaches
 
 1. **Model-Centric Approach** — Focus on improving the model architecture or algorithms.  
 2. **Data-Centric Approach** — Focus on improving the quality and diversity of the data.
 
 ---
 
-## 🔁 Transfer Learning
+## Transfer Learning
 
 1. Download **neural network parameters pretrained** on a large dataset with the same input type as your application.  
 2. **Fine-tune** the network on your own dataset.
 
 ---
 
-## 📊 Error Metrics: Precision & Recall
+## Error Metrics: Precision & Recall
 
 - **Precision:**  
-  \[
-  \text{Precision} = \frac{\text{True Positives}}{\text{True Positives + False Positives}}
-  \]
-
-- **Recall:**  
-  \[
-  \text{Recall} = \frac{\text{True Positives}}{\text{True Positives + False Negatives}}
-  \]
-
+$$
+\[
+\text{Precision} = \frac{\text{True Positives}}{\text{True Positives + False Positives}}
+\]
+$$
+- **Recall:**
+$$
+\[
+\text{Recall} = \frac{\text{True Positives}}{\text{True Positives + False Negatives}}
+\]
+$$
 ---
 
-## ⚖️ Precision / Recall Tradeoff
+## Precision / Recall Tradeoff
 
 - Increasing precision may reduce recall, and vice versa.  
 - Choose a balance based on the specific needs of your application (e.g., spam detection vs. medical diagnosis).
