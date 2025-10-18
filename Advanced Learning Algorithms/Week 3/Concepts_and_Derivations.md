@@ -181,4 +181,81 @@ Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
 
 <img width="998" height="418" alt="image" src="https://github.com/user-attachments/assets/11341382-72d9-46cd-a65d-b8f194f747ed" />
 
+# 🧠 Machine Learning Cycle
 
+1. **Choose architecture** (model, data)  
+2. **Train model**  
+3. **Diagnostics** (bias, variance, error analysis) → repeat steps 1–3  
+4. **Deploy, monitor, and maintain system**
+
+---
+
+## 🐝 Honeypot Projects
+
+- Projects that create a large number of **fake email addresses** and expose them to **spammers**.  
+- **Email routing servers** track the route an email has travelled to identify if it’s spam.  
+- **Spell checking** and categorization are also used to detect spam based on misspelled words.
+
+---
+
+## 🔍 Error Analysis
+
+- Suppose:  
+  - **mcv = 500**  
+  - **Misclassified = 100**
+- Manually examine and categorize these 100 misclassified examples based on common traits.  
+- Based on this error analysis, collect more data for specific data types that frequently cause errors.
+
+---
+
+## 📈 Data Augmentation
+
+- **Definition:** Modifying an existing training example to create a new one.  
+- **Purpose:** To make the model more robust to real-world variations.  
+- **Rule:** The distortions introduced should represent the type of noise or distortion expected in the test set.
+
+### Examples
+- **Images:** Rotate, crop, flip, add brightness variations.  
+- **Audio:** Add background noise or simulate bad cellphone connections.
+
+---
+
+## 🧬 Data Synthesis
+
+- **Definition:** Using artificial data inputs to create new training examples.  
+- **Goal:** Engineer data that helps the system generalize better.
+
+---
+
+## 🏗️ Two Major Approaches
+
+1. **Model-Centric Approach** — Focus on improving the model architecture or algorithms.  
+2. **Data-Centric Approach** — Focus on improving the quality and diversity of the data.
+
+---
+
+## 🔁 Transfer Learning
+
+1. Download **neural network parameters pretrained** on a large dataset with the same input type as your application.  
+2. **Fine-tune** the network on your own dataset.
+
+---
+
+## 📊 Error Metrics: Precision & Recall
+
+- **Precision:**  
+  \[
+  \text{Precision} = \frac{\text{True Positives}}{\text{True Positives + False Positives}}
+  \]
+
+- **Recall:**  
+  \[
+  \text{Recall} = \frac{\text{True Positives}}{\text{True Positives + False Negatives}}
+  \]
+
+---
+
+## ⚖️ Precision / Recall Tradeoff
+
+- Increasing precision may reduce recall, and vice versa.  
+- Choose a balance based on the specific needs of your application (e.g., spam detection vs. medical diagnosis).
