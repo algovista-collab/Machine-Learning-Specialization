@@ -243,18 +243,18 @@ Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
 
 ## Error Metrics: Precision & Recall
 
-- **Precision:**  
+- **Precision:**
+
 $$
-\[
 \text{Precision} = \frac{\text{True Positives}}{\text{True Positives + False Positives}}
-\]
 $$
+
 - **Recall:**
+
 $$
-\[
 \text{Recall} = \frac{\text{True Positives}}{\text{True Positives + False Negatives}}
-\]
 $$
+
 ---
 
 ## Precision / Recall Tradeoff
