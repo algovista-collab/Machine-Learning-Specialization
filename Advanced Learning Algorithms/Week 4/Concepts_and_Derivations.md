@@ -63,3 +63,60 @@ Where:
 * $\mathbf{H}(p_1^{\text{right}})$: Entropy of the **right** child node.
 
 **The split that yields the maximum Information Gain is chosen as the optimal split.**
+
+## 3. Decision Tree Algorithm, Ensembles, and Feature Engineering
+
+---
+
+## The Decision Tree Algorithm: High-Level Steps
+
+The process of building a Decision Tree is an iterative, greedy process that starts with all examples at the root node:
+
+1.  **Initialize Root:** Start with all training examples at the root node.
+2.  **Calculate Information Gain (IG):** For the current node, calculate the $\mathbf{IG}$ for **all possible features** and all possible split points.
+3.  **Select Best Split:** **Pick the feature and split point with the highest Information Gain.**
+4.  **Split Node:** Split the dataset according to the selected feature and create **right and left branches** (child nodes) of the tree.
+5.  **Iterate:** **Keep repeating the splitting process** for each new child node.
+6.  **Stop:** The process continues until a **stopping criterion** is met (e.g., maximum depth, minimum sample size, or zero impurity).
+
+---
+
+## Feature Handling Techniques
+
+Decision Trees must handle various data types effectively to find optimal splits.
+
+### 3.1 Categorical Features with Multiple Values
+
+When a categorical feature can take **more than two values** ($k > 2$):
+
+* **Method:** We typically use **One-Hot Encoding**.
+* **Process:** If a categorical feature can take on $k$ unique values, you **create $k$ binary features** (0 or 1 valued). The tree then makes a binary decision on each new binary feature (e.g., "Is Feature\_Color\_Red = 1?").
+
+### 3.2 Continuous Valued Features
+
+For a feature with continuous values (like height or temperature):
+
+* **Process:** All unique values in the feature are considered potential split points.
+    * For a dataset with $N$ examples (e.g., 10 animals), there are at most **$N-1$ unique split points** to test.
+    * The possible split points are the **mid-points** between the sorted unique values in the feature (e.g., choosing the 9 mid-points between 10 examples).
+* **Goal:** The algorithm tests all these potential split points and selects the one that results in the **highest Information Gain**.
+
+---
+
+## 4. Tree Ensemble Methods
+
+A **Tree Ensemble** is a collection of multiple decision trees that work together to make a final prediction. Ensembles make the algorithm **less sensitive** to minor variations in the data and more **robust** overall.
+
+| Ensemble Type | Description | Key Mechanism |
+| :--- | :--- | :--- |
+| **Random Forest** | A tree ensemble algorithm that often works much better than using a single decision tree. | **Bootstrapping & Feature Subsetting:** Each tree is trained on a different subset of data (via **Sampling with Replacement**). |
+| **Random Forest (Feature Selection)** | A specific technique within the Random Forest construction. | **Feature Subsetting at Each Node:** At each node, if $n$ features are available, the algorithm picks a random subset of **$k < n$ features** and is only allowed to choose a split from that small subset. This decorrelates the trees. |
+| **XGBoost** | **eXtreme Gradient Boosting** (XGBoost) is an open-source implementation of boosted trees. | **Boosting and Regularization:** Trees are built sequentially, with each new tree correcting the errors of the previous ones. It includes **built-in regularization** to prevent overfitting. |
+
+---
+
+## 5. Applicability of Decision Trees
+
+* **Decision Trees (DTs)** work better on **tabular (structured) data** (e.g., spreadsheets, databases).
+* **Neural Networks (NNs)** work well on **both structured and unstructured data**.
+    * Examples of unstructured data include **images**, video, and free text.
