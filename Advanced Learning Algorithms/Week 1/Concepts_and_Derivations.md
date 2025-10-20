@@ -2,6 +2,14 @@
 
 ---
 
+| Concept             | In Linear Regression | In Neural Networks                  |
+| ------------------- | -------------------- | ----------------------------------- |
+| Model               | f(x) = wᵀx + b       | f(x) = W₂ σ(W₁x + b₁) + b₂          |
+| Optimization        | Gradient Descent     | Gradient Descent + Backpropagation  |
+| Cost Function       | MSE / Cross-Entropy  | Cross-Entropy (mostly)              |
+| Regularization      | L2 / L1              | Dropout / Weight Decay              |
+| Feature Engineering | Manual               | Learned automatically               |
+
 ## 1. Forward Propagation: Structure of a Neuron
 
 A single neuron in layer $[l]$ processes the activations $\mathbf{a}^{[l-1]}$ from the previous layer in two steps: a linear combination and a non-linear activation.
