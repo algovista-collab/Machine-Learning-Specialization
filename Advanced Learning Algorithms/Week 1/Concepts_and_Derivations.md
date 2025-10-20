@@ -61,7 +61,7 @@ $$J(\mathbf{W}, \mathbf{b}) = \frac{1}{m} \sum_{i=1}^{m} L(y^{(i)}, \hat{y}^{(i)
 
 ## 3. Backpropagation: The Gradient Derivation
 
-Backpropagation is the efficient calculation of $\frac{\partial J}{\partial \mathbf{W}}$ and $\frac{\partial J}{\partial \mathbf{b}}$ using the **Chain Rule**, working backward from the final layer $L$.
+Backpropagation is the efficient calculation of $\frac{\partial J}{\partial \mathbf{W}}$ and $\frac{\partial J}{\partial \mathbf{b}}$ using the **Chain Rule**, working backward from the final layer $L$. It is the algorithm used to update the weights in a neural network by propagating the error backward from the output layer to the input layer. It’s essentially gradient descent applied to multi-layer networks.
 
 ### A. Output Layer ($L$): Simplification
 
