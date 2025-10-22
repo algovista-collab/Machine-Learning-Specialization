@@ -155,6 +155,17 @@ $$
 
 ---
 
+To write the cost equation we need an 'indicator function' that will be 1 when the index matches the target and zero otherwise.
+
+$$
+1{𝑦==𝑛}=={1,0,if 𝑦==𝑛.otherwise.
+$$
+
+$$
+Now the cost is:
+𝐽(𝐰,𝑏)=−1𝑚[∑𝑖=1𝑚∑𝑗=1𝑁1{𝑦(𝑖)==𝑗}log𝑒𝑧(𝑖)𝑗∑𝑁𝑘=1𝑒𝑧(𝑖)𝑘]
+$$
+
 ## 🧮 Mathematical Connection
 
 Let’s show how **sigmoid = 2-class softmax**.
