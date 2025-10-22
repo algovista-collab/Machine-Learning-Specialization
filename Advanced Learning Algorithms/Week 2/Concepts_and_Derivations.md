@@ -57,7 +57,7 @@ model.fit(X, y, epochs=100)
 ```
 ---
 
-## ⚙️ Different Activation Functions
+## Different Activation Functions
 
 | Activation Function | Formula | Notes |
 |----------------------|----------|--------|
@@ -229,7 +229,7 @@ we guarantee:
 
 ---
 
-# 🔹 Softmax Cross-Entropy Loss for N Classes
+# Softmax Cross-Entropy Loss for N Classes
 
 The general formula:
 
@@ -258,11 +258,11 @@ $$
 
 > **Note:** z is called logit as it is the raw score produced by a linear model before the activation function or sigmoid function is applied
 
-## 🔢 Numerical Stability: $\text{Softmax/Sigmoid}$ with Cross-Entropy Loss
+## Numerical Stability: $\text{Softmax/Sigmoid}$ with Cross-Entropy Loss
 
 The issue arises from potential **numerical underflow or overflow** when calculating probabilities and their logarithms, especially when $z$ (the input to the activation) is very large (positive or negative).
 
-### ❌ The Unstable Approach
+### The Unstable Approach
 
 In binary classification, the probability $$\hat{y}$$ is:
 
@@ -284,7 +284,7 @@ $$
 > **Example:** If $z = -1000$, $e^{-z}$ is huge (overflow). If $z = 1000$,
 > $$\hat{y} \approx 1$$ and $$1-\hat{y} \approx 0$$. $$\log(0)$$ is undefined, leading to `NaN` in the loss calculation.
 
-### ✅ The Stable Solution: Log-Sum-Exp Trick / Using Logits
+### The Stable Solution: Log-Sum-Exp Trick / Using Logits
 
 Instead of computing  
 
@@ -350,7 +350,7 @@ By performing this combined calculation, large intermediate values like $$e^{-z}
 * **Loss Function:** Use `model.compile(BinaryCrossentropy(from_logits=True))`
     * The `from_logits=True` flag tells the loss function to expect the raw $z$ values and internally apply the numerically stable combined computation of $\log(\sigma(z))$ and $\log(1-\sigma(z))$.
 
-| 💡 **Advantage** | **Result** |
+| **Advantage** | **Result** |
 | :--- | :--- |
 | **Numerical Stability** | Prevents $\log(0)$ and $e^{\pm\text{large number}}$ issues. |
 | **Efficiency** | One combined calculation is faster than two separate ones. |
