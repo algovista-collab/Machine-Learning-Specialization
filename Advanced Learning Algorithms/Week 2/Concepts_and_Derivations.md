@@ -1,4 +1,4 @@
-# 🧠 Model Training Steps
+# Model Training Steps
 
 ---
 
@@ -70,7 +70,7 @@ model.fit(X, y, epochs=100)
 
 ---
 
-## 🧩 Output Layer Activations
+## Output Layer Activations
 
 - Choose **ReLU**, **Sigmoid**, or **Linear** based on the problem type.  
 - **Hidden Layers:** ReLU is preferred because it only flattens on one side (faster and easier optimization).  
@@ -78,12 +78,12 @@ model.fit(X, y, epochs=100)
 
 ---
 
-## 🔢 Softmax — Generalization of Logistic Regression
+## Softmax — Generalization of Logistic Regression
 
 - **Logistic Regression** → Binary Classification  
 - **Softmax** → Multi-class Classification  
 
-### 🔹 Logistic Regression (Binary Classification)
+### Logistic Regression (Binary Classification)
 
 $$
 z = w \cdot x + b
@@ -99,7 +99,7 @@ $$
 
 ---
 
-### 🔹 Softmax for Multiclass Classification
+### Softmax for Multiclass Classification
 
 For classes \( y = 1, 2, 3, 4 \):
 
@@ -137,7 +137,7 @@ $$
 
 ---
 
-### 🔹 General Softmax Formula
+### General Softmax Formula
 
 For $$( y = 1, 2, \dots, N $$):
 
@@ -155,18 +155,33 @@ $$
 
 ---
 
-To write the cost equation we need an 'indicator function' that will be 1 when the index matches the target and zero otherwise.
+To write the cost equation, we need an *indicator function* that will be **1** when the index matches the target and **0** otherwise:
 
 $$
-1{𝑦==𝑛}=={1,0,if 𝑦==𝑛.otherwise.
+1_{\{y == n\}} =
+\begin{cases}
+1, & \text{if } y = n \\
+0, & \text{otherwise}
+\end{cases}
 $$
 
+Now, the cost is:
+
 $$
-Now the cost is:
-𝐽(𝐰,𝑏)=−1𝑚[∑𝑖=1𝑚∑𝑗=1𝑁1{𝑦(𝑖)==𝑗}log𝑒𝑧(𝑖)𝑗∑𝑁𝑘=1𝑒𝑧(𝑖)𝑘]
+J(w, b) = -\frac{1}{m}
+\left[
+\sum_{i=1}^{m}
+\sum_{j=1}^{N}
+1_{\{y^{(i)} = j\}}
+\log
+\left(
+\frac{e^{z_j^{(i)}}}{
+\sum_{k=1}^{N} e^{z_k^{(i)}}}
+\right)
+\right]
 $$
 
-## 🧮 Mathematical Connection
+## Mathematical Connection
 
 Let’s show how **sigmoid = 2-class softmax**.
 
@@ -207,8 +222,8 @@ $$
 
 we guarantee:  
 
-1. $$(a_j > 0$$) ✅  
-2. $$(\sum_{j=1}^{3} a_j = 1$$) ✅  
+1. $$(a_j > 0$$) 
+2. $$(\sum_{j=1}^{3} a_j = 1$$) 
 
 - Now each $$(a_j$$) can be interpreted as a **probability of class $$(j$$)**.
 
