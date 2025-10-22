@@ -393,7 +393,7 @@ $$
 # Adam Optimizer
 
 **Definition:**  
-Adam (Adaptive Moment Estimation) is an optimization algorithm that combines **Momentum** and **RMSProp**.  
+Adam (Adaptive Moment Estimation) is an optimization algorithm that combines **Momentum** and **RMSProp**. It can increase or decrease the learning rate alpha depending on how fast or how slow we are descending unline gradient descent where the learning rate is constant.  
 - Keeps track of **exponentially decaying averages of past gradients (m)** → Momentum  
 - Keeps track of **squared gradients (v)** → RMSProp  
 - Performs **bias-corrected updates** for more stable and faster convergence  
