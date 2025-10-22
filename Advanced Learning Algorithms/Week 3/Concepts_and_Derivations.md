@@ -241,7 +241,7 @@ Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
 
 ---
 
-## Error Metrics: Precision & Recall
+## Classification Error Metrics: Precision & Recall
 
 - **Precision:**
 
