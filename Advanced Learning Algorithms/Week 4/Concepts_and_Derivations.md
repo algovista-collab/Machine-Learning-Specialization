@@ -38,7 +38,7 @@ For a binary classification problem (e.g., Cat or Not Cat) where $p_1$ is the fr
 
 $$\mathbf{H}(p_1) = -p_1 \cdot \log_2(p_1) - p_0 \cdot \log_2(p_0)$$
 
-* We use **base 2** for the logarithm because the result ($\mathbf{H}(p_1)$) represents the minimum number of bits needed to encode the classification of an outcome.
+* We use **base 2** for the logarithm because the result ($$\mathbf{H}(p_1)$$) represents the minimum number of bits needed to encode the classification of an outcome.
 
 ### 2.2 Entropy vs. Purity
 
