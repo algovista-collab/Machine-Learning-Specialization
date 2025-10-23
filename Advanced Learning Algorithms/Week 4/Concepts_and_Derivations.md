@@ -40,6 +40,8 @@ $$\mathbf{H}(p_1) = -p_1 \cdot \log_2(p_1) - p_0 \cdot \log_2(p_0)$$
 
 * We use **base 2** for the logarithm because the result ($$\mathbf{H}(p_1)$$) represents the minimum number of bits needed to encode the classification of an outcome.
 
+<img width="407" height="277" alt="image" src="https://github.com/user-attachments/assets/325d24fb-9fc0-4a32-804a-a1764b64a701" />
+
 ### 2.2 Entropy vs. Purity
 
 | Class Distribution | Example | $\mathbf{H}(p_1)$ Value | Interpretation |
