@@ -38,9 +38,10 @@ where $$\| \cdot \|^2$$ is the **squared Euclidean distance** (L2 norm).
 ---
 
 #### B. Centroid Update Step
-Recalculate the position of each cluster centroid $\mu_k$ by taking the average (mean) of all data points currently assigned to that cluster.
+Recalculate the position of each cluster centroid $$\mu_k$$ by taking the average (mean) of all data points currently assigned to that cluster.
 
 For $$k = 1$$ to $$K$$:
+
 $$
 \mu_k := \text{Average of all points assigned to cluster } k
 $$
