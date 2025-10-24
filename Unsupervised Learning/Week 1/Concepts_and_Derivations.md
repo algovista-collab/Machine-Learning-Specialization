@@ -19,18 +19,21 @@ The K-means algorithm iteratively optimizes the cluster assignments and centroid
 The process iterates between two steps: **Cluster Assignment** and **Centroid Update**.
 
 #### A. Cluster Assignment Step
-Assign each data point $x^{(i)}$ to the cluster centroid $\mu_k$ that is closest to it.
+Assign each data point $$x^{(i)}$$ to the cluster centroid $\mu_k$ that is closest to it.
 
-For $i = 1$ to $m$:
+For $$i = 1$$ to $$m$$:
+
 $$
 c^{(i)} := \text{index } (\text{from } 1 \text{ to } K) \text{ of cluster centroid closest to } x^{(i)}
 $$
 
 This is mathematically represented as:
+
 $$
 c^{(i)} = \arg \min_{k} \| x^{(i)} - \mu_k \|^2
 $$
-where $\| \cdot \|^2$ is the **squared Euclidean distance** (L2 norm).
+
+where $$\| \cdot \|^2$$ is the **squared Euclidean distance** (L2 norm).
 
 ---
 
