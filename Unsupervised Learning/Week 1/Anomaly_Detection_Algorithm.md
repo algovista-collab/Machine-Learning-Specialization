@@ -113,9 +113,9 @@ We assume we have a single dataset that has been partitioned into three labeled 
 
 | Dataset | Purpose | Labeled Examples | Typical Ratio of Anomalies |
 | :--- | :--- | :--- | :--- |
-| **Training Set** | **Model Fitting** (Learn $P(\mathbf{x})$) | $\mathbf{x}^{(1)}, \mathbf{x}^{(2)}, \dots, \mathbf{x}^{(m)}$ | $y=0$ for all or almost all examples |
-| **Cross-Validation (CV) Set** | **Threshold Tuning** ($\varepsilon$) | $(\mathbf{x}_{\text{cv}}^{(i)}, y_{\text{cv}}^{(i)})$ for $i=1$ to $m_{\text{cv}}$ | Small number of $y=1$ (anomaly) examples |
-| **Test Set** | **Final Evaluation** (Measure performance) | $(\mathbf{x}_{\text{test}}^{(i)}, y_{\text{test}}^{(i)})$ for $i=1$ to $m_{\text{test}}$ | Small number of $y=1$ (anomaly) examples |
+| **Training Set** | **Model Fitting** (Learn $$P(\mathbf{x})$$) | $$\mathbf{x}^{(1)}, \mathbf{x}^{(2)}, \dots, \mathbf{x}^{(m)}$$ | $$y=0$$ for all or almost all examples |
+| **Cross-Validation (CV) Set** | **Threshold Tuning** ($\varepsilon$) | $$(\mathbf{x}_{\text{cv}}^{(i)}, y_{\text{cv}}^{(i)})$$ for $$i=1$$ to $$m_{\text{cv}}$$ | Small number of $$y=1$$ (anomaly) examples |
+| **Test Set** | **Final Evaluation** (Measure performance) | $$(\mathbf{x}_{\text{test}}^{(i)}, y_{\text{test}}^{(i)})$$ for $$i=1$$ to $$m_{\text{test}}$$ | Small number of $$y=1$$ (anomaly) examples |
 
 **Labels:**
 * $y=0$: Non-anomalous (normal) example.
