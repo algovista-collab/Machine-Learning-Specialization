@@ -143,10 +143,21 @@ in the CV set, compute
 $$P(\mathbf{x}_{\text{cv}}^{(i)})$$ 
 
 and make a prediction $$\hat{y}$$ based on the current $$\varepsilon$$:
-    * If $$P(\mathbf{x}_{\text{cv}}^{(i)}) < \varepsilon$$, then $$\hat{y}=1$$ (predicted anomaly).
-    * If $$P(\mathbf{x}_{\text{cv}}^{(i)}) \ge \varepsilon$$, then $$\hat{y}=0$$ (predicted normal).
+
+$$P(\mathbf{x}_{\text{cv}}^{(i)}) < \varepsilon$$, then $$\hat{y}=1$$ 
+
+(predicted anomaly)
+
+$$P(\mathbf{x}_{\text{cv}}^{(i)}) \ge \varepsilon$$, then $$\hat{y}=0$$ 
+
+(predicted normal)
+
 * **Evaluation Metric:** Because the datasets are highly skewed (many $$y=0$$, very few $$y=1$$), standard accuracy is usually insufficient. **F1-Score** or **Precision/Recall** are commonly used metrics to select the best $$\varepsilon$$.
-* **Selection:** Choose the value of $$\varepsilon$$ that maximizes the desired evaluation metric (e.g., the F1-Score) on the CV set.
+* **Selection:** Choose the value of
+
+$$\varepsilon$$ 
+
+that maximizes the desired evaluation metric (e.g., the F1-Score) on the CV set.
 
 ### 3. Testing and Final Performance Measurement
 * Use the **optimal $\varepsilon$** found in the CV step.
@@ -154,7 +165,9 @@ and make a prediction $$\hat{y}$$ based on the current $$\varepsilon$$:
 
 $$P(\mathbf{x}_{\text{test}}^{(i)})$$ 
 
-for every example in the **Test Set** and make predictions $\hat{y}_{\text{test}}$.
+for every example in the **Test Set** and make predictions
+
+$$\hat{y}_{\text{test}}$$
 
 * Calculate the final performance (F1-Score, Precision/Recall) on the Test Set.
 
