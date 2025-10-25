@@ -41,6 +41,7 @@ P(\mathbf{x}) = P(x_1; \mu_1, \sigma_1^2) \cdot P(x_2; \mu_2, \sigma_2^2) \cdot 
 $$
 
 This is compactly written using the product operator:
+
 $$
 P(\mathbf{x}) = \prod_{j=1}^{n} P(x_j; \mu_j, \sigma_j^2)
 $$
