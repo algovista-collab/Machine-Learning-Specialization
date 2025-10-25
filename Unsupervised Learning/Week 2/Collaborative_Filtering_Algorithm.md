@@ -90,9 +90,11 @@ To learn the movie features $\mathbf{x}^{(i)}$ (i.e., its "Romance score," "Acti
 
 ### Missing Parameters
 In the simple Content-Based approach for a single user $j$:
+
 $$
 \text{Minimize } J(\mathbf{w}^{(j)}, b^{(j)}) \text{ given } \mathbf{x}^{(i)}
 $$
+
 The problem is set up to only learn $\mathbf{w}^{(j)}$ and $b^{(j)}$. If you were to try to find $\mathbf{x}^{(i)}$ using *only* user $j$'s ratings, the features would be tailored only to user $j$'s preferences, not the movie's true characteristics as perceived by the community.
 
 ### Collaborative Filtering Solution
