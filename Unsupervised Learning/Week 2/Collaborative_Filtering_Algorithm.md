@@ -233,3 +233,76 @@ The problem is set up to only learn $\mathbf{w}^{(j)}$ and $b^{(j)}$. If you wer
 
 ### Collaborative Filtering Solution
 The cost function above solves this by including the ratings and parameters ($\mathbf{w}^{(j)}, b^{(j)}$) from **all relevant users** ($\sum_{j: r(i, j)=1}$). This forces the learned feature vector $\mathbf{x}^{(i)}$ to be a good predictor for **everyone** who has rated the movie, making it a true, community-driven representation of the movie's traits.
+
+## Mean Normalization
+
+Mean normalization is a technique used in **feature scaling** to ensure that all features have a mean value close to zero. This is often applied after or in conjunction with **feature scaling** (like dividing by the range or standard deviation) to help optimization algorithms converge faster.
+
+## 1. Mean Normalization Formula
+
+For a training set with $m$ examples, the mean-normalized value $x'_j^{(i)}$ of the $j$-th feature for the $i$-th example is calculated as:
+
+$$
+x'_j^{(i)} = \frac{x_j^{(i)} - \mu_j}{\sigma_j}
+$$
+
+| Symbol | Description |
+| :--- | :--- |
+| $x'_j^{(i)}$ | The **mean-normalized** value of the $j$-th feature for the $i$-th example. |
+| $x_j^{(i)}$ | The **original** value of the $j$-th feature for the $i$-th example. |
+| $\mu_j$ | The **mean (average)** value of all $m$ training examples for the $j$-th feature. |
+| $\sigma_j$ | A measure of feature magnitude, typically the **standard deviation** or the **range** (max - min) of the $j$-th feature. |
+
+## 2. Calculation of Parameters
+
+The parameters $\mu_j$ and $\sigma_j$ are calculated *only* from the **training data**.
+
+### A. Feature Mean ($\mu_j$)
+
+$$
+\mu_j = \frac{1}{m} \sum_{i=1}^{m} x_j^{(i)}
+$$
+
+### B. Scaling Factor ($\sigma_j$)
+
+The scaling factor $\sigma_j$ is typically one of the following:
+
+* **Standard Deviation ($\text{std}(x_j)$):** This is generally preferred when features already have a somewhat normal distribution.
+
+$$
+\sigma_j = \sqrt{\frac{1}{m} \sum_{i=1}^{m} (x_j^{(i)} - \mu_j)^2}
+$$
+
+* **Range ($R_j$):** The difference between the maximum and minimum values of the feature. This is sometimes used for simplicity.
+
+$$
+\sigma_j = \max(x_j) - \min(x_j)
+$$
+
+## 3. Effect and Purpose
+
+The resulting normalized feature $x'_j$ will have the following properties:
+
+1.  **Mean of Zero:** The average value of $x'_j$ across the training set will be $\approx 0$.
+2.  **Standardized Range:** The values will generally fall within the range of $[-1, 1]$.
+
+**Purpose:** Normalization ensures that all features contribute proportionally to the distance calculations and cost function. This prevents features with large natural scales (e.g., house size) from dominating features with small scales (e.g., number of bedrooms) and **speeds up the convergence of Gradient Descent**.
+
+## Squared Euclidean Distance
+
+Once a model is trained, the **squared distance** between two feature vectors gives an indication of how similar the corresponding items are in the feature space.
+
+The squared Euclidean distance between two vectors $\mathbf{x}^{(k)}$ and $\mathbf{x}^{(i)}$ is calculated as:
+
+$$
+\text{distance} = \| \mathbf{x}^{(k)} - \mathbf{x}^{(i)} \|^2 = \sum_{l=1}^{n} (x_l^{(k)} - x_l^{(i)})^2
+$$
+
+**Where:**
+* $\mathbf{x}^{(k)}$: The feature vector for item $k$.
+* $\mathbf{x}^{(i)}$: The feature vector for item $i$.
+* $n$: The number of features (or latent factors/dimensions).
+* $x_l^{(k)}$: The value of the $l$-th feature for item $k$.
+* $\| \cdot \|^2$: Denotes the **squared L2 norm** (Euclidean distance).
+
+<img width="1162" height="563" alt="image" src="https://github.com/user-attachments/assets/5f27936e-fd31-45d3-81ca-8b6cc5bf1159" />
