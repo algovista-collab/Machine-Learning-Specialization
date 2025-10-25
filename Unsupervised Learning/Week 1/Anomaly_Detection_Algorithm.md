@@ -102,3 +102,56 @@ is considered **Not an Anomaly**.
 | :--- | :--- |
 | $\mathbf{x}_{\text{test}}$ | A new, unseen example to be classified. |
 | $\varepsilon$ (Epsilon) | The probability threshold for flagging an anomaly. |
+
+# Evaluating Anomaly Detection Systems (Real-Number Evaluation)
+
+While Anomaly Detection is an **unsupervised learning** method (using unlabeled normal data for training), its performance is typically evaluated and its threshold ($\varepsilon$) tuned using a **labeled dataset** of both normal (non-anomalous) and anomalous examples.
+
+## Dataset Split for Evaluation
+
+We assume we have a single dataset that has been partitioned into three labeled subsets:
+
+| Dataset | Purpose | Labeled Examples | Typical Ratio of Anomalies |
+| :--- | :--- | :--- | :--- |
+| **Training Set** | **Model Fitting** (Learn $P(\mathbf{x})$) | $\mathbf{x}^{(1)}, \mathbf{x}^{(2)}, \dots, \mathbf{x}^{(m)}$ | $y=0$ for all or almost all examples |
+| **Cross-Validation (CV) Set** | **Threshold Tuning** ($\varepsilon$) | $(\mathbf{x}_{\text{cv}}^{(i)}, y_{\text{cv}}^{(i)})$ for $i=1$ to $m_{\text{cv}}$ | Small number of $y=1$ (anomaly) examples |
+| **Test Set** | **Final Evaluation** (Measure performance) | $(\mathbf{x}_{\text{test}}^{(i)}, y_{\text{test}}^{(i)})$ for $i=1$ to $m_{\text{test}}$ | Small number of $y=1$ (anomaly) examples |
+
+**Labels:**
+* $y=0$: Non-anomalous (normal) example.
+* $y=1$: Anomalous example.
+
+---
+
+## Evaluation Procedure
+
+### 1. Training the Model
+* Train the Anomaly Detection algorithm (e.g., Gaussian Distribution) **only** on the **Training Set**.
+* **Fit the Parameters:** Calculate the means ($\mu_j$) and variances ($\sigma_j^2$) for each feature $j$.
+    * *Note:* The training set is treated as purely non-anomalous ($y=0$), ensuring the model learns the probability distribution of normal events.
+
+### 2. Cross-Validation (CV) for Threshold Tuning ($\varepsilon$)
+The CV set is used to select the optimal threshold $\varepsilon$.
+
+* **Iteration:** Iterate through a range of possible values for $\varepsilon$ (e.g., $10^{-1}$ down to $10^{-20}$).
+* **Detection:** For each example $\mathbf{x}_{\text{cv}}^{(i)}$ in the CV set, compute $P(\mathbf{x}_{\text{cv}}^{(i)})$ and make a prediction $\hat{y}$ based on the current $\varepsilon$:
+    * If $P(\mathbf{x}_{\text{cv}}^{(i)}) < \varepsilon$, then $\hat{y}=1$ (predicted anomaly).
+    * If $P(\mathbf{x}_{\text{cv}}^{(i)}) \ge \varepsilon$, then $\hat{y}=0$ (predicted normal).
+* **Evaluation Metric:** Because the datasets are highly skewed (many $y=0$, very few $y=1$), standard accuracy is usually insufficient. **F1-Score** or **Precision/Recall** are commonly used metrics to select the best $\varepsilon$.
+* **Selection:** Choose the value of $\varepsilon$ that maximizes the desired evaluation metric (e.g., the F1-Score) on the CV set.
+
+### 3. Testing and Final Performance Measurement
+* Use the **optimal $\varepsilon$** found in the CV step.
+* Compute $P(\mathbf{x}_{\text{test}}^{(i)})$ for every example in the **Test Set** and make predictions $\hat{y}_{\text{test}}$.
+* Calculate the final performance (F1-Score, Precision/Recall) on the Test Set.
+
+---
+
+## When to Use Anomaly Detection vs. Supervised Learning
+
+| Situation | Anomaly Detection is Good | Supervised Learning is Good |
+| :--- | :--- | :--- |
+| **Positive Examples ($y=1$ anomalies)** | **Very Small Number** (e.g., 0-20 examples). | **Large Number** (enough to train a robust classifier). |
+| **Type of Anomalies** | **Many Different Types** of anomalies. | Anomalies are **likely to be similar** to those already seen. |
+| **Future Anomalies** | Future anomalies **look nothing like** any seen before. | Future anomalies are **similar** to the existing positive examples. |
+| **Example Applications** | Fraud detection, Manufacturing finding **new previously unseen defects**, Monitoring machines in a data center. | Email spam classification, Finding **known types of defects**, Weather prediction, Disease classification. |
