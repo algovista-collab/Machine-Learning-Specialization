@@ -103,7 +103,7 @@ is considered **Not an Anomaly**.
 | $\mathbf{x}_{\text{test}}$ | A new, unseen example to be classified. |
 | $\varepsilon$ (Epsilon) | The probability threshold for flagging an anomaly. |
 
-# Evaluating Anomaly Detection Systems (Real-Number Evaluation)
+## Evaluating Anomaly Detection Systems (Real-Number Evaluation)
 
 While Anomaly Detection is an **unsupervised learning** method (using unlabeled normal data for training), its performance is typically evaluated and its threshold ($\varepsilon$) tuned using a **labeled dataset** of both normal (non-anomalous) and anomalous examples.
 
