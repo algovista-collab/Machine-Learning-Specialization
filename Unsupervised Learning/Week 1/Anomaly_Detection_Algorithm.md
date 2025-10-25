@@ -73,7 +73,15 @@ Use the **Maximum Likelihood Estimation (MLE)** method on the training set $\mat
     $$
 
 ### Step 3: Anomaly Detection
-Given a **new example** $$\mathbf{x}_{\text{test}}$$, compute its probability $$P(\mathbf{x}_{\text{test}})$$ using the fitted parameters.
+Given a **new example** 
+
+$$\mathbf{x}_{\text{test}}$$
+
+compute its probability 
+
+$$P(\mathbf{x}_{\text{test}})$$ 
+
+using the fitted parameters.
 
 * **Anomaly Threshold ($\varepsilon$):** A predetermined small value (e.g., $10^{-5}$) used to define the boundary between normal and anomalous events.
 
