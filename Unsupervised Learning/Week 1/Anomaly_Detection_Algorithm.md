@@ -134,7 +134,15 @@ We assume we have a single dataset that has been partitioned into three labeled 
 The CV set is used to select the optimal threshold $\varepsilon$.
 
 * **Iteration:** Iterate through a range of possible values for $\varepsilon$ (e.g., $10^{-1}$ down to $10^{-20}$).
-* **Detection:** For each example $$\mathbf{x}_{\text{cv}}^{(i)}$$ in the CV set, compute $$P(\mathbf{x}_{\text{cv}}^{(i)})$$ and make a prediction $$\hat{y}$$ based on the current $$\varepsilon$$:
+* **Detection:** For each example
+
+$$\mathbf{x}_{\text{cv}}^{(i)}$$ 
+
+in the CV set, compute 
+
+$$P(\mathbf{x}_{\text{cv}}^{(i)})$$ 
+
+and make a prediction $$\hat{y}$$ based on the current $$\varepsilon$$:
     * If $$P(\mathbf{x}_{\text{cv}}^{(i)}) < \varepsilon$$, then $$\hat{y}=1$$ (predicted anomaly).
     * If $$P(\mathbf{x}_{\text{cv}}^{(i)}) \ge \varepsilon$$, then $$\hat{y}=0$$ (predicted normal).
 * **Evaluation Metric:** Because the datasets are highly skewed (many $$y=0$$, very few $$y=1$$), standard accuracy is usually insufficient. **F1-Score** or **Precision/Recall** are commonly used metrics to select the best $$\varepsilon$$.
