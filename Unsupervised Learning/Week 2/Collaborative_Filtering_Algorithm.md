@@ -114,7 +114,7 @@ To minimize the unified cost function $J$, we use **Gradient Descent**. The para
 
 We must compute the partial derivative of $J$ with respect to every single parameter: $w_k^{(j)}$, $b^{(j)}$, and $x_k^{(i)}$.
 
-Let $\mathbf{e}^{(i, j)}$ be the prediction error for rating $(i, j)$:
+Let $$\mathbf{e}^{(i, j)}$$ be the prediction error for rating $(i, j)$:
 $$
 \mathbf{e}^{(i, j)} = (\mathbf{w}^{(j)})^T \mathbf{x}^{(i)} + b^{(j)} - y^{(i, j)}
 $$
@@ -160,11 +160,13 @@ $$
 The model predicts the **probability** that the output is $y=1$. This is achieved by using the **Logistic Function (Sigmoid)**, $\sigma(z)$, which maps any real-valued input $z$ to a probability between 0 and 1.
 
 Given an input $\mathbf{x}$ and learned parameters $\mathbf{w}$ and $b$:
+
 $$
 z = \mathbf{w}^T \mathbf{x} + b
 $$
 
 The predicted probability $\hat{y}$ is:
+
 $$
 \hat{y} = P(y=1 | \mathbf{x}) = g(z) = \frac{1}{1 + e^{-z}}
 $$
