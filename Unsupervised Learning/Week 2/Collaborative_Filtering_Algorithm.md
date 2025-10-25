@@ -1,6 +1,6 @@
 # Collaborative Filtering: Content-Based Approach
 
-In the Content-Based approach to Collaborative Filtering, we assume that features describing each item (e.g., movie genres) are known. We then learn a set of parameters for each user to predict their rating for any given item.
+In the Content-Based approach to Collaborative Filtering, we assume that features describing each item (e.g., movie genres) are known. We then learn a set of parameters for each user to predict their rating for any given item. It is gathering of data from multiple users to predict the value for future users.
 
 ## 1. Notation and Variables
 
