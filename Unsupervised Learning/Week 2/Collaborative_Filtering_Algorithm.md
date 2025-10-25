@@ -267,7 +267,7 @@ $$
 
 The scaling factor $\sigma_j$ is typically one of the following:
 
-* **Standard Deviation ($\text{std}(x_j)$):** This is generally preferred when features already have a somewhat normal distribution.
+* **Standard Deviation ($$\text{std}(x_j)$$):** This is generally preferred when features already have a somewhat normal distribution.
 
 $$
 \sigma_j = \sqrt{\frac{1}{m} \sum_{i=1}^{m} (x_j^{(i)} - \mu_j)^2}
@@ -281,9 +281,9 @@ $$
 
 ## 3. Effect and Purpose
 
-The resulting normalized feature $x'_j$ will have the following properties:
+The resulting normalized feature $$x_j$$ will have the following properties:
 
-1.  **Mean of Zero:** The average value of $x'_j$ across the training set will be $\approx 0$.
+1.  **Mean of Zero:** The average value of $$x_j$$ across the training set will be $\approx 0$.
 2.  **Standardized Range:** The values will generally fall within the range of $[-1, 1]$.
 
 **Purpose:** Normalization ensures that all features contribute proportionally to the distance calculations and cost function. This prevents features with large natural scales (e.g., house size) from dominating features with small scales (e.g., number of bedrooms) and **speeds up the convergence of Gradient Descent**.
