@@ -142,7 +142,12 @@ The CV set is used to select the optimal threshold $\varepsilon$.
 
 ### 3. Testing and Final Performance Measurement
 * Use the **optimal $\varepsilon$** found in the CV step.
-* Compute $P(\mathbf{x}_{\text{test}}^{(i)})$ for every example in the **Test Set** and make predictions $\hat{y}_{\text{test}}$.
+* Compute
+
+$$P(\mathbf{x}_{\text{test}}^{(i)})$$ 
+
+for every example in the **Test Set** and make predictions $\hat{y}_{\text{test}}$.
+
 * Calculate the final performance (F1-Score, Precision/Recall) on the Test Set.
 
 ---
