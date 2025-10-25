@@ -1,0 +1,87 @@
+# Anomaly Detection Algorithm using Density Estimation
+
+Anomaly Detection is an **unsupervised learning technique** that models a dataset of **normal events** and identifies events that deviate significantly from this model.
+
+## Core Idea: Density Estimation
+
+The algorithm models the probability distribution $P(\mathbf{x})$ of the features in the normal training data. Events with a very low probability are flagged as anomalies.
+
+### Dataset and Feature Representation
+* **Dataset:** $\mathcal{D} = \{ \mathbf{x}^{(1)}, \mathbf{x}^{(2)}, \dots, \mathbf{x}^{(m)} \}$
+    * $m$: Number of training examples (normal events).
+    * $\mathbf{x}^{(i)}$: The $i^{th}$ training example, which is an $n$-dimensional **feature vector**.
+    * $n$: Number of features.
+    * $\mathbf{x}^{(i)} = [x_1^{(i)}, x_2^{(i)}, \dots, x_n^{(i)}]^T$
+
+---
+
+## The Model: Multivariate Gaussian Distribution (Simplified)
+
+The algorithm assumes that each feature $x_j$ is independently distributed according to a **Gaussian (Normal) distribution**.
+
+### 1. Gaussian Probability Density Function (PDF)
+The probability of a single feature $x$ is given by:
+
+$$
+P(x; \mu, \sigma^2) = \frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{(x - \mu)^2}{2 \sigma^2}}
+$$
+
+| Symbol | Meaning |
+| :--- | :--- |
+| $P(x; \mu, \sigma^2)$ | Probability density of $x$, given parameters $\mu$ and $\sigma^2$. |
+| $\mu$ | The **mean** of the feature's values. |
+| $\sigma^2$ | The **variance** of the feature's values ($\sigma$ is the standard deviation). |
+| $e$ | Euler's number (approx. 2.71828). |
+
+### 2. Probability of a Feature Vector $\mathbf{x}$
+Assuming **feature independence**, the probability of an entire feature vector $\mathbf{x} = [x_1, x_2, \dots, x_n]^T$ is the **product** of the probabilities of its individual features:
+
+$$
+P(\mathbf{x}) = P(x_1; \mu_1, \sigma_1^2) \cdot P(x_2; \mu_2, \sigma_2^2) \cdot \ldots \cdot P(x_n; \mu_n, \sigma_n^2)
+$$
+
+This is compactly written using the product operator:
+$$
+P(\mathbf{x}) = \prod_{j=1}^{n} P(x_j; \mu_j, \sigma_j^2)
+$$
+
+| Symbol | Meaning |
+| :--- | :--- |
+| $P(\mathbf{x})$ | Estimated probability of the vector $\mathbf{x}$. |
+| $\prod_{j=1}^{n}$ | The product of terms from $j=1$ to $n$. |
+| $\mu_j$ | The mean of the $j^{th}$ feature ($x_j$). |
+| $\sigma_j^2$ | The variance of the $j^{th}$ feature ($x_j$). |
+
+---
+
+## Anomaly Detection Algorithm Steps
+
+### Step 1: Feature Selection
+**Choose $n$ features** ($\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_n$) that are likely to be indicative of an anomalous example.
+
+### Step 2: Parameter Fitting
+Use the **Maximum Likelihood Estimation (MLE)** method on the training set $\mathcal{D}$ to fit the Gaussian parameters ($\mu_j$ and $\sigma_j^2$) for **each feature $j$ independently**:
+
+* **Mean ($\mu_j$):** The average value of feature $j$ across all $m$ examples.
+    $$
+    \mu_j = \frac{1}{m} \sum_{i=1}^{m} x_j^{(i)}
+    $$
+
+* **Variance ($\sigma_j^2$):** The average squared difference between $x_j$ and its mean.
+    $$
+    \sigma_j^2 = \frac{1}{m} \sum_{i=1}^{m} (x_j^{(i)} - \mu_j)^2
+    $$
+
+### Step 3: Anomaly Detection
+Given a **new example** $\mathbf{x}_{\text{test}}$, compute its probability $P(\mathbf{x}_{\text{test}})$ using the fitted parameters.
+
+* **Anomaly Threshold ($\varepsilon$):** A predetermined small value (e.g., $10^{-5}$) used to define the boundary between normal and anomalous events.
+
+* **Decision Rule:**
+    * If $P(\mathbf{x}_{\text{test}}) < \varepsilon \implies \mathbf{x}_{\text{test}}$ is flagged as an **Anomaly** (Red Flag).
+    * If $P(\mathbf{x}_{\text{test}}) \ge \varepsilon \implies \mathbf{x}_{\text{test}}$ is considered **Not an Anomaly**.
+
+| Symbol | Meaning |
+| :--- | :--- |
+| $\mathbf{x}_{\text{test}}$ | A new, unseen example to be classified. |
+| $\varepsilon$ (Epsilon) | The probability threshold for flagging an anomaly. |
