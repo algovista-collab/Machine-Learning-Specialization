@@ -78,11 +78,10 @@ Given a **new example** $$\mathbf{x}_{\text{test}}$$, compute its probability $$
 * **Anomaly Threshold ($\varepsilon$):** A predetermined small value (e.g., $10^{-5}$) used to define the boundary between normal and anomalous events.
 
 * **Decision Rule:**
-    * If
+
 $$P(\mathbf{x}_{\text{test}}) < \varepsilon \implies \mathbf{x}_{\text{test}}$$
 
 is flagged as an **Anomaly** (Red Flag).
-    * If 
 
 $$P(\mathbf{x}_{\text{test}}) \ge \varepsilon \implies \mathbf{x}_{\text{test}}$$ 
 
