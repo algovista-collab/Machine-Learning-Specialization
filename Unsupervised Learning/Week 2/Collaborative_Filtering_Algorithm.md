@@ -28,7 +28,7 @@ $$
 
 ## 3. Cost Function for a Single User ($j$)
 
-The objective is to find the parameters $\mathbf{w}^{(j)}$ and $b^{(j)}$ that minimize the squared error between the predicted ratings and the actual ratings for all movies *rated by user $j$*, plus a regularization term.
+The objective is to find the parameters $\mathbf{w}^{(j)}$ and $b^{(j)}$ that minimize the squared error between the predicted ratings and the actual ratings for all movies *rated by user j*, plus a regularization term.
 
 $$
 J(\mathbf{w}^{(j)}, b^{(j)}) = \frac{1}{2 m_j} \sum_{i: r(i, j)=1} \left( (\mathbf{w}^{(j)})^T \mathbf{x}^{(i)} + b^{(j)} - y^{(i, j)} \right)^2 + \frac{\lambda}{2 m_j} \sum_{k=1}^{n} (w_k^{(j)})^2
@@ -36,7 +36,7 @@ $$
 
 **Note:**
 * The summation $\sum_{i: r(i, j)=1}$ means we are **summing only over the movies $i$ that user $j$ has actually rated**.
-* This cost function is used to learn the parameters $\mathbf{w}^{(j)}$ and $b^{(j)}$ for a *single user $j$*.
+* This cost function is used to learn the parameters $\mathbf{w}^{(j)}$ and $b^{(j)}$ for a *single user j*.
 * **Regularization Term:** $\frac{\lambda}{2 m_j} \sum_{k=1}^{n} (w_k^{(j)})^2$ prevents overfitting by penalizing large parameter values. The bias term $b^{(j)}$ is typically **not** included in this regularization, but it is sometimes regularized in practice.
 
 ---
