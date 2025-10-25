@@ -61,7 +61,7 @@ $$
 **Choose $n$ features** ($\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_n$) that are likely to be indicative of an anomalous example.
 
 ### Step 2: Parameter Fitting
-Use the **Maximum Likelihood Estimation (MLE)** method on the training set $$\mathcal{D}$$ to fit the Gaussian parameters ($$\mu_j$ and $\sigma_j^2$$) for **each feature $$j$$ independently**:
+Use the **Maximum Likelihood Estimation (MLE)** method on the training set $$\mathcal{D}$$ to fit the Gaussian parameters ($$\mu_j$$ and $$\sigma_j^2$$) for **each feature $$j$$ independently**:
 
 * **Mean ($$\mu_j$$):** The average value of feature $j$ across all $m$ examples.
 
