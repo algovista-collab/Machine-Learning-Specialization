@@ -181,3 +181,28 @@ $$\hat{y}_{\text{test}}$$
 | **Type of Anomalies** | **Many Different Types** of anomalies. | Anomalies are **likely to be similar** to those already seen. |
 | **Future Anomalies** | Future anomalies **look nothing like** any seen before. | Future anomalies are **similar** to the existing positive examples. |
 | **Example Applications** | Fraud detection, Manufacturing finding **new previously unseen defects**, Monitoring machines in a data center. | Email spam classification, Finding **known types of defects**, Weather prediction, Disease classification. |
+
+## Practical Tips for Gaussian Anomaly Detection
+
+### 1. Transforming Non-Gaussian Distributions
+
+**Note:** If the distribution of a feature is **not Gaussian**, we can apply a transformation to make it more closely approximate a Normal distribution. This helps the density estimation model (which relies on the Gaussian PDF) fit the data better.
+
+* **Example Transformations:**
+    * Logarithm: `np.log(x)`
+    * Square root: `np.sqrt(x)`
+    * Other power functions.
+
+### 2. Creating Mixed/Combined Features
+
+We may also have to **mix the features**, for example, $x_1/x_2$, if their relationship together indicates an anomaly rather than the features individually.
+
+* **Example:** If the ratio of two features ($x_1/x_2$) is anomalous, but $x_1$ and $x_2$ individually are within their normal ranges, then the algorithm should be run on the original features plus the new derived feature ($x_{\text{new}} = x_1/x_2$).
+
+<img width="495" height="360" alt="Screenshot 2025-10-25 085216" src="https://github.com/user-attachments/assets/253c2850-e9c7-41b4-95c1-a577dc10577a" />
+
+<img width="895" height="492" alt="Screenshot 2025-10-25 085812" src="https://github.com/user-attachments/assets/1a5e247e-adb6-4575-8fd8-3dde62d96687" />
+
+<img width="420" height="494" alt="Screenshot 2025-10-25 092440" src="https://github.com/user-attachments/assets/76f70eff-8181-4eb2-ae1f-a466199ecb23" />
+
+
