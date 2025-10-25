@@ -115,6 +115,7 @@ To minimize the unified cost function $J$, we use **Gradient Descent**. The para
 We must compute the partial derivative of $J$ with respect to every single parameter: $w_k^{(j)}$, $b^{(j)}$, and $x_k^{(i)}$.
 
 Let $$\mathbf{e}^{(i, j)}$$ be the prediction error for rating $(i, j)$:
+
 $$
 \mathbf{e}^{(i, j)} = (\mathbf{w}^{(j)})^T \mathbf{x}^{(i)} + b^{(j)} - y^{(i, j)}
 $$
