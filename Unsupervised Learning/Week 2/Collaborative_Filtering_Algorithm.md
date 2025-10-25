@@ -240,15 +240,15 @@ Mean normalization is a technique used in **feature scaling** to ensure that all
 
 ## 1. Mean Normalization Formula
 
-For a training set with $m$ examples, the mean-normalized value $x'_j^{(i)}$ of the $j$-th feature for the $i$-th example is calculated as:
+For a training set with $m$ examples, the mean-normalized value $$x'_j^{(i)}$$ of the $$j$$-th feature for the $$i$$-th example is calculated as:
 
 $$
-x'_j^{(i)} = \frac{x_j^{(i)} - \mu_j}{\sigma_j}
+x_j^{(i)} = \frac{x_j^{(i)} - \mu_j}{\sigma_j}
 $$
 
 | Symbol | Description |
 | :--- | :--- |
-| $x'_j^{(i)}$ | The **mean-normalized** value of the $j$-th feature for the $i$-th example. |
+| $x_j^{(i)}$ | The **mean-normalized** value of the $j$-th feature for the $i$-th example. |
 | $x_j^{(i)}$ | The **original** value of the $j$-th feature for the $i$-th example. |
 | $\mu_j$ | The **mean (average)** value of all $m$ training examples for the $j$-th feature. |
 | $\sigma_j$ | A measure of feature magnitude, typically the **standard deviation** or the **range** (max - min) of the $j$-th feature. |
