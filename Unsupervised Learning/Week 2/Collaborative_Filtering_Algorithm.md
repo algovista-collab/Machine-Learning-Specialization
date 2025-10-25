@@ -79,7 +79,138 @@ $$
 
 ---
 
-## 3. Why We Can't Predict $\mathbf{x}$ in Simple Linear Regression
+## 3. Collaborative Filtering: Unified Cost Function
+
+The unified objective is to find the parameters for **all users** ($\mathbf{w}^{(1)}, \dots, \mathbf{w}^{(n_u)}, b^{(1)}, \dots, b^{(n_u)}$) and the feature vectors for **all movies** ($\mathbf{x}^{(1)}, \dots, \mathbf{x}^{(n_m)}$) that minimize the total prediction error.
+
+## Unified Cost Function
+
+The cost function $J$ is the sum of the squared prediction errors across all known ratings, plus regularization terms for both the user parameters and the movie features.
+
+$$
+J(\mathbf{x}^{(1)}, \dots, \mathbf{x}^{(n_m)}, \mathbf{w}^{(1)}, \dots, \mathbf{w}^{(n_u)}, b^{(1)}, \dots, b^{(n_u)}) =
+$$
+
+$$
+\frac{1}{2} \sum_{(i, j): r(i, j)=1} \left( (\mathbf{w}^{(j)})^T \mathbf{x}^{(i)} + b^{(j)} - y^{(i, j)} \right)^2
+$$
+
+$$
++ \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^{n} (w_k^{(j)})^2
++ \frac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^{n} (x_k^{(i)})^2
+$$
+
+**Where:**
+* $\sum_{(i, j): r(i, j)=1}$: Sums over **all pairs** $(i, j)$ where user $j$ has rated movie $i$. This is the total number of known ratings.
+* The first term is the **total squared prediction error**.
+* The second term is the **regularization for user parameters** $\mathbf{w}$.
+* The third term is the **regularization for movie features** $\mathbf{x}$.
+
+---
+
+## 4. Gradient Descent Formulas
+
+To minimize the unified cost function $J$, we use **Gradient Descent**. The parameters are updated iteratively by moving in the direction opposite to the gradient.
+
+We must compute the partial derivative of $J$ with respect to every single parameter: $w_k^{(j)}$, $b^{(j)}$, and $x_k^{(i)}$.
+
+Let $\mathbf{e}^{(i, j)}$ be the prediction error for rating $(i, j)$:
+$$
+\mathbf{e}^{(i, j)} = (\mathbf{w}^{(j)})^T \mathbf{x}^{(i)} + b^{(j)} - y^{(i, j)}
+$$
+
+### 1. Update Rule for Movie Feature $x_k^{(i)}$ (for a specific feature $k$ of movie $i$)
+$$
+x_k^{(i)} := x_k^{(i)} - \alpha \frac{\partial}{\partial x_k^{(i)}} J
+$$
+
+$$
+\frac{\partial}{\partial x_k^{(i)}} J = \sum_{j: r(i, j)=1} \left( \mathbf{e}^{(i, j)} \cdot w_k^{(j)} \right) + \lambda x_k^{(i)}
+$$
+
+### 2. Update Rule for User Parameter $w_k^{(j)}$ (for a specific feature $k$ of user $j$)
+$$
+w_k^{(j)} := w_k^{(j)} - \alpha \frac{\partial}{\partial w_k^{(j)}} J
+$$
+
+$$
+\frac{\partial}{\partial w_k^{(j)}} J = \sum_{i: r(i, j)=1} \left( \mathbf{e}^{(i, j)} \cdot x_k^{(i)} \right) + \lambda w_k^{(j)}
+$$
+
+### 3. Update Rule for User Bias $b^{(j)}$ (Bias term for user $j$)
+$$
+b^{(j)} := b^{(j)} - \alpha \frac{\partial}{\partial b^{(j)}} J
+$$
+
+$$
+\frac{\partial}{\partial b^{(j)}} J = \sum_{i: r(i, j)=1} \left( \mathbf{e}^{(i, j)} \right)
+$$
+
+**Where:**
+* $\alpha$ is the **learning rate** (step size).
+* The summations only include the terms for which a rating exists ($r(i, j)=1$).
+* The terms $+\lambda x_k^{(i)}$ and $+\lambda w_k^{(j)}$ come from the derivative of the regularization terms. **Note:** The bias term $b^{(j)}$ is typically **not** regularized (hence no $\lambda$ term in its derivative).
+
+---
+
+## 5. Binary Classification: Model and Cost Function
+
+## 1. Model Prediction (The Logistic Function)
+
+The model predicts the **probability** that the output is $y=1$. This is achieved by using the **Logistic Function (Sigmoid)**, $\sigma(z)$, which maps any real-valued input $z$ to a probability between 0 and 1.
+
+Given an input $\mathbf{x}$ and learned parameters $\mathbf{w}$ and $b$:
+$$
+z = \mathbf{w}^T \mathbf{x} + b
+$$
+
+The predicted probability $\hat{y}$ is:
+$$
+\hat{y} = P(y=1 | \mathbf{x}) = g(z) = \frac{1}{1 + e^{-z}}
+$$
+
+| Symbol | Description |
+| :--- | :--- |
+| $\mathbf{x}$ | Input feature vector. |
+| $\mathbf{w}$ | Weight vector (parameters). |
+| $b$ | Bias term (parameter). |
+| $z$ | The linear combination of inputs and weights. |
+| $\hat{y}$ | The model's predicted probability that the label is $y=1$. |
+| $e$ | Euler's number (base of the natural logarithm). |
+
+---
+
+## 2. Cost Function (Binary Cross-Entropy Loss / Log Loss)
+
+For a single training example $(\mathbf{x}, y)$, the loss $L(\hat{y}, y)$ measures how far the predicted probability $\hat{y}$ is from the true label $y$.
+
+$$
+L(\hat{y}, y) = - [y \log(\hat{y}) + (1 - y) \log(1 - \hat{y})]
+$$
+
+### How the Loss Function Works:
+
+* **If the true label $y=1$:** The loss simplifies to $-\log(\hat{y})$. To minimize loss, $\hat{y}$ must be close to 1.
+* **If the true label $y=0$:** The loss simplifies to $-\log(1 - \hat{y})$. To minimize loss, $\hat{y}$ must be close to 0 (i.e., $1 - \hat{y}$ must be close to 1).
+
+## 3. Overall Cost Function (J)
+
+The overall cost function $J(\mathbf{w}, b)$ is the average of the loss over all $m$ training examples:
+
+$$
+J(\mathbf{w}, b) = - \frac{1}{m} \sum_{i=1}^{m} [y^{(i)} \log(\hat{y}^{(i)}) + (1 - y^{(i)}) \log(1 - \hat{y}^{(i)})]
+$$
+
+| Symbol | Description |
+| :--- | :--- |
+| $m$ | Total number of training examples. |
+| $y^{(i)}$ | True label for the $i$-th example (either 0 or 1). |
+| $\hat{y}^{(i)}$ | Predicted probability for the $i$-th example. |
+| $\sum_{i=1}^{m}$ | Summation over all training examples. |
+
+---
+
+## 6. Why We Can't Predict $\mathbf{x}$ in Simple Linear Regression
 
 In standard **Linear Regression** (or the Content-Based approach), when we learn user parameters $\mathbf{w}^{(j)}$, we assume the movie features $\mathbf{x}^{(i)}$ are **fixed and known**.
 
