@@ -75,8 +75,8 @@ The goal is to generate a large, plausible list of candidate items ($100s$ or $1
 
 The goal is to take the list of candidates from Retrieval and **rank them accurately** to show the user the most relevant items first. This uses the more complex, learned model.
 
-* **Process:** For every candidate movie $i$ in the retrieved list, the full learned model is used to compute the precise predicted rating: $\hat{y}^{(i, j)} = g\left( (\mathbf{v}_{\text{u}}^{(j)})^T \mathbf{v}_{\text{m}}^{(i)} \right)$.
-* **Display:** The candidates are sorted by their predicted rating $\hat{y}^{(i, j)}$ and the top $N$ items are displayed to the user.
+* **Process:** For every candidate movie $i$ in the retrieved list, the full learned model is used to compute the precise predicted rating: $$\hat{y}^{(i, j)} = g\left( (v_{\text{u}}^{(j)})^T v_{\text{m}}^{(i)} \right)$$.
+* **Display:** The candidates are sorted by their predicted rating $$\hat{y}^{(i, j)}$$ and the top $N$ items are displayed to the user.
 
 ### Optimizing the Trade-Off
 
