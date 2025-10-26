@@ -51,7 +51,7 @@ A useful outcome of this approach is the ability to find items similar to a give
 The similarity between movie $i$ and movie $k$ is inversely related to their **squared Euclidean distance**:
 
 $$
-\text{Similarity} \propto \frac{1}{\| \mathbf{v}_{\text{m}}^{(k)} - \mathbf{v}_{\text{m}}^{(i)} \|^2}
+\text{Similarity} \propto \frac{1}{\| v_{\text{m}}^{(k)} - v_{\text{m}}^{(i)} \|^2}
 $$
 
 * **Pre-computation:** The similarity values for all pairs of movies ($\mathbf{v}_{\text{m}}^{(k)}$ vs. $\mathbf{v}_{\text{m}}^{(i)}$) can be **pre-computed ahead of time** to speed up retrieval during live recommendations.
