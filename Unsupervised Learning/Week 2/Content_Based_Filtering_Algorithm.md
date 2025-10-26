@@ -1,6 +1,7 @@
 # Content-Based Filtering with Neural Networks
 
 Content-Based Filtering recommends items based on matching the **features of a user** to the **features of an item**. By using a neural network, this approach can learn complex, non-linear relationships between users and items to generate accurate predictions.
+So instead of looking at what other users like (that’s Collaborative Filtering), it looks at what this user likes — and finds other items with similar content.
 
 ## 1. Feature Representation and Prediction Model
 
