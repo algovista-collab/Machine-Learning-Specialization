@@ -24,6 +24,10 @@ PCA essentially rotates the coordinate system to align with the directions of ma
 * **Projection:** The original data examples (e.g., 5 examples with features $x_1$ and $x_2$) are **projected** onto this new $z$-axis.
 * **Maximum Variance:** The goal is to choose a $z$-axis such that the variance of the projected points (their spread or distance from the new origin) is the largest possible. A large variance means the principal component retains most of the useful information from the original two dimensions.
 
+<img width="515" height="370" alt="image" src="https://github.com/user-attachments/assets/6c9b4873-cce9-4fdd-86bf-bfde3686e6c9" />
+
+<img width="520" height="294" alt="Screenshot 2025-10-26 162829" src="https://github.com/user-attachments/assets/fc9d9a9d-b966-4749-a894-5180a756dac2" />
+
 ---
 
 ## PCA in Practice (scikit-learn Workflow)
