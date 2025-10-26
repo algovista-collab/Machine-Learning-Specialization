@@ -6,7 +6,7 @@ Content-Based Filtering recommends items based on matching the **features of a u
 
 The core of the neural network architecture is to transform the potentially high-dimensional and disparate feature vectors of users and movies into **low-dimensional, unified embedding vectors** 
 
-$$\mathbf{v}_{\text{u}}^{(j)}$ and $\mathbf{v}_{\text{m}}^{(i)}$$
+$$\mathbf{v}_{\text{u}}^{(j)}$$ and $$\mathbf{v}_{\text{m}}^{(i)}$$
 
 | Vector | Description | Example Dimension |
 | :--- | :--- | :--- |
