@@ -28,8 +28,8 @@ $$
 
 The architecture uses separate neural network paths for the user features and the movie features:
 
-1.  **User Path:** $$\x_{\text{u}}^{(j)}$$ is fed into a sequence of layers (e.g., Dense layers, ReLU activation) to output the user embedding vector $$\mathbf{v}_{\text{u}}^{(j)}$$.
-2.  **Movie Path:** $$\x_{\text{m}}^{(i)}$$ is fed into its own sequence of layers to output the movie embedding vector $$\mathbf{v}_{\text{m}}^{(i)}$$.
+1.  **User Path:** $$x_{\text{u}}^{(j)}$$ is fed into a sequence of layers (e.g., Dense layers, ReLU activation) to output the user embedding vector $$\mathbf{v}_{\text{u}}^{(j)}$$.
+2.  **Movie Path:** $$x_{\text{m}}^{(i)}$$ is fed into its own sequence of layers to output the movie embedding vector $$\mathbf{v}_{\text{m}}^{(i)}$$.
 3.  **Output:** The two final vectors, $$v_{\text{u}}^{(j)}$$ and $$v_{\text{m}}^{(i)}$$, must have the **same dimension** (e.g., 32) so their dot product can be computed.
 
 ## 3. Cost Function (Loss)
