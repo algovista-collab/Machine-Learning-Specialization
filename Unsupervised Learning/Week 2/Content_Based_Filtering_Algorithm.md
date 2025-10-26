@@ -4,7 +4,9 @@ Content-Based Filtering recommends items based on matching the **features of a u
 
 ## 1. Feature Representation and Prediction Model
 
-The core of the neural network architecture is to transform the potentially high-dimensional and disparate feature vectors of users and movies into **low-dimensional, unified embedding vectors** ($\mathbf{v}_{\text{u}}^{(j)}$ and $\mathbf{v}_{\text{m}}^{(i)}$).
+The core of the neural network architecture is to transform the potentially high-dimensional and disparate feature vectors of users and movies into **low-dimensional, unified embedding vectors** 
+
+$$\mathbf{v}_{\text{u}}^{(j)}$ and $\mathbf{v}_{\text{m}}^{(i)}$$
 
 | Vector | Description | Example Dimension |
 | :--- | :--- | :--- |
