@@ -54,7 +54,7 @@ $$
 \text{Similarity} \propto \frac{1}{\| v_{\text{m}}^{(k)} - v_{\text{m}}^{(i)} \|^2}
 $$
 
-* **Pre-computation:** The similarity values for all pairs of movies ($\mathbf{v}_{\text{m}}^{(k)}$ vs. $\mathbf{v}_{\text{m}}^{(i)}$) can be **pre-computed ahead of time** to speed up retrieval during live recommendations.
+* **Pre-computation:** The similarity values for all pairs of movies ($$v_{\text{m}}^{(k)}$$ vs. $$v_{\text{m}}^{(i)}$$) can be **pre-computed ahead of time** to speed up retrieval during live recommendations.
 
 ---
 
