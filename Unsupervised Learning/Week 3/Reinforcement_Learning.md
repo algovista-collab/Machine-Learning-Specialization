@@ -226,7 +226,9 @@ $$\max_{a'} Q^*(S_B, a') = \max(15, 25, 10) = \mathbf{25}$$
 
 **Step 2: Apply the Bellman Equation to find $$Q^*(S_A, a_1)$$**
 
-$$Q^*(S_A, a_1) = R(S_A, a_1) + \gamma \max{a'} Q^*(S_B, a')$$
+$$
+Q^*(S_A, a_1) = R(S_A, a_1) + \gamma \max_{a'} Q^*(S_B, a')
+$$
 
 $$Q^*(S_A, a_1) = 5 + 0.9 \cdot 25$$
 
