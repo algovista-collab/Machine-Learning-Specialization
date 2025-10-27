@@ -223,10 +223,14 @@ $$Q^*(s, a) = R(s, a) + \gamma \cdot \max_{a'} Q^*(s', a')$$
 The optimal future value is the maximum Q-value in the successor state $S_B$:
 $$\max_{a'} Q^*(S_B, a') = \max(15, 25, 10) = \mathbf{25}$$
 
-**Step 2: Apply the Bellman Equation to find $Q^*(S_A, a_1)$**
+**Step 2: Apply the Bellman Equation to find $$Q^*(S_A, a_1)$$**
+
 $$Q^*(S_A, a_1) = R(S_A, a_1) + \gamma \cdot \max_{a'} Q^*(S_B, a')$$
+
 $$Q^*(S_A, a_1) = 5 + 0.9 \cdot 25$$
+
 $$Q^*(S_A, a_1) = 5 + 22.5$$
+
 $$Q^*(S_A, a_1) = \mathbf{27.5}$$
 
 **Interpretation:**
