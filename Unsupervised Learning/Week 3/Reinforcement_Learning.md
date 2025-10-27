@@ -144,7 +144,7 @@ The **State-Action Value Function** $Q(s, a)$ is the expected **Return** ($G_t$)
 
 The $Q$-function allows the agent to make the best possible decision in any given state.
 
-**Optimal Value Function ($V^*(s)$):**
+**Optimal Value Function ($$V^*(s)$$):**
 The best possible return achievable from state $s$ is the maximum $Q$-value over all possible actions $a$ from that state.
 $$V^*(s) = \max_{a} Q(s, a)$$
 
@@ -156,11 +156,11 @@ $$\pi^*(s) = \arg \max_{a} Q(s, a)$$
 
 ## Example (Using $$\gamma=0.5$$ from prior context)
 
-| State | Action | $Q(s, a)$ Calculation | $Q(s, a)$ Value |
+| State | Action | $$Q(s, a)$$ Calculation | $$Q(s, a)$$ Value |
 | :---: | :---: | :--- | :--- |
 | **2** | Left ($\leftarrow$) | $R_{t+1}(100)$ | $\mathbf{50}$ |
 | **2** | Right ($\rightarrow$) | $R_{t+1}(0) + \gamma \cdot V^*(3) = 0 + 0.5 \cdot 25$ | $12.5$ |
 
 **Decision for State 2:**
-* **$V^*(2)$** = $\max (50, 12.5) = \mathbf{50}$
-* **$\pi^*(2)$** = The action that gives 50, which is **Left ($\leftarrow$)**
+* **$$V^*(2)$$** = $$\max (50, 12.5) = \mathbf{50}$$
+* **$$\pi^*(2)$$** = The action that gives 50, which is **Left ($$\leftarrow$$)**
