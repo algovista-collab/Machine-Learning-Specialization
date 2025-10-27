@@ -125,11 +125,11 @@ The foundation of most Reinforcement Learning problems is the Markov Decision Pr
 
 ---
 
-## 2. State-Action Value Function ($Q(s, a)$)
+## 2. State-Action Value Function ($$Q(s, a)$$)
 
 The $Q$-function is central to many RL algorithms (like Q-Learning). It estimates the "quality" of taking a specific action in a specific state.
 
-**Definition: $Q(s, a)$**
+**Definition: $$Q(s, a)$$**
 
 The **State-Action Value Function** $Q(s, a)$ is the expected **Return** ($G_t$) achieved if the agent:
 1.  **Starts** in state $s$.
@@ -140,7 +140,7 @@ The **State-Action Value Function** $Q(s, a)$ is the expected **Return** ($G_t$)
 
 ---
 
-## 3. Optimal Decision Making
+## Optimal Decision Making
 
 The $Q$-function allows the agent to make the best possible decision in any given state.
 
@@ -154,7 +154,7 @@ $$\pi^*(s) = \arg \max_{a} Q(s, a)$$
 
 ---
 
-## Example (Using $\gamma=0.5$ from prior context)
+## Example (Using $$\gamma=0.5$$ from prior context)
 
 | State | Action | $Q(s, a)$ Calculation | $Q(s, a)$ Value |
 | :---: | :---: | :--- | :--- |
