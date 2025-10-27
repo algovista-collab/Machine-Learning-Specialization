@@ -169,3 +169,65 @@ $$\pi^*(s) = \arg \max_{a} Q(s, a)$$
 
 <img width="798" height="285" alt="Screenshot 2025-10-27 095047" src="https://github.com/user-attachments/assets/c0def647-6170-42f8-a45e-a9596c860078" />
 
+## The Bellman Equation
+
+The Bellman Equation is a recursive relationship that describes the optimal value functions ($V^*$ and $Q^*$). It states that the optimal value of a state (or state-action pair) is equal to the immediate reward plus the discounted optimal value of the next state (or state-action pair).
+
+---
+
+## 1. Bellman Optimality Equation for State Value ($V^*$)
+
+This equation defines the optimal value of a state $s$, $V^*(s)$, as the reward received for the best action, $a$, plus the discounted value of the resulting state, $s'$.
+
+$$V^*(s) = \max_{a} \left( R(s, a) + \gamma \sum_{s'} P(s'|s, a) V^*(s') \right)$$
+
+Where:
+* $V^*(s)$: The optimal value of state $s$.
+* $\max_{a}$: The choice of action $a$ that maximizes the entire expression.
+* $R(s, a)$: The immediate reward received for taking action $a$ in state $s$.
+* $\gamma$: The discount factor.
+* $P(s'|s, a)$: The probability of transitioning to state $s'$ given state $s$ and action $a$.
+* $V^*(s')$: The optimal value of the resulting next state $s'$.
+
+---
+
+## 2. Bellman Optimality Equation for State-Action Value ($Q^*$)
+
+This is arguably the more common form used in Q-Learning, defining the optimal value of a state-action pair, $Q^*(s, a)$.
+
+$$Q^*(s, a) = R(s, a) + \gamma \sum_{s'} P(s'|s, a) \max_{a'} Q^*(s', a')$$
+
+Where:
+* $Q^*(s, a)$: The optimal expected return for starting in state $s$ and taking action $a$.
+* $R(s, a)$: The immediate reward received.
+* $\max_{a'} Q^*(s', a')$: The highest possible future value (the optimal action $a'$) from the next state $s'$.
+
+---
+
+## 3. Calculation Example (Deterministic Environment)
+
+In a **deterministic environment** (where $P(s'|s, a)=1$), the summation $\sum_{s'} P(s'|s, a)$ disappears, simplifying the $Q$-function to:
+$$Q^*(s, a) = R(s, a) + \gamma \cdot \max_{a'} Q^*(s', a')$$
+
+**Scenario:**
+* **Current State:** $S_A$
+* **Action:** $a_1$ (leads deterministically to $S_B$)
+* **Reward:** $R(S_A, a_1) = 5$
+* **Discount Factor:** $\gamma = 0.9$
+* **Known Optimal Future Values in $S_B$:**
+    * $Q^*(S_B, a_x) = 15$
+    * $Q^*(S_B, a_y) = 25$
+    * $Q^*(S_B, a_z) = 10$
+
+**Step 1: Find the Optimal Future Value from $S_B$**
+The optimal future value is the maximum Q-value in the successor state $S_B$:
+$$\max_{a'} Q^*(S_B, a') = \max(15, 25, 10) = \mathbf{25}$$
+
+**Step 2: Apply the Bellman Equation to find $Q^*(S_A, a_1)$**
+$$Q^*(S_A, a_1) = R(S_A, a_1) + \gamma \cdot \max_{a'} Q^*(S_B, a')$$
+$$Q^*(S_A, a_1) = 5 + 0.9 \cdot 25$$
+$$Q^*(S_A, a_1) = 5 + 22.5$$
+$$Q^*(S_A, a_1) = \mathbf{27.5}$$
+
+**Interpretation:**
+The total optimal expected return for taking action $a_1$ from state $S_A$ is 27.5. This value is composed of the immediate reward (5) and the discounted value of behaving optimally in the next state (22.5).
