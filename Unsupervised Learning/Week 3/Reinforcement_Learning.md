@@ -259,7 +259,9 @@ The $Q$-value $Q^*(s, a)$ is the **expected** optimal return achieved by taking 
 
 The $Q^*(s, a)$ is calculated as the immediate reward plus the discounted expected maximum future value over all possible next states $s'$:
 
-$$Q^*(s, a) = R(s, a) + \gamma \sum_{s'} P(s'|s, a) \left[ \max_{a'} Q^*(s', a') \right]$$
+$$Q^*(s, a) = $$
+
+$$R(s, a) + \gamma \sum_{s'} P(s'|s, a) \left[ \max_{a'} Q^*(s', a') \right]$$
 
 Where:
 * $R(s, a)$: The immediate reward received for the transition.
@@ -293,7 +295,9 @@ Taking action $a_1$ can lead to two possible states: $S_B$ or $S_C$.
 
 We multiply the probability of reaching each state by its optimal future value, then sum them up:
 
-$$\mathbb{E}[\gamma V^*] = \gamma \left[ P(S_B) \cdot V^*(S_B) + P(S_C) \cdot V^*(S_C) \right]$$
+$$\mathbb{E}[\gamma V^*] = $$
+
+$$\gamma \left[ P(S_B) \cdot V^*(S_B) + P(S_C) \cdot V^*(S_C) \right]$$
 
 $$\mathbb{E}[\gamma V^*] = 0.9 \cdot \left[ (0.8 \cdot 50) + (0.2 \cdot 10) \right]$$
 
@@ -303,7 +307,9 @@ $$\mathbb{E}[\gamma V^*] = 0.9 \cdot 42 = \mathbf{37.8}$$
 
 **2. Apply the Bellman Equation to find $Q^*(S_A, a_1)$:**
 
-$$Q^*(S_A, a_1) = R(S_A, a_1) + \mathbb{E}[\gamma V^*]$$
+$$Q^*(S_A, a_1) = $$
+
+R(S_A, a_1) + \mathbb{E}[\gamma V^*]$$
 
 $$Q^*(S_A, a_1) = 10 + 37.8$$
 
