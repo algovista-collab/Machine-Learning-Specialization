@@ -195,7 +195,9 @@ Where:
 
 This is arguably the more common form used in Q-Learning, defining the optimal value of a state-action pair, $Q^*(s, a)$.
 
-$$Q^*(s, a) = R(s, a) + \gamma \sum_{s'} P(s'|s, a) \max_{a'} Q^*(s', a')$$
+$$Q^*(s, a) = $$
+
+$$R(s, a) + \gamma \sum_{s'} P(s'|s, a) \max_{a'} Q^*(s', a')$$
 
 Where:
 * $Q^*(s, a)$: The optimal expected return for starting in state $s$ and taking action $a$.
@@ -208,7 +210,9 @@ Where:
 
 In a **deterministic environment** (where $P(s'|s, a)=1$), the summation $\sum_{s'} P(s'|s, a)$ disappears, simplifying the $Q$-function to:
 
-$$Q^*(s, a) = R(s, a) + \gamma \cdot \max_{a'} Q^*(s', a')$$
+$$Q^*(s, a) = $$
+
+$$R(s, a) + \gamma \cdot \max_{a'} Q^*(s', a')$$
 
 **Scenario:**
 * **Current State:** $S_A$
