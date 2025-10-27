@@ -33,3 +33,30 @@ These methods categorize training based on how the data is presented to the syst
     | **High** | Adapts **rapidly** to new data. | Quickly **forgets old data**. |
     | **Small** | Has more **inertia**. Learns more **slowly**. | Less sensitive to new, potentially noisy, data. |
 * **Process:** The model is launched into production and continues to learn and update as new data streams in.
+
+## Main Approaches to Generalization in Machine Learning
+
+Generalization is a model's ability to perform well on new, unseen data after being trained on a specific dataset.
+
+---
+
+## 1. Instance-Based Learning (Lazy Learning)
+
+This approach does not build an explicit, abstract model during the training phase.
+
+* **Learning Process:** The system **learns the examples by heart** by simply storing the entire training dataset.
+* **Generalization:** When presented with a new, unseen instance, the system generalizes by using a **similarity measure** (or distance measure, like Euclidean distance) to compare the new instance to the learned examples. It then predicts the label based on the most similar (closest) stored instances.
+* **Example Algorithms:** K-Nearest Neighbors (KNN).
+
+---
+
+## 2. Model-Based Learning (Eager Learning)
+
+This approach uses the training data to build an explicit, generalizable model.
+
+* **Learning Process:** The goal is to **form a model** that represents the underlying patterns and relationships in the data.
+* **Generalization:** Once the model is trained, it can make predictions on new data based on the learned mathematical function or structure.
+* **Model Evaluation:** The quality of the model is measured using specific functions:
+    * **Utility/Fitness Function:** Measures **how good** the model is (e.g., accuracy, precision, F1-score). The goal is to **maximize** this function.
+    * **Cost/Loss Function:** Measures **how bad** the model is (e.g., Mean Squared Error, cross-entropy). The goal is to **minimize** this function.
+* **Example Algorithms:** Linear Regression, Support Vector Machines, Neural Networks.
