@@ -148,7 +148,7 @@ The $Q$-function allows the agent to make the best possible decision in any give
 The best possible return achievable from state $s$ is the maximum $Q$-value over all possible actions $a$ from that state.
 $$V^*(s) = \max_{a} Q(s, a)$$
 
-**Optimal Policy ($\pi^*(s)$):**
+**Optimal Policy ($$\pi^*(s)$$):**
 The best possible action to take in state $s$ (the optimal policy) is the action $a$ that yields the maximum $Q$-value.
 $$\pi^*(s) = \arg \max_{a} Q(s, a)$$
 
