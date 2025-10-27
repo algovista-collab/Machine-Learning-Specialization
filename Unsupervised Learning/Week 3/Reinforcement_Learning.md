@@ -171,7 +171,7 @@ $$\pi^*(s) = \arg \max_{a} Q(s, a)$$
 
 ## The Bellman Equation
 
-The Bellman Equation is a recursive relationship that describes the optimal value functions $$V^*(s)$$ and $$Q^*$$. It states that the optimal value of a state (or state-action pair) is equal to the immediate reward plus the discounted optimal value of the next state (or state-action pair).
+The Bellman Equation is a recursive relationship that describes the optimal value functions. It states that the optimal value of a state (or state-action pair) is equal to the immediate reward plus the discounted optimal value of the next state (or state-action pair).
 
 ---
 
