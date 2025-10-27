@@ -113,7 +113,9 @@ Based on the example calculations above, the optimal policy $\pi(s)$ would be:
 
 ---
 
-## 1. Markov Decision Process (MDP)
+<img width="1169" height="557" alt="Screenshot 2025-10-27 091534" src="https://github.com/user-attachments/assets/555d294a-f653-4133-891f-589a2427267a" />
+
+## Markov Decision Process (MDP)
 
 The foundation of most Reinforcement Learning problems is the Markov Decision Process.
 
@@ -125,7 +127,7 @@ The foundation of most Reinforcement Learning problems is the Markov Decision Pr
 
 ---
 
-## 2. State-Action Value Function ($$Q(s, a)$$)
+## State-Action Value Function ($$Q(s, a)$$)
 
 The $Q$-function is central to many RL algorithms (like Q-Learning). It estimates the "quality" of taking a specific action in a specific state.
 
@@ -164,3 +166,6 @@ $$\pi^*(s) = \arg \max_{a} Q(s, a)$$
 **Decision for State 2:**
 * **$$V^*(2)$$** = $$\max (50, 12.5) = \mathbf{50}$$
 * **$$\pi^*(2)$$** = The action that gives 50, which is **Left ($$\leftarrow$$)**
+
+<img width="798" height="285" alt="Screenshot 2025-10-27 095047" src="https://github.com/user-attachments/assets/c0def647-6170-42f8-a45e-a9596c860078" />
+
