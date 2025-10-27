@@ -244,3 +244,70 @@ $$Q^*(S_A, a_1) = \mathbf{27.5}$$
 
 **Interpretation:**
 The total optimal expected return for taking action $a_1$ from state $S_A$ is 27.5. This value is composed of the immediate reward (5) and the discounted value of behaving optimally in the next state (22.5).
+
+## Stochastic Environment: Expected Return
+
+In a stochastic environment, the Bellman Optimality Equation must explicitly account for the **probabilities of transitioning** to different successor states.
+
+---
+
+## The Expected Return in a Stochastic Environment
+
+The $Q$-value $Q^*(s, a)$ is the **expected** optimal return achieved by taking action $a$ in state $s$.
+
+### Q-Value Formula (Stochastic)
+
+The $Q^*(s, a)$ is calculated as the immediate reward plus the discounted expected maximum future value over all possible next states $s'$:
+
+$$Q^*(s, a) = R(s, a) + \gamma \sum_{s'} P(s'|s, a) \left[ \max_{a'} Q^*(s', a') \right]$$
+
+Where:
+* $R(s, a)$: The immediate reward received for the transition.
+* $\sum_{s'}$: Summation over all possible next states $s'$.
+* $P(s'|s, a)$: The probability of landing in state $s'$ after taking action $a$ from state $s$.
+* $\max_{a'} Q^*(s', a')$: The optimal value of the successor state $s'$ (what we called $V^*(s')$ previously).
+
+---
+
+## Calculation Example (Stochastic Transition)
+
+**Scenario:**
+* **Current State:** $S_A$
+* **Action:** $a_1$
+* **Immediate Reward:** $R(S_A, a_1) = 10$
+* **Discount Factor:** $\gamma = 0.9$
+
+**Possible Next States and Their Values:**
+Taking action $a_1$ can lead to two possible states: $S_B$ or $S_C$.
+
+| Next State ($s'$) | Transition Probability ($P(s'|s_A, a_1)$) | Optimal Future Value ($\max_{a'} Q^*(s', a')$) |
+| :---: | :---: | :---: |
+| $S_B$ | $P(S_B|S_A, a_1) = 0.8$ | $\max_{a'} Q^*(S_B, a') = 50$ |
+| $S_C$ | $P(S_C|S_A, a_1) = 0.2$ | $\max_{a'} Q^*(S_C, a') = 10$ |
+
+*(Note: The probabilities must sum to 1: $0.8 + 0.2 = 1.0$)*
+
+### Step-by-Step Calculation
+
+**1. Calculate the Expected Discounted Future Value ($\mathbb{E}[\gamma V^*]$):**
+
+We multiply the probability of reaching each state by its optimal future value, then sum them up:
+
+$$\mathbb{E}[\gamma V^*] = \gamma \left[ P(S_B) \cdot V^*(S_B) + P(S_C) \cdot V^*(S_C) \right]$$
+
+$$\mathbb{E}[\gamma V^*] = 0.9 \cdot \left[ (0.8 \cdot 50) + (0.2 \cdot 10) \right]$$
+
+$$\mathbb{E}[\gamma V^*] = 0.9 \cdot \left[ 40 + 2 \right]$$
+
+$$\mathbb{E}[\gamma V^*] = 0.9 \cdot 42 = \mathbf{37.8}$$
+
+**2. Apply the Bellman Equation to find $Q^*(S_A, a_1)$:**
+
+$$Q^*(S_A, a_1) = R(S_A, a_1) + \mathbb{E}[\gamma V^*]$$
+
+$$Q^*(S_A, a_1) = 10 + 37.8$$
+
+$$Q^*(S_A, a_1) = \mathbf{47.8}$$
+
+**Interpretation:**
+The optimal expected return for taking action $a_1$ from state $S_A$ is 47.8. This value accounts for the risk and reward associated with possibly landing in the less valuable state $S_C$ (20% chance).
