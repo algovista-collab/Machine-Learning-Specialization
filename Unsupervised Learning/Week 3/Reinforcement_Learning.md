@@ -171,13 +171,13 @@ $$\pi^*(s) = \arg \max_{a} Q(s, a)$$
 
 ## The Bellman Equation
 
-The Bellman Equation is a recursive relationship that describes the optimal value functions ($V^*$ and $Q^*$). It states that the optimal value of a state (or state-action pair) is equal to the immediate reward plus the discounted optimal value of the next state (or state-action pair).
+The Bellman Equation is a recursive relationship that describes the optimal value functions ($$V^*$$ and $$Q^*$$). It states that the optimal value of a state (or state-action pair) is equal to the immediate reward plus the discounted optimal value of the next state (or state-action pair).
 
 ---
 
-## 1. Bellman Optimality Equation for State Value ($V^*$)
+## 1. Bellman Optimality Equation for State Value ($$V^*$$)
 
-This equation defines the optimal value of a state $s$, $V^*(s)$, as the reward received for the best action, $a$, plus the discounted value of the resulting state, $s'$.
+This equation defines the optimal value of a state $$s$$, $$V^*(s)$$, as the reward received for the best action, $$a$$, plus the discounted value of the resulting state, $$s'$$.
 
 $$V^*(s) = \max_{a} \left( R(s, a) + \gamma \sum_{s'} P(s'|s, a) V^*(s') \right)$$
 
