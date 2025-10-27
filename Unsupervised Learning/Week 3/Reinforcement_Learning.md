@@ -110,3 +110,57 @@ Based on the example calculations above, the optimal policy $\pi(s)$ would be:
 * $\pi(3)$ says **go left**
 * $\pi(4)$ says **go left**
 * $\pi(5)$ says **go right**
+
+---
+
+## 1. Markov Decision Process (MDP)
+
+The foundation of most Reinforcement Learning problems is the Markov Decision Process.
+
+**Key Principle: The Markov Property**
+
+* **Definition:** The future depends only on the **current state** ($S_t$) and not on the sequence of events (states and actions) that led to it.
+* **Formal Statement:** The state $S_{t+1}$ and the reward $R_{t+1}$ are conditionally independent of all past states and actions, given the current state $S_t$ and action $A_t$.
+    $$\mathbb{P}(S_{t+1} | S_t, A_t) = \mathbb{P}(S_{t+1} | S_t, A_t, S_{t-1}, A_{t-1}, \dots)$$
+
+---
+
+## 2. State-Action Value Function ($Q(s, a)$)
+
+The $Q$-function is central to many RL algorithms (like Q-Learning). It estimates the "quality" of taking a specific action in a specific state.
+
+**Definition: $Q(s, a)$**
+
+The **State-Action Value Function** $Q(s, a)$ is the expected **Return** ($G_t$) achieved if the agent:
+1.  **Starts** in state $s$.
+2.  **Takes action $a$** immediately.
+3.  **Behaves optimally** (following the optimal policy $\pi^*$) for all subsequent steps.
+
+* **Goal:** $Q(s, a)$ represents the expected maximum total discounted reward that can be obtained from state $s$ by starting with action $a$.
+
+---
+
+## 3. Optimal Decision Making
+
+The $Q$-function allows the agent to make the best possible decision in any given state.
+
+**Optimal Value Function ($V^*(s)$):**
+The best possible return achievable from state $s$ is the maximum $Q$-value over all possible actions $a$ from that state.
+$$V^*(s) = \max_{a} Q(s, a)$$
+
+**Optimal Policy ($\pi^*(s)$):**
+The best possible action to take in state $s$ (the optimal policy) is the action $a$ that yields the maximum $Q$-value.
+$$\pi^*(s) = \arg \max_{a} Q(s, a)$$
+
+---
+
+## Example (Using $\gamma=0.5$ from prior context)
+
+| State | Action | $Q(s, a)$ Calculation | $Q(s, a)$ Value |
+| :---: | :---: | :--- | :--- |
+| **2** | Left ($\leftarrow$) | $R_{t+1}(100)$ | $\mathbf{50}$ |
+| **2** | Right ($\rightarrow$) | $R_{t+1}(0) + \gamma \cdot V^*(3) = 0 + 0.5 \cdot 25$ | $12.5$ |
+
+**Decision for State 2:**
+* **$V^*(2)$** = $\max (50, 12.5) = \mathbf{50}$
+* **$\pi^*(2)$** = The action that gives 50, which is **Left ($\leftarrow$)**
