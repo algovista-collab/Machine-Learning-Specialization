@@ -179,7 +179,9 @@ The Bellman Equation is a recursive relationship that describes the optimal valu
 
 This equation defines the optimal value of a state $$s$$, $$V^*(s)$$, as the reward received for the best action, $$a$$, plus the discounted value of the resulting state, $$s'$$.
 
-$$V^*(s) = \max_{a} \left( R(s, a) + \gamma \sum_{s'} P(s'|s, a) V^*(s') \right)$$
+$$V^*(s) = $$
+
+$$\max_{a} \left( R(s, a) + \gamma \sum_{s'} P(s'|s, a) V^*(s') \right)$$
 
 Where:
 * $V^*(s)$: The optimal value of state $s$.
