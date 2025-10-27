@@ -30,14 +30,14 @@ $$G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \dots = \sum_{k=0}^{\infty
 * **$\gamma \approx 1$ (Farsighted):** Future rewards are nearly as important as immediate rewards.
 * **$\gamma \approx 0$ (Shortsighted/Impatient):** Immediate rewards are much more important. Every step "costs" the agent something in terms of future return.
 
-# RL Return Comparison: Impatient Agent ($\gamma=0.1$)
+## RL Return Comparison: Impatient Agent ($\gamma=0.1$)
 
 **Scenario:** Starting at State 4.
 **Reward Convention:** $R_{t+1}$ is the reward received upon leaving state $S_t$. Assume $R_{t+1}$ (for leaving $S_4$) is $\mathbf{10}$ for both paths.
 
 ---
 
-## Path 1: Move Left (Longer Path to $R=100$)
+### Path 1: Move Left (Longer Path to $R=100$)
 
 **Sequence:** $S_4 \xrightarrow{R=10} S_3 \xrightarrow{R=0} S_2 \xrightarrow{R=0} S_1(R=100, \text{Terminal})$
 
@@ -50,7 +50,7 @@ $$G_{\text{Left}} = \mathbf{10.1}$$
 
 ---
 
-## Path 2: Move Right (Shorter Path to $R=40$)
+### Path 2: Move Right (Shorter Path to $R=40$)
 
 **Sequence:** $S_4 \xrightarrow{R=10} S_5 \xrightarrow{R=40} S_6(\text{Terminal})$
 
