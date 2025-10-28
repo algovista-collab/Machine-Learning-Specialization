@@ -274,13 +274,13 @@ Where:
 ## Calculation Example (Stochastic Transition)
 
 **Scenario:**
-* **Current State:** $S_A$
-* **Action:** $a_1$
-* **Immediate Reward:** $R(S_A, a_1) = 10$
-* **Discount Factor:** $\gamma = 0.9$
+* **Current State:** $$S_A$$
+* **Action:** $$a_1$$
+* **Immediate Reward:** $$R(S_A, a_1) = 10$$
+* **Discount Factor:** $$\gamma = 0.9$$
 
 **Possible Next States and Their Values:**
-Taking action $a_1$ can lead to two possible states: $S_B$ or $S_C$.
+Taking action $$a_1$$ can lead to two possible states: $$S_B$$ or $$S_C$$.
 
 | Next State ($s'$) | Transition Probability ($P(s'|s_A, a_1)$) | Optimal Future Value ($\max_{a'} Q^*(s', a')$) |
 | :---: | :---: | :---: |
