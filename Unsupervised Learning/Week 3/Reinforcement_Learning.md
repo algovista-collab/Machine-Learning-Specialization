@@ -293,10 +293,10 @@ $$\max_{a'} Q^*(s', a')$$
 **Possible Next States and Their Values:**
 Taking action $$a_1$$ can lead to two possible states: $$S_B$$ or $$S_C$$.
 
-| Next State \(s'\) | Transition Probability \(P(s'|s_A, a_1)\) | Optimal Future Value \(\max_{a'} Q^*(s', a')\) |
+| Next State ($$s'$$) | Transition Probability ($$P(s'|s_A, a_1)$$) | Optimal Future Value ($$\max_{a'} Q^*(s', a')$$) |
 | :---: | :---: | :---: |
-| \(S_B\) | \(P(S_B|S_A, a_1) = 0.8\) | \(\max_{a'} Q^*(S_B, a') = 50\) |
-| \(S_C\) | \(P(S_C|S_A, a_1) = 0.2\) | \(\max_{a'} Q^*(S_C, a') = 10\) |
+| $$S_B$$ | $$P(S_B|S_A, a_1) = 0.8$$ | $$\max_{a'} Q^*(S_B, a') = 50$$ |
+| $$S_C$$ | $$P(S_C|S_A, a_1) = 0.2$$ | $$\max_{a'} Q^*(S_C, a') = 10$$ |
 
 *(Note: The probabilities must sum to 1: $0.8 + 0.2 = 1.0$)*
 
@@ -308,9 +308,7 @@ We multiply the probability of reaching each state by its optimal future value, 
 
 $$\mathbb{E}[\gamma V^*] = $$
 
-$$
-\gamma \left[ P(S_B) \cdot V^*(S_B) + P(S_C) \cdot V^*(S_C) \right]
-$$
+$$\gamma \left[ P(S_B) \cdot V^*(S_B) + P(S_C) \cdot V^*(S_C) \right]$$
 
 $$\mathbb{E}[\gamma V^*] = 0.9 \cdot \left[ (0.8 \cdot 50) + (0.2 \cdot 10) \right]$$
 
