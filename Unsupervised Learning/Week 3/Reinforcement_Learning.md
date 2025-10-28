@@ -297,7 +297,7 @@ We multiply the probability of reaching each state by its optimal future value, 
 
 $$\mathbb{E}[\gamma V^*] = $$
 
-$$\gamma \left[ P(S_B) \cdot V^*(S_B) + P(S_C) \cdot V^*(S_C) \right]$$
+$$\gamma \left[P(S_B) \cdot V^*(S_B) + P(S_C) \cdot V^*(S_C) \right]$$
 
 $$\mathbb{E}[\gamma V^*] = 0.9 \cdot \left[ (0.8 \cdot 50) + (0.2 \cdot 10) \right]$$
 
