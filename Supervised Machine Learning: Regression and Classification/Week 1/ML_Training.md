@@ -86,5 +86,5 @@ Feature Engineering is the process of using domain knowledge to create new input
 Hyperparameters are critical settings that control the learning process itself, rather than being learned from the data.
 
 * **Definition:** A hyperparameter is a **parameter of the learning algorithm** and **not of the model**. Its value is set prior to the training process.
-* **Function:** Hyperparameters often control the **amount of regularization** to apply during learning (e.g., $L_2$ regularization strength) or define the structure of the model (e.g., number of layers in a neural network, depth of a decision tree).
+* **Function:** Hyperparameters often control the **amount of regularization** to apply during learning (e.g., $L_2$ regularization strength) or define the structure of the model (e.g, number of layers in a neural network, depth of a decision tree).
 * **Tuning:** The process of finding the optimal set of hyperparameters is called hyperparameter tuning (or optimization).
