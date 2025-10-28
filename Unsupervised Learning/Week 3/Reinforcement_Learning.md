@@ -267,7 +267,18 @@ Where:
 * $R(s, a)$: The immediate reward received for the transition.
 * $\sum_{s'}$: Summation over all possible next states $s'$.
 * $P(s'|s, a)$: The probability of landing in state $s'$ after taking action $a$ from state $s$.
-* $$\max_{a'} Q^*(s', a')$$: The optimal value of the successor state $$s'$$ (what we called $$V^*(s')$$ previously).
+
+* The term 
+
+$$
+\max_{a'} Q^*(s', a')
+$$
+
+represents the **optimal value of the successor state** \( s' \), which we previously called
+
+$$
+V^*(s') = \max_{a'} Q^*(s', a')
+$$
 
 ---
 
