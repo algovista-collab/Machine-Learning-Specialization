@@ -60,3 +60,31 @@ This approach uses the training data to build an explicit, generalizable model.
     * **Utility/Fitness Function:** Measures **how good** the model is (e.g., accuracy, precision, F1-score). The goal is to **maximize** this function.
     * **Cost/Loss Function:** Measures **how bad** the model is (e.g., Mean Squared Error, cross-entropy). The goal is to **minimize** this function.
 * **Example Algorithms:** Linear Regression, Support Vector Machines, Neural Networks.
+
+## Data and Model Preparation Concepts ⚙️
+
+## 1. Sampling Issues
+
+When collecting data, issues can arise that introduce bias and affect the representativeness of the dataset.
+
+* **Sampling Bias:** Occurs when the data collection method is flawed, leading to certain members of the population being under-represented or over-represented in the sample. This prevents the model from generalizing accurately.
+* **Nonresponse Bias:** A specific type of sampling bias that occurs when a significant fraction of people fail to respond to a survey or request for data. The non-respondents may differ systematically from those who do respond, skewing the results.
+
+---
+
+## 2. Feature Engineering
+
+Feature Engineering is the process of using domain knowledge to create new input variables that help the machine learning model learn better.
+
+* **Feature Selection:** The process of choosing the **most relevant and useful existing features** from the dataset to be used for model training. This helps reduce dimensionality, speeds up training, and often improves generalization by eliminating noise.
+* **Feature Extraction:** The process of **combining existing features to produce useful features** and **create new features** through transformation (e.g., Principal Component Analysis, or creating a `total_rooms` feature by multiplying `houses` and `rooms_per_house`).
+
+---
+
+## 3. Hyperparameters
+
+Hyperparameters are critical settings that control the learning process itself, rather than being learned from the data.
+
+* **Definition:** A hyperparameter is a **parameter of the learning algorithm** and **not of the model**. Its value is set prior to the training process.
+* **Function:** Hyperparameters often control the **amount of regularization** to apply during learning (e.g., $L_2$ regularization strength) or define the structure of the model (e.g., number of layers in a neural network, depth of a decision tree).
+* **Tuning:** The process of finding the optimal set of hyperparameters is called hyperparameter tuning (or optimization).
