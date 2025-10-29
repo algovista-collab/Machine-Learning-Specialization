@@ -142,3 +142,11 @@ The core Bellman target $\mathbf{y} = R(S) + \gamma \max_{a'} Q(S', a')$ is inhe
 * **Soft Update:** Instead of copying the weights from the Q-Network to the Target Network all at once (hard update), weights are updated gradually:
     $$W_{\text{target}} \leftarrow \tau W_{\text{online}} + (1 - \tau) W_{\text{target}}$$
     Where $\tau$ (tau, a small number like 0.001) controls the rate of update. This **soft update** slows the change in the target, further stabilizing the training process.
+
+<img width="765" height="561" alt="Screenshot 2025-10-27 193104" src="https://github.com/user-attachments/assets/0b5318ef-503a-41b1-9f05-7af411d2c68f" />
+
+<img width="1135" height="482" alt="Screenshot 2025-10-27 210644" src="https://github.com/user-attachments/assets/9a1abc7c-216a-4930-b31c-657b3c6925e7" />
+
+<img width="1105" height="510" alt="image" src="https://github.com/user-attachments/assets/77a31285-b4fb-40d9-bf40-2216323438db" />
+
+
