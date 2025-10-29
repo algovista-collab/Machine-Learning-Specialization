@@ -65,3 +65,39 @@ $$\text{Target } \mathbf{y} = \underbrace{R(S)}_{\text{Immediate Reward}} + \gam
     * **Desired Output ($\mathbf{y}$):** The calculated Bellman target (the optimal return).
 
 By minimizing the difference between the NN's prediction and the Bellman target, the network learns a robust mapping from any state-action input to its expected optimal return.
+
+## Deep Q-Network (DQN) Training: Creating the Training Pair $(\mathbf{x}, \mathbf{y})$
+
+The core idea of DQN is to use the **Bellman Equation** to generate training targets ($\mathbf{y}$) for a supervised learning network. This allows the network to learn the optimal State-Action Value Function, $Q(s, a)$.
+
+## 1. The Training Input $\mathbf{x}^{(i)}$
+
+The input $\mathbf{x}^{(i)}$ is the vector that the Neural Network (NN) uses to predict the $Q$-value.
+
+$$\mathbf{x}^{(i)} = [S^{(i)}, A^{(i)}]$$
+
+| Component | Description | Example (Lunar Lander) |
+| :--- | :--- | :--- |
+| **$S^{(i)}$** | The current **State** (the first part of the experience tuple). | $[x, y, \dot{x}, \dot{y}, \theta, \dot{\theta}, l_r, r_r]$ |
+| **$A^{(i)}$** | The **Action** taken from $S^{(i)}$. | $[1, 0, 0, 0]$ (Main Engine) |
+| **$\mathbf{x}^{(i)}$** | The combined input vector. | $[x, \dots, r_r, 1, 0, 0, 0]$ (Total 12 inputs) |
+
+---
+
+## 2. The Training Target $\mathbf{y}^{(i)}$
+
+The target $\mathbf{y}^{(i)}$ is the ideal, desired output for the input $\mathbf{x}^{(i)}$, calculated using the Bellman Equation on the next state. This represents the "true" return we want the NN to learn.
+
+$$\mathbf{y}^{(i)} = R(S^{(i)}) + \gamma \cdot \max_{a'} Q(S'^{(i)}, a')$$
+
+| Component | Description | Purpose |
+| :--- | :--- | :--- |
+| **$R(S^{(i)})$** | The immediate **Reward** received after taking action $A^{(i)}$ from $S^{(i)}$. | Provides the immediate, known value. |
+| **$\gamma$** | The **Discount Factor**. | Weights the importance of future value. |
+| **$\max_{a'} Q(S'^{(i)}, a')$** | The maximum *predicted* $Q$-value for the **next state** $S'^{(i)}$ across all possible actions $a'$. | Estimates the optimal continuation from the next state, based on the *current* network's knowledge. |
+
+### Initial Random Guess
+
+The training process starts by initializing the NN's weights and biases randomly. This means that initially, the network's prediction of $Q(s, a)$ is essentially a **random guess**.
+
+However, by using this random guess to compute the $\max_{a'} Q(S', a')$ term in the Bellman target ($\mathbf{y}$), and then using the squared difference between the network's prediction $\mathbf{x}^{(i)} \to Q(S^{(i)}, A^{(i)})$ and the Bellman target $\mathbf{y}^{(i)}$ as the loss, the network slowly bootstraps its knowledge toward the true optimal $Q$-function.
