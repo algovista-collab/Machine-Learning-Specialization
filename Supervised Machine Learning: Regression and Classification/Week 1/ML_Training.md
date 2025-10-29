@@ -105,7 +105,7 @@ $$\Vert \mathbf{v} \Vert_k = \left( \sum_{i=1}^{n} |v_i|^k \right)^{1/k}$$
 
 | Name | Index ($k$) | Formula | Common Use in ML |
 | :--- | :--- | :--- | :--- |
-| **Manhattan Norm** | $k=1$ | $$\Vert \mathbf{v} \Vert_1 = \sum_{i=1}^{n} |v_i|$$ | **Lasso Regression (L1 Regularization)**; Measuring error (MAE). |
+| **Manhattan Norm** | $k=1$ | $\Vert \mathbf{v} \Vert_1 = \sum_{i=1}^{n} v_i$ | **Lasso Regression (L1 Regularization)**; Measuring error (MAE). |
 | **Euclidean Norm** | $k=2$ | $\Vert \mathbf{v} \Vert_2 = \sqrt{\sum_{i=1}^{n} v_i^2}$ | **Ridge Regression (L2 Regularization)**; Measuring error (RMSE). |
 
 ---
