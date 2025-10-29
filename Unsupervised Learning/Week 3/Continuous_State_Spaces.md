@@ -70,7 +70,7 @@ By minimizing the difference between the NN's prediction and the Bellman target,
 
 The core idea of DQN is to use the **Bellman Equation** to generate training targets ($\mathbf{y}$) for a supervised learning network. This allows the network to learn the optimal State-Action Value Function, $Q(s, a)$.
 
-## 1. The Training Input $\mathbf{x}^{(i)}$
+### 1. The Training Input $\mathbf{x}^{(i)}$
 
 The input $\mathbf{x}^{(i)}$ is the vector that the Neural Network (NN) uses to predict the $Q$-value.
 
@@ -84,7 +84,7 @@ $$\mathbf{x}^{(i)} = [S^{(i)}, A^{(i)}]$$
 
 ---
 
-## 2. The Training Target $\mathbf{y}^{(i)}$
+### 2. The Training Target $\mathbf{y}^{(i)}$
 
 The target $\mathbf{y}^{(i)}$ is the ideal, desired output for the input $\mathbf{x}^{(i)}$, calculated using the Bellman Equation on the next state. This represents the "true" return we want the NN to learn.
 
