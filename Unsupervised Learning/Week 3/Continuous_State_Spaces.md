@@ -57,9 +57,9 @@ The key to training the NN is turning the complex RL problem into a standard **s
 1.  **Experience Collection:** The agent interacts with the environment, taking random actions and saving the experience as a tuple: $(S, a, R(S), S')$.
 2.  **Target Creation (Bellman Equation):** For each experience tuple, we calculate the desired target output $\mathbf{y}$, which is the **expected return** according to the Bellman Equation:
 
-    $$ \text{Target } \mathbf{y} = \underbrace{R(S)}_{\text{Immediate Reward}} + \gamma \cdot \underbrace{\max_{a'} Q(S', a')}_{\text{Discounted Max Future Value}}$$
+$$\text{Target } \mathbf{y} = \underbrace{R(S)}_{\text{Immediate Reward}} + \gamma \cdot \underbrace{\max_{a'} Q(S', a')}_{\text{Discounted Max Future Value}}$$
 
-3.  **Supervised Training:** The NN is trained to minimize the difference between its prediction $f_{w,b}(\mathbf{x})$ and the calculated Bellman target $\mathbf{y}$.
+5.  **Supervised Training:** The NN is trained to minimize the difference between its prediction $f_{w,b}(\mathbf{x})$ and the calculated Bellman target $\mathbf{y}$.
 
     * **Input ($\mathbf{x}$):** The combined state-action vector $[S, a]$.
     * **Desired Output ($\mathbf{y}$):** The calculated Bellman target (the optimal return).
