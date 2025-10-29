@@ -101,3 +101,44 @@ $$\mathbf{y}^{(i)} = R(S^{(i)}) + \gamma \cdot \max_{a'} Q(S'^{(i)}, a')$$
 The training process starts by initializing the NN's weights and biases randomly. This means that initially, the network's prediction of $Q(s, a)$ is essentially a **random guess**.
 
 However, by using this random guess to compute the $\max_{a'} Q(S', a')$ term in the Bellman target ($\mathbf{y}$), and then using the squared difference between the network's prediction $\mathbf{x}^{(i)} \to Q(S^{(i)}, A^{(i)})$ and the Bellman target $\mathbf{y}^{(i)}$ as the loss, the network slowly bootstraps its knowledge toward the true optimal $Q$-function.
+
+## Algorithm Refinements for Deep Q-Networks (DQN) 🚀
+
+To effectively train a Neural Network to learn the Q-function, several refinements are employed to ensure proper exploration and training stability.
+
+---
+
+### 1. $\epsilon$-Greedy Policy (Exploration vs. Exploitation)
+
+While the agent is learning, the $\epsilon$-greedy policy dictates how actions are chosen, balancing the need to **exploit** known high rewards and **explore** the unknown environment.
+
+* **Policy Rule:**
+    1.  With a small probability $\epsilon$ (epsilon, e.g., 0.1): The agent chooses a **random action** (Exploration).
+    2.  With a probability of $1 - \epsilon$: The agent chooses the **greedy action** $a_{\text{greedy}} = \arg \max_{a} Q(s, a)$ (Exploitation).
+
+* **Behavior:** Initially, $\epsilon$ is often set high (close to 1.0) to encourage exploration. As the agent gains experience, $\epsilon$ is slowly decayed towards a small value (e.g., 0.05), causing the agent to shift its focus to exploitation.
+
+---
+
+### 2. Training Refinements
+
+### A. Mini-Batches (Experience Replay)
+
+Training the Q-Network on individual experience tuples $(S, a, R, S')$ sequentially can lead to correlations in the data, which harms the stability of the Neural Network.
+
+* **Process:**
+    1.  Store experience tuples $(S, a, R, S')$ in a large memory buffer (**Experience Replay Buffer**).
+    2.  During training, instead of using the latest single experience, sample a small, random group of experiences (**mini-batch**) from the buffer.
+* **Benefit:** Training with mini-batches breaks the correlations in the data, making the training process closer to traditional supervised learning assumptions (independent and identically distributed data), leading to **greater stability and convergence**.
+
+### B. Soft Update (Target Network)
+
+The core Bellman target $\mathbf{y} = R(S) + \gamma \max_{a'} Q(S', a')$ is inherently unstable because the same network is used to *calculate the target* (RHS) and to *predict the output* (LHS). Any update to the network weights immediately changes the target, leading to instability (a "chasing your own tail" problem).
+
+* **Solution: Target Network:** Use a separate, delayed copy of the Q-Network, called the **Target Network** ($Q_{\text{target}}$), to calculate the $\max_{a'} Q(S', a')$ term.
+
+    $$\text{Target } \mathbf{y} = R(S) + \gamma \cdot \max_{a'} Q_{\text{target}}(S', a')$$
+
+* **Soft Update:** Instead of copying the weights from the Q-Network to the Target Network all at once (hard update), weights are updated gradually:
+    $$W_{\text{target}} \leftarrow \tau W_{\text{online}} + (1 - \tau) W_{\text{target}}$$
+    Where $\tau$ (tau, a small number like 0.001) controls the rate of update. This **soft update** slows the change in the target, further stabilizing the training process.
