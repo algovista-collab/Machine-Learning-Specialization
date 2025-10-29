@@ -88,3 +88,39 @@ Hyperparameters are critical settings that control the learning process itself, 
 * **Definition:** A hyperparameter is a **parameter of the learning algorithm** and **not of the model**. Its value is set prior to the training process.
 * **Function:** Hyperparameters often control the **amount of regularization** to apply during learning (e.g., $L_2$ regularization strength) or define the structure of the model (e.g, number of layers in a neural network, depth of a decision tree).
 * **Tuning:** The process of finding the optimal set of hyperparameters is called hyperparameter tuning (or optimization).
+
+## Vector Norms and Sensitivity to Outliers 📏
+
+Vector norms are functions that assign a positive length or size to a vector. They are crucial in machine learning for regularization and measuring error.
+
+## 1. $L_p$ Norm Definition
+
+The $L_k$ norm (or $L_p$ norm) of a vector $\mathbf{v} = (v_1, v_2, \dots, v_n)$ is defined as:
+
+$$\Vert \mathbf{v} \Vert_k = \left( \sum_{i=1}^{n} |v_i|^k \right)^{1/k}$$
+
+---
+
+## 2. Common Norms
+
+| Name | Index ($k$) | Formula | Common Use in ML |
+| :--- | :--- | :--- | :--- |
+| **Manhattan Norm** | $k=1$ | $\Vert \mathbf{v} \Vert_1 = \sum_{i=1}^{n} |v_i|$ | **Lasso Regression (L1 Regularization)**; Measuring error (MAE). |
+| **Euclidean Norm** | $k=2$ | $\Vert \mathbf{v} \Vert_2 = \sqrt{\sum_{i=1}^{n} v_i^2}$ | **Ridge Regression (L2 Regularization)**; Measuring error (RMSE). |
+
+---
+
+## 3. Impact of Norm Index on Sensitivity
+
+The magnitude of the norm index $k$ dictates the degree to which the function focuses on large values within the vector.
+
+* **Higher Norm Index ($k$):** **More focus on large values** and **neglects the small ones**. This is because raising a large number to a high power increases its value dramatically, while raising a small number (less than 1) to a high power makes it even smaller.
+
+* **$L_2$ vs. $L_1$ Error Measures:** This principle explains the difference between two common error metrics:
+
+| Metric | Related Norm | Sensitivity to Outliers | Preference |
+| :--- | :--- | :--- | :--- |
+| **Mean Absolute Error (MAE)** | $L_1$ | Less sensitive (Linear penalty). | When outliers should be treated normally. |
+| **Root Mean Square Error (RMSE)** | $L_2$ | **More sensitive** (Quadratic penalty). | When **outliers are very rare** and their large errors must be heavily penalized. |
+
+**Key Takeaway:** RMSE squares the errors, amplifying the penalty for large deviations (outliers) much more than MAE.
