@@ -86,7 +86,7 @@ The derivative of an activation function ($$\sigma'(z)$$) is essential for calcu
 | :--- | :--- | :--- |
 | **ReLU** | $$\sigma(z) = \max(0, z)$$ | $$\sigma'(z)$$ = 1 for z > 0 $$\sigma'(z)$$ = 0 for z < 0 |
 
-> *Note: The derivative is technically undefined at $z=0$, but we typically assign it to be 0 or 1 in practice for computational efficiency.*
+> *Note: The derivative is technically undefined at $$z=0$$, but we typically assign it to be 0 or 1 in practice for computational efficiency.*
 
 ---
 
@@ -116,7 +116,7 @@ Leaky ReLU addresses the "dying ReLU" problem by allowing a small, non-zero grad
 
 | Function | Formula $\sigma(z)$ | Derivative $\sigma'(z)$ |
 | :--- | :--- | :--- |
-| **Leaky ReLU** | $$\sigma(z) = \begin{cases} z & \text{if } z > 0 \\ \alpha z & \text{if } z \le 0 \end{cases}$$ | $$\sigma'(z) = \begin{cases} 1 & \text{if } z > 0 \\ \alpha & \text{if } z \le 0 \end{cases}$$ |
+| **Leaky ReLU** |  $$\sigma(z) = \max(0.01z, z)$$ | $$\sigma'(z)$$ is 0.01 for z < 0 and $$\sigma'(z)$$ is 1 for z > 0 |
 
 ## Output Layer Activations
 
