@@ -108,3 +108,6 @@ $$\mathbf{W}^{[l]} := \mathbf{W}^{[l]} - \alpha \ \mathbf{d W}^{[l]}$$
 $$\mathbf{b}^{[l]} := \mathbf{b}^{[l]} - \alpha \ \mathbf{d b}^{[l]}$$
 
 <img width="1893" height="941" alt="image" src="https://github.com/user-attachments/assets/3b368d14-282d-4d28-a413-376a2da9f6a2" />
+
+![20251031_113239](https://github.com/user-attachments/assets/85a2a1c3-c46d-47b1-8ace-9823bb3bab20)
+
