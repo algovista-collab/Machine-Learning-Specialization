@@ -124,3 +124,31 @@ The magnitude of the norm index $k$ dictates the degree to which the function fo
 | **Root Mean Square Error (RMSE)** | $L_2$ | **More sensitive** (Quadratic penalty). | When **outliers are very rare** and their large errors must be heavily penalized. |
 
 **Key Takeaway:** RMSE squares the errors, amplifying the penalty for large deviations (outliers) much more than MAE.
+
+## Data Analysis and Sampling Concepts 📊
+
+## 1. Data Snooping Bias
+
+* **Definition:** **Data snooping bias** occurs when a researcher repeatedly runs experiments or statistical tests on the same dataset and uses the results to guide the choice of model, features, or hyperparameters.
+* **Result:** The model appears to perform exceptionally well on the *training/test data* but fails to generalize to new, unseen data. The model essentially becomes **overly optimized** for the accidental noise and characteristics of the specific observed data.
+
+---
+
+## 2. Stratified Sampling
+
+* **Definition:** **Stratified sampling** is a sampling technique that ensures the training dataset is representative of the entire population with respect to certain key features, called **strata**.
+* **Process:** The population is divided into homogeneous subgroups (strata), and then the correct number of instances is sampled from each stratum to ensure the sample set's proportions match the population's proportions.
+* **Benefit:** This is particularly important when dealing with imbalanced datasets (e.g., ensuring a survey sample reflects the correct proportion of different demographic groups).
+
+---
+
+## 3. Standard Correlation Coefficient (Pearson's $r$)
+
+* **Definition:** The **Standard Correlation Coefficient** (Pearson's $r$) is a measure of the **linear correlation** between two sets of data. It is a normalized measure of the covariance between two variables.
+* **Formula:**
+    $$r_{x, y} = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}$$
+* **Range:** The value of $r$ ranges from **-1 to +1**.
+    * **$r = +1$:** Perfect positive linear correlation (as $x$ increases, $y$ increases proportionally).
+    * **$r = -1$:** Perfect negative linear correlation (as $x$ increases, $y$ decreases proportionally).
+    * **$r = 0$:** No linear correlation.
+* **Limitation:** Pearson's $r$ only measures the strength of **linear** relationships; it cannot detect complex non-linear relationships.
