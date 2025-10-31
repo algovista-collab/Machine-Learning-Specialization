@@ -76,7 +76,7 @@ model.fit(X, y, epochs=100)
 
 ## Derivatives of Common Activation Functions 🧠
 
-The derivative of an activation function ($$\sigma'(z)$$) is essential for calculating gradients during the **backpropagation** step in neural network training. Here, $z$ is the weighted sum of inputs ($$\mathbf{w} \cdot \mathbf{x} + b$)$$, and $$\sigma(z)$$ is the activation output.
+The derivative of an activation function ($$\sigma'(z)$$) is essential for calculating gradients during the **backpropagation** step in neural network training.
 
 ---
 
@@ -86,7 +86,7 @@ The derivative of an activation function ($$\sigma'(z)$$) is essential for calcu
 | :--- | :--- | :--- |
 | **ReLU** | $$\sigma(z) = \max(0, z)$$ | $$\sigma'(z)$$ = 1 for z > 0 $$\sigma'(z)$$ = 0 for z < 0 |
 
-> *Note: The derivative is technically undefined at $$z=0$$, but we typically assign it to be 0 or 1 in practice for computational efficiency.*
+> *Note: The derivative is technically undefined at z=0, but we typically assign it to be 0 or 1 in practice for computational efficiency.*
 
 ---
 
