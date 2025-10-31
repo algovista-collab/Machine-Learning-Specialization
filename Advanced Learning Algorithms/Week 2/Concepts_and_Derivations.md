@@ -84,7 +84,7 @@ The derivative of an activation function ($$\sigma'(z)$$) is essential for calcu
 
 | Function | Formula $\sigma(z)$ | Derivative $\sigma'(z)$ |
 | :--- | :--- | :--- |
-| **ReLU** | $$\sigma(z) = \max(0, z)$$ | $$\sigma'(z) = \begin{cases} 1 & \text{if } z > 0 \\ 0 & \text{if } z \le 0 \end{cases}$$ |
+| **ReLU** | $$\sigma(z) = \max(0, z)$$ | $$\sigma'(z)$$ = 1 for z > 0 $$\sigma'(z)$$ = 0 for z < 0 |
 
 > *Note: The derivative is technically undefined at $z=0$, but we typically assign it to be 0 or 1 in practice for computational efficiency.*
 
