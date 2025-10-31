@@ -70,6 +70,8 @@ model.fit(X, y, epochs=100)
 
 ---
 
+<img width="542" height="212" alt="image" src="https://github.com/user-attachments/assets/fe28b602-6767-4196-be03-3b2d4f030230" />
+
 ## Output Layer Activations
 
 - Choose **ReLU**, **Sigmoid**, or **Linear** based on the problem type.  
