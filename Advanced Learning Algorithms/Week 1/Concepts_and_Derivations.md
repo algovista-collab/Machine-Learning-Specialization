@@ -106,3 +106,5 @@ The parameters are updated simultaneously for all layers using the calculated gr
 $$\mathbf{W}^{[l]} := \mathbf{W}^{[l]} - \alpha \ \mathbf{d W}^{[l]}$$
 
 $$\mathbf{b}^{[l]} := \mathbf{b}^{[l]} - \alpha \ \mathbf{d b}^{[l]}$$
+
+<img width="1893" height="941" alt="image" src="https://github.com/user-attachments/assets/3b368d14-282d-4d28-a413-376a2da9f6a2" />
