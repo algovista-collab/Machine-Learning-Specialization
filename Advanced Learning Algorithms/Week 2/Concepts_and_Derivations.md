@@ -76,7 +76,7 @@ model.fit(X, y, epochs=100)
 
 ## Derivatives of Common Activation Functions 🧠
 
-The derivative of an activation function ($\sigma'(z)$) is essential for calculating gradients during the **backpropagation** step in neural network training. Here, $z$ is the weighted sum of inputs ($\mathbf{w} \cdot \mathbf{x} + b$), and $\sigma(z)$ is the activation output.
+The derivative of an activation function ($$\sigma'(z)$$) is essential for calculating gradients during the **backpropagation** step in neural network training. Here, $z$ is the weighted sum of inputs ($$\mathbf{w} \cdot \mathbf{x} + b$)$$, and $$\sigma(z)$$ is the activation output.
 
 ---
 
@@ -84,7 +84,7 @@ The derivative of an activation function ($\sigma'(z)$) is essential for calcula
 
 | Function | Formula $\sigma(z)$ | Derivative $\sigma'(z)$ |
 | :--- | :--- | :--- |
-| **ReLU** | $\sigma(z) = \max(0, z)$ | $\sigma'(z) = \begin{cases} 1 & \text{if } z > 0 \\ 0 & \text{if } z \le 0 \end{cases}$ |
+| **ReLU** | $$\sigma(z) = \max(0, z)$$ | $$\sigma'(z) = \begin{cases} 1 & \text{if } z > 0 \\ 0 & \text{if } z \le 0 \end{cases}$$ |
 
 > *Note: The derivative is technically undefined at $z=0$, but we typically assign it to be 0 or 1 in practice for computational efficiency.*
 
@@ -96,7 +96,7 @@ The sigmoid function is often written in terms of its own output $\sigma(z)$, wh
 
 | Function | Formula $\sigma(z)$ | Derivative $\sigma'(z)$ |
 | :--- | :--- | :--- |
-| **Sigmoid** | $\sigma(z) = \frac{1}{1 + e^{-z}}$ | $\sigma'(z) = \sigma(z) (1 - \sigma(z))$ |
+| **Sigmoid** | $$\sigma(z) = \frac{1}{1 + e^{-z}}$$ | $$\sigma'(z) = \sigma(z) (1 - \sigma(z))$$ |
 
 ---
 
@@ -106,7 +106,7 @@ Similar to the sigmoid, the derivative of $\text{tanh}(z)$ can be expressed usin
 
 | Function | Formula $\sigma(z)$ | Derivative $\sigma'(z)$ |
 | :--- | :--- | :--- |
-| **Tanh** | $\sigma(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$ | $\sigma'(z) = 1 - \sigma(z)^2$ |
+| **Tanh** | $$\sigma(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$$ | $$\sigma'(z) = 1 - \sigma(z)^2$$ |
 
 ---
 
@@ -116,7 +116,7 @@ Leaky ReLU addresses the "dying ReLU" problem by allowing a small, non-zero grad
 
 | Function | Formula $\sigma(z)$ | Derivative $\sigma'(z)$ |
 | :--- | :--- | :--- |
-| **Leaky ReLU** | $\sigma(z) = \begin{cases} z & \text{if } z > 0 \\ \alpha z & \text{if } z \le 0 \end{cases}$ | $\sigma'(z) = \begin{cases} 1 & \text{if } z > 0 \\ \alpha & \text{if } z \le 0 \end{cases}$ |
+| **Leaky ReLU** | $$\sigma(z) = \begin{cases} z & \text{if } z > 0 \\ \alpha z & \text{if } z \le 0 \end{cases}$$ | $$\sigma'(z) = \begin{cases} 1 & \text{if } z > 0 \\ \alpha & \text{if } z \le 0 \end{cases}$$ |
 
 ## Output Layer Activations
 
