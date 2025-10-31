@@ -503,3 +503,5 @@ from tensorflow.keras.layers import Conv2D
 conv_layer = Conv2D(filters=32, kernel_size=(3,3), strides=(1,1),
                     padding='same', activation='relu', input_shape=(64,64,3))
 ```
+
+<img width="1696" height="923" alt="image" src="https://github.com/user-attachments/assets/dd629f9d-e671-44f1-9563-583a7aa02686" />
