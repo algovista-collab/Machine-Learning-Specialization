@@ -74,6 +74,50 @@ model.fit(X, y, epochs=100)
 
 <img width="445" height="251" alt="image" src="https://github.com/user-attachments/assets/7f2a8cd6-d333-4c0b-9771-69681b3f0b20" />
 
+## Derivatives of Common Activation Functions 🧠
+
+The derivative of an activation function ($\sigma'(z)$) is essential for calculating gradients during the **backpropagation** step in neural network training. Here, $z$ is the weighted sum of inputs ($\mathbf{w} \cdot \mathbf{x} + b$), and $\sigma(z)$ is the activation output.
+
+---
+
+## 1. Rectified Linear Unit (ReLU)
+
+| Function | Formula $\sigma(z)$ | Derivative $\sigma'(z)$ |
+| :--- | :--- | :--- |
+| **ReLU** | $\sigma(z) = \max(0, z)$ | $\sigma'(z) = \begin{cases} 1 & \text{if } z > 0 \\ 0 & \text{if } z \le 0 \end{cases}$ |
+
+> *Note: The derivative is technically undefined at $z=0$, but we typically assign it to be 0 or 1 in practice for computational efficiency.*
+
+---
+
+## 2. Sigmoid Function (Logistic)
+
+The sigmoid function is often written in terms of its own output $\sigma(z)$, which simplifies the derivative calculation.
+
+| Function | Formula $\sigma(z)$ | Derivative $\sigma'(z)$ |
+| :--- | :--- | :--- |
+| **Sigmoid** | $\sigma(z) = \frac{1}{1 + e^{-z}}$ | $\sigma'(z) = \sigma(z) (1 - \sigma(z))$ |
+
+---
+
+## 3. Hyperbolic Tangent (Tanh)
+
+Similar to the sigmoid, the derivative of $\text{tanh}(z)$ can be expressed using its output.
+
+| Function | Formula $\sigma(z)$ | Derivative $\sigma'(z)$ |
+| :--- | :--- | :--- |
+| **Tanh** | $\sigma(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$ | $\sigma'(z) = 1 - \sigma(z)^2$ |
+
+---
+
+## 4. Leaky ReLU
+
+Leaky ReLU addresses the "dying ReLU" problem by allowing a small, non-zero gradient when $z \le 0$, where $\alpha$ is the small positive constant (e.g., $\alpha=0.01$).
+
+| Function | Formula $\sigma(z)$ | Derivative $\sigma'(z)$ |
+| :--- | :--- | :--- |
+| **Leaky ReLU** | $\sigma(z) = \begin{cases} z & \text{if } z > 0 \\ \alpha z & \text{if } z \le 0 \end{cases}$ | $\sigma'(z) = \begin{cases} 1 & \text{if } z > 0 \\ \alpha & \text{if } z \le 0 \end{cases}$ |
+
 ## Output Layer Activations
 
 - Choose **ReLU**, **Sigmoid**, or **Linear** based on the problem type.  
