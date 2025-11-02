@@ -1,6 +1,7 @@
 # 🧠 Neural Networks: Core Concepts and Backpropagation Derivations
 
 ---
+https://community.deeplearning.ai/t/feedforward-neural-networks-in-depth/98811
 
 | Concept             | In Linear Regression | In Neural Networks                  |
 | ------------------- | -------------------- | ----------------------------------- |
