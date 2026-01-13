@@ -239,6 +239,7 @@ Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
 1. Download **neural network parameters pretrained** on a large dataset with the same input type as your application.  
 2. **Fine-tune** the network on your own dataset.
 3. The last output layer of the neural network can be replaced with a new layer tailored for the new task, while retaining the learned features from the original task.
+4. Transfer learning may not be useful if the new task has more data than the original task, as the original task's data may not provide significant value.
 
 ---
 
