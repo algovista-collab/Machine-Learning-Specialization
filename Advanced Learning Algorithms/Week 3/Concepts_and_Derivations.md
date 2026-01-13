@@ -243,6 +243,15 @@ Dense(units=25, activation='relu', kernel_regularizer=L2(0.01))
 
 ---
 
+## Multi-task Learning
+1. Single neural network is trained to perform multiple tasks simultaneously which can enhance performance across all tasks.
+2. An example is an autonomous vehicle that needs to detect pedestrians, cars, stop signs, and traffic lights simultaneously.
+3. Each input image can have multiple labels (e.g., pedestrian, car, stop sign), resulting in a multi-dimensional output vector.
+4. The loss function is defined to average the losses across all tasks, allowing the network to learn from multiple labels.
+5. It is most effective when tasks have similar amounts of training data and when a large enough neural network can be trained.
+
+---
+
 ## Classification Error Metrics: Precision & Recall
 
 - **Precision:**
