@@ -399,3 +399,31 @@ $$\frac{\partial J(\mathbf{w}, b)}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (f_{
 
 **For the Weight Parameters ($w_j$) for $j=1, \dots, n$:** (Includes the derivative of the L2 penalty)
 $$\frac{\partial J(\mathbf{w}, b)}{\partial w_j} = \left( \frac{1}{m} \sum_{i=1}^{m} (f_{\mathbf{w}, b}(\mathbf{x}^{(i)}) - y^{(i)}) x_j^{(i)} \right) + \frac{\lambda}{m} w_j$$
+
+### Comparison: Ridge ($L_2$) vs. Lasso ($L_1$)
+
+| Feature | Ridge Regression ($L_2$) | Lasso Regression ($L_1$) |
+| :--- | :--- | :--- |
+| **Penalty Term** | Sum of **squared** weights ($\beta^2$) | Sum of **absolute** weights ($|\beta|$) |
+| **Feature Selection** | No; shrinks coefficients near zero. | **Yes**; can shrink coefficients to exactly zero. |
+| **Model Complexity** | High (retains all features). | Low (creates a sparse model). |
+| **Multicollinearity** | Handles it by distributing weights. | Picks one feature and drops the others. |
+| **Use Case** | When most features are useful. | When you have a "needle in a haystack" (few useful features). |
+
+---
+
+### The Cost Functions
+
+In both equations, $RSS$ is the **Residual Sum of Squares**. The parameter $\alpha$ (or $\lambda$) controls the regularization strength.
+
+#### Ridge Regression
+$$J(\theta) = RSS + \alpha \sum_{j=1}^{n} \theta_j^2$$
+
+
+
+#### Lasso Regression
+$$J(\theta) = RSS + \alpha \sum_{j=1}^{n} |\theta_j|$$
+
+
+
+> **Key Takeaway:** The "Diamond" shape of the Lasso constraint is why it hits the axes, setting coefficients to zero. The "Circular" shape of Ridge prevents coefficients from ever reaching exactly zero.
