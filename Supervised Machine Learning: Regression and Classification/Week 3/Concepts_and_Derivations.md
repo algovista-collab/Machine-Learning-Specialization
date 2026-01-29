@@ -475,3 +475,5 @@ enet.fit(X_train, y_train)
 
 print(f"Coefficients: {enet.coef_}")
 ```
+
+No Free Lunch Theorem: The theorem states that no single, universally superior optimization or machine learning algorithm exists; all algorithms perform equally well when averaged across every possible problem.
