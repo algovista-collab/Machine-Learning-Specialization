@@ -427,3 +427,51 @@ $$J(\theta) = RSS + \alpha \sum_{j=1}^{n} |\theta_j|$$
 
 
 > **Key Takeaway:** The "Diamond" shape of the Lasso constraint is why it hits the axes, setting coefficients to zero. The "Circular" shape of Ridge prevents coefficients from ever reaching exactly zero.
+
+# Elastic Net Regression
+
+Elastic Net is a regularized regression method that linearly combines the $L_1$ and $L_2$ penalties of the Lasso and Ridge methods.
+
+### The Cost Function
+The objective function to minimize is:
+
+$$J(\theta) = RSS + \lambda_1 \sum_{j=1}^{n} |\theta_j| + \lambda_2 \sum_{j=1}^{n} \theta_j^2$$
+
+In software like Scikit-Learn, this is often controlled by two parameters:
+1. **$\alpha$ (Alpha):** The overall penalty strength.
+2. **L1_ratio ($l1\_ratio$):** The mix between $L_1$ and $L_2$.
+   - If `l1_ratio = 1`, it is pure **Lasso**.
+   - If `l1_ratio = 0`, it is pure **Ridge**.
+   - If `0 < l1_ratio < 1`, it is **Elastic Net**.
+
+---
+
+### Why Use Elastic Net?
+
+| Problem | Lasso ($L_1$) | Ridge ($L_2$) | Elastic Net Solution |
+| :--- | :--- | :--- | :--- |
+| **Feature Selection** | Excellent (zeros out weights) | Poor (keeps all features) | **Excellent** (performs selection) |
+| **Correlated Variables** | Picks one at random | Keeps all of them | **Best** (groups them together) |
+| **$n < p$ (More features than data)** | Selects at most $n$ features | Keeps all $p$ features | **Best** (can select more than $n$) |
+
+---
+
+### Visual Comparison of Constraints
+
+Elastic Net's constraint region combines the "corners" of Lasso with the "curves" of Ridge.
+
+
+
+---
+
+### Implementation Example (Python)
+
+```python
+from sklearn.linear_model import ElasticNet
+
+# l1_ratio=0.5 means 50% Lasso and 50% Ridge
+enet = ElasticNet(alpha=0.1, l1_ratio=0.5)
+enet.fit(X_train, y_train)
+
+print(f"Coefficients: {enet.coef_}")
+```
