@@ -153,3 +153,6 @@ Factor variables, also termed categorical variables, take on a limited number of
 - In practice, this assumption often fails: the effect of one predictor can **depend on** the value of another predictor.
 - **Interactions** capture these dependent relationships and allow predictors to influence the response jointly.
 - **Interactions**  Occur when the effect of one predictor on the response depends on the value of another predictor.
+
+  <img width="897" height="437" alt="image" src="https://github.com/user-attachments/assets/ac545853-40ed-403f-a0fe-d5c8ea5325f6" />
+
