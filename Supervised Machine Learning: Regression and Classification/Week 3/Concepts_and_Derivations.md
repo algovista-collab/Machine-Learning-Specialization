@@ -522,3 +522,45 @@ For each class $Y = i$:
 
 
 The "Naive" part of the name comes from the assumption that all features $X_j$ are **independent** given the class $Y$. While rarely true in real-world data, this simplification allows the model to perform surprisingly well even with small datasets.
+
+## Key Terms for Discriminant Analysis
+
+- **Covariance**  
+  Measures how two variables vary together in magnitude and direction.
+
+- **Discriminant Function**  
+  A function applied to predictors that maximizes separation between classes.
+
+- **Discriminant Weights**  
+  Scores produced by the discriminant function, used to estimate class membership probabilities.
+
+## Linear Discriminant Analysis (LDA) — Overview
+
+* **Problem Setup** Predict a binary outcome $y$ using two continuous predictors $x$ and $z$.
+
+* **Assumptions** * Predictors are ideally **normally distributed**, but LDA works well even with mild deviations or binary predictors.  
+    * Fisher’s linear discriminant aims to **maximize separation between groups** relative to variation within groups.
+
+---
+
+## Key Concepts
+
+* **Between-Group Variation ($SS_{\text{between}}$)**: Squared distance between the means of the two groups ($y = 0$ and $y = 1$).  
+* **Within-Group Variation ($SS_{\text{within}}$)**: Spread of observations around their group means, weighted by the covariance matrix.
+
+---
+
+## Discriminant Function
+
+LDA finds the linear combination of predictors:  
+$$w_x x + w_z z$$  
+that **maximizes the ratio**:  
+$$\frac{SS_{\text{between}}}{SS_{\text{within}}}$$
+
+
+
+---
+
+## Intuition
+
+LDA identifies a projection of the data where the **distance between group means** is large relative to **the spread within each group**, improving class separation. Unlike PCA, which looks for axes of maximum variance, LDA specifically looks for the axes that best **discriminate** between the defined classes.
