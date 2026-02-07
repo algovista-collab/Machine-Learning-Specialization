@@ -564,3 +564,39 @@ $$\frac{SS_{\text{between}}}{SS_{\text{within}}}$$
 ## Intuition
 
 LDA identifies a projection of the data where the **distance between group means** is large relative to **the spread within each group**, improving class separation. Unlike PCA, which looks for axes of maximum variance, LDA specifically looks for the axes that best **discriminate** between the defined classes.
+
+## Fitting Regression Models
+
+### Linear Regression
+* **Method**: Least Squares  
+* **Evaluation Metrics**:  
+    * **RMSE** (Root Mean Squared Error)  
+    * **R-squared** ($R^2$)
+
+---
+
+### Logistic Regression
+* **Method**: Maximum Likelihood Estimation (MLE)  
+    * No closed-form solution; requires iterative optimization (e.g., quasi-Newton / Fisher scoring).  
+    * Estimates **log odds** of the response being 1.  
+    * Finds parameter values that **maximize the likelihood** of observing the data.
+
+
+
+---
+
+### Maximum Likelihood Estimation (Details)
+
+1. Given data $X_1, X_2, \dots, X_n$ and a probability model $P_\theta(X_1, \dots, X_n)$ depending on parameters $\theta$.  
+2. MLE finds $\theta$ that **maximizes** $P_\theta(X_1, \dots, X_n)$.  
+3. Model fit is often measured using **deviance**:  
+   $$\text{deviance} = -2 \log P_\theta(X_1, \dots, X_n)$$  
+   * **Lower deviance** $\rightarrow$ better fit.
+
+
+
+> **Note:** Most software handles MLE automatically; understanding it conceptually is usually sufficient.
+
+---
+
+**Key takeaway:** While Linear Regression minimizes the distance to data points (Least Squares), Logistic Regression maximizes the probability of the observed classes (MLE).
