@@ -1,4 +1,4 @@
-# ✍️ Machine Learning Notes
+# Machine Learning Notes
 
 ## 1. Introduction
 
@@ -156,3 +156,37 @@ Factor variables, also termed categorical variables, take on a limited number of
 
   <img width="897" height="437" alt="image" src="https://github.com/user-attachments/assets/ac545853-40ed-403f-a0fe-d5c8ea5325f6" />
 
+## Key Terms for Regression Diagnostics
+
+- **Standardized Residuals**  
+  Residuals scaled by their standard error, used to identify unusual observations.
+
+- **Outliers**  
+  Observations with outcome values far from the rest of the data or from model predictions.
+
+- **Influential Values**  
+  Records whose inclusion or removal substantially changes the regression results. This is useful to identify only in smaller datasets.
+
+- **Leverage**  
+  Measures how much influence a single observation has on the fitted model.  
+  *Also called:* **hat-value**
+
+- **Non-Normal Residuals**  
+  Residuals that are not normally distributed; often violate technical assumptions but usually are not critical in data science.
+
+- **Heteroskedasticity**  
+  Non-constant variance of residuals across outcome ranges, often signaling a missing predictor. A key assumption of linear regression is homoskedasticity — residuals have roughly the same variance everywhere. Heteroskedasticity violates this assumption. The distribution of the residuals is relevant mainly for the validity of formal statistical inference (hypothesis tests and p-values), which is of minimal importance to data scientists concerned mainly with predictive accuracy.
+
+- **Partial Residual Plots**  
+  Diagnostic plots that show the relationship between the outcome and one predictor while accounting for others.  
+  *Also called:* **added variable plots**
+
+- **Spline Regression**  
+  Fits a smooth curve using multiple connected polynomial segments.
+
+- **Knots**  
+  Points in the predictor space where spline segments join.
+
+- **Generalized Additive Models (GAMs)**  
+  Spline-based models that automatically select and smooth knots.  
+  *Also called:* **GAM**
