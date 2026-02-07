@@ -1,4 +1,4 @@
-# ✍️ Logistic Regression Notes
+# Logistic Regression Notes
 
 ## 1. Binary Classification
 
@@ -477,3 +477,48 @@ print(f"Coefficients: {enet.coef_}")
 ```
 
 No Free Lunch Theorem: The theorem states that no single, universally superior optimization or machine learning algorithm exists; all algorithms perform equally well when averaged across every possible problem.
+
+## Key Terms for Naive Bayes
+
+- **Conditional Probability**  
+  The probability of an event given another event has occurred.
+
+- **Posterior Probability**  
+  The probability of an outcome **after** incorporating predictor information, as opposed to the prior probability which ignores predictors. You start with a belief (prior probability). Then you see evidence (predictor data). You update your belief → that updated belief is the posterior probability.
+
+## Exact Bayesian Classification (Conceptual View)
+
+For each new record to be classified:
+
+1. Identify all existing records with the **same predictor values**.
+2. Determine the **class distribution** among those records.
+3. Assign the class that is **most frequent (most probable)**.
+
+This describes an idealized, exact Bayesian approach and motivates the use of Naive Bayes when exact matches are rare. 
+
+## Naive Bayes Classification — Procedure
+
+Naive Bayes uses the full dataset and assumes predictors are conditionally independent.
+
+For each class $Y = i$:
+
+1.  **Estimate Conditional Probabilities** For each predictor $X_j$, estimate  
+    $$P(X_j \mid Y = i)$$  
+    using the proportion of $X_j$ values among training records where $Y = i$.
+
+2.  **Compute Class Likelihood** Multiply all conditional probabilities together and multiply by the class prior:  
+    $$P(Y = i) \prod_j P(X_j \mid Y = i)$$
+
+3.  **Repeat for All Classes** Perform steps 1 and 2 for each possible class.
+
+4.  **Normalize (Posterior Probability)** Divide each class likelihood by the sum of likelihoods across all classes to obtain  
+    $$P(Y = i \mid X)$$
+
+5.  **Class Assignment** Assign the record to the class with the **highest posterior probability**.
+
+---
+
+### The Naive Assumption
+
+
+The "Naive" part of the name comes from the assumption that all features $X_j$ are **independent** given the class $Y$. While rarely true in real-world data, this simplification allows the model to perform surprisingly well even with small datasets.
